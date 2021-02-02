@@ -2,20 +2,12 @@ body{
     margin: 0px;
 }
 
-
-
 img{
     max-width: 50px;
     max-height: 50px;
 }
 
-.div_informacoes{
-    font-weight: bold;
-    font-size: 10px;
+.rede_sociais{
+    text-align: center;
 }
 
-.bordao{
-    font-weight: bold;
-    text-align: center;
-    font-size: 15px;
-}
