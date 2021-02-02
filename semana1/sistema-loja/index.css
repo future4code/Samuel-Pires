@@ -5,26 +5,12 @@ body{
 h1{
     background-color: #00aaff;
     text-align: center;
+    margin: 0px;
 }
 
 img{
     max-width: 50px;
     max-height: 50px;
-}
-
-.div_menu{
-    background-color: cornflowerblue;
-    text-align: center;
-    border: 1px solid red;
-    padding: 5px;
-}
-
-a{
-  text-decoration: none;  
-}
-
-.a_menu{
-    background-color: rgb(218, 255, 8);
 }
 
 .div_informacoes{
