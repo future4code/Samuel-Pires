@@ -5,51 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Adicionar Produto</title>
+    <link rel="stylesheet" type="text/css" href="menu.css">
+    <link rel="stylesheet" type="text/css" href="add-produto.css">
+    <link rel="stylesheet" type="text/css" href="rodape.css">
 </head>
 <body>
     <div>
-        <p>Informatica Cruz</p>
+        <h1>Informatica Cruz</h1>
+        <p class="bordao">Compre o que quiser, de onde estiver!</p>
     </div>
     
-    <div>
-        <a href="./index.html">Página Inicial</a>
-        <a href="./ctrl-estoque.html">Controle de Estoque</a>
-        <a href="./add-produto.html">Adicionar Produto</a>
-        <a href="./funcionarios.html">Funcionários</a>
+    <div class="div_menu">
+        <a href="./index.html" class="a_menu">Página Inicial</a>
+        <a href="./ctrl-estoque.html"class="a_menu" >Controle de Estoque</a>
+        <a href="./add-produto.html" class="a_menu">Adicionar Produto</a>
+        <a href="./funcionarios.html" class="a_menu">Funcionários</a>
     </div>
 
-    
-    <h2>Adicionar Produto</h2>
     <form action="">
-        <div>
-            <label for="link-foto">Link para foto: </label>
-            <input type="url" id="link-foto" name="link-foto">
-        </div>
-        
-        <div>
-            <label for="descricao">Descrição do produto: </label>
-            <!-- Adicione o id apropriado para o input abaixo -->
-            <input type="text" id="descricao" name="descrição">
-        </div>
-        
-        <div>
-            <label for="preco">Preço (em R$): </label>
-            <!-- Adicione o id apropriado e o type para receber números abaixo -->
-            <input type="number" id="preco" name="preço">
-        </div>
-        
-        <div>
-            <!-- Preencha as propriedades necessárias para os elementos abaixo -->
-            <label for="quantidade">Quantidade disponível: </label>
-            <input type="number" id="quantidade" name="quantidade">
-        </div>
-
-        <div class="form-add">
-            <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
-            <button type="submit">Adicionar</button>
-        </div>
-
+        <h2 class="h2_form">Adicionar Produto</h2>
+        <table>
+            <tr>
+                <td><label for="link-foto">Link para foto:</label></td>
+                <td><input type="url" id="link-foto" name="link-foto"></td>
+            </tr>
+            <tr>
+                <td><label for="descricao">Descrição do produto: </label></td>
+                <td><input type="text" id="descricao" name="descrição"></td>
+            </tr>
+            <tr>
+                <td><label for="preco">Preço (em R$): </label></td>
+                <td><input type="number" id="preco" name="preço"></td>
+            </tr>
+            <tr>
+                <td><label for="quantidade">Quantidade disponível: </label></td>
+                <td><input type="number" id="quantidade" name="quantidade"></td>
+            </tr>
+        </table>
+        <button type="submit">Adicionar</button>
     </form>
-
+    <div class="div_informacoes">
+        <a href="" class="a_informacoes">Sobre nós</a>
+        <a href="mailto:mateus.enc@gmail.com?" target="_blank" class="a_informacoes">Contato</a>
+        <a href="http://servicos.receita.fazenda.gov.br/Servicos/cnpjreva/Cnpjreva_Solicitacao.asp?cnpj=" target="_blank" class="a_informacoes">Consulta CNPJ</a>
+    </div>
 </body>
 </html>

@@ -1,0 +1,33 @@
+.div_menu{
+    background-color:rgb(46, 160, 189);
+    text-align: center;
+    border: 2px solid rgb(204, 187, 187);
+    padding: 15px;
+    border-radius: 10px;
+    margin: 10px;
+
+}
+
+.a_menu{
+    background-color: rgb(27, 126, 151);
+    border-radius: 4px;
+    padding: 10px;
+    color: white;
+    margin-right: 30px;
+}
+
+a{
+    text-decoration: none;  
+}
+
+h1{
+    background-color: #00aaff;
+    text-align: center;
+    margin: 0px 0px 10px 0px;
+}
+
+.bordao{
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+}
