@@ -1,15 +1,16 @@
 .div_informacoes{
+    width: 100%;
     font-weight: bold;
     font-size: 10px;
-    background-color:rgba(122, 255, 237, 0.76);
-    height: 60px;
+    background-color:rgb(27, 126, 151);
     text-align: center;
-    position:relative;
-    margin-top: 500px;
-    border-radius: 10px;
+    position: fixed;;
+    bottom: 0px;
+    
 }
 
 .a_informacoes{
     display: block;
     margin: 10px;
+    color: black;
 }
