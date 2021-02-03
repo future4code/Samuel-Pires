@@ -1,0 +1,50 @@
+body{
+    margin: 0px;
+}
+
+.div_form{
+    text-align: center;
+}
+
+.form{
+    display: inline-block;
+
+}
+
+#qtd_produto{
+    width: 35px;
+}
+
+#produto{
+    width: 400px;
+}
+
+.div_produtos{
+    background-color: plum;
+    text-align: center;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+table.table_produtos th{
+    width: 200px;
+    background-color: rgb(49, 119, 185);
+}
+
+table.table_produtos tr:nth-of-type(2n){
+    background-color: rgb(145, 240, 240);
+}
+
+table.table_produtos tr:nth-of-type(2n+1){
+    background-color: rgb(255, 255, 255);
+}
+
+
+.div_button_comprar{
+    position: absolute;
+    right: 0px;
+}

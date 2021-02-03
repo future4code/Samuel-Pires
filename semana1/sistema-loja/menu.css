@@ -31,3 +31,13 @@ h1{
     text-align: center;
     font-size: 15px;
 }
+
+#carrinho{
+    position: relative;
+    left: 300px;
+}
+
+.img_carrinho{
+    width: 15px;
+    height: 15px;
+}
