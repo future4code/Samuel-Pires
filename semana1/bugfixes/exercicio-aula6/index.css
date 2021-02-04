@@ -60,6 +60,8 @@ div>p:first-child {
 }
 
 
+
+
 /** 
   *
   *  ESTILOS HOME 
@@ -155,4 +157,8 @@ td img{
 
 td button:hover{
     background-color:  #cca910;
+}
+
+button{
+    text-shadow: none;
 }
