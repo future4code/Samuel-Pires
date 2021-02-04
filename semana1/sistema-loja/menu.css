@@ -3,9 +3,9 @@
     text-align: center;
     border: 2px solid rgb(204, 187, 187);
     padding: 15px;
-    border-radius: 10px;
-    margin: 10px;
-
+    border-bottom-right-radius: 400px;
+    border-bottom-left-radius: 400px;
+    margin-top: -30px;
 }
 
 .a_menu{
@@ -17,17 +17,52 @@
 }
 
 a{
-    text-decoration: none;  
-}
-
-h1{
-    background-color: #00aaff;
-    text-align: center;
-    margin: 0px 0px 10px 0px;
+    text-decoration: none;
 }
 
 .bordao{
     font-weight: bold;
     text-align: center;
     font-size: 15px;
+}
+
+#carrinho{
+   
+}
+
+.img_carrinho{
+    width: 30px;
+    position: relative;
+    top: 10px;
+    
+}
+
+#img_home{
+    width: 50px;
+    position: relative;
+    top: 6px;
+}
+
+#img_estoque{
+    width: 30px;
+    position: relative;
+    top: 10px;
+}
+
+#img_adicionar{
+    width: 30px;
+    position: relative;
+    top: 10px;
+}
+
+#img_func{
+    width: 30px;
+    position: relative;
+    top: 10px;
+}
+
+#img_hist{
+    width: 35px;
+    position: relative;
+    top: 12px;
 }

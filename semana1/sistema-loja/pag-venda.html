@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <link rel="stylesheet" type="text/css" href="./pag-venda.css">
+    <link rel="stylesheet" type="text/css" href="./menu.css">
+</head>
+    
+    <div class="div_menu">
+        <h1>Informática Cruz</h1>
+        <p class="bordao">Compre o que quiser, de onde estiver!</p>
+        <a href="./index.html" class="a_menu"><img src="./img/home.png" alt="Inicial" id="img_home"></a>
+        <a href="./ctrl-estoque.html"class="a_menu"><img src="./img/estoque.png" alt="Estoque" id="img_estoque"></a>
+        <a href="./add-produto.html"class="a_menu"><img src="./img/adicionar.png" alt="Adicionar" id="img_adicionar"></a>
+        <a href="./funcionarios.html" class="a_menu"><img src="./img/func.png" alt="Funcionarios" id="img_func"></a>
+    </div>
+
+    <div class="div_form">
+        <form class="form">
+            <table class="table_form">
+                <tr>
+                    <th>Digite o nome do produto:</th>
+                    <td><input type="search" id="produto" name="produto"></td>
+                    <td><input type="number" id="qtd_produto" name="quantidade_produto"></td>
+                    <td><button type="submit">Adicionar</button></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div class="div_produtos">
+        <table class="table_produtos">
+            <tr>
+                <th>Produto</th>
+                <th>Quantidade</th>
+            </tr>
+            <tr>
+                <td>Notebook</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Computador</td>
+                <td>2</td>
+            </tr>
+            <tr>
+                <td>Headphone</td>
+                <td>1</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="div_button_comprar">
+        <button type="button">Comprar</button>
+    </div>
+</body>
+</html>

@@ -7,7 +7,7 @@ label{
     display: block;
 }
 
-button{
-    background-color: chartreuse;
-    
+form, table{
+    margin: auto;
+    text-align: center;
 }

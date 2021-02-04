@@ -6,8 +6,13 @@ table,
 tr,
 th,
 td{
-    border: 2px solid blue;
+    border: 2px solid #dce0e0aa;
     text-align: center;
     background-color: #dce0e0a8;
+    margin: auto;
+    margin-bottom: 70px;
 }
 
+h2{
+    text-align: center;
+}
