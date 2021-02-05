@@ -8,11 +8,58 @@ section{
     background-color: burlywood;
 }
 
+/* QUEM SOU - INSTITUICAO DE ENSINO - HABILIDADES*/
+
 #quem-sou{
     width: 100%;
     height: 50%;
     background-color: cadetblue;
 }
+
+.imagem{
+    width: 30%;
+    height: 100%;
+    background-color: #CCC;
+    float: left;
+    text-align: center;
+}
+
+.imagem img{
+    width: 200px;
+    margin-top: 100px;
+    border-radius: 100px;
+    border: 1px solid black;
+}
+
+.caracteristicas{
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.div-quem-sou{
+    width: 70%;
+    height: 100%;
+    background-color: #EEE;
+    float: left;
+}
+
+.p-descricao{
+    margin: 100px 20px 30px 20px;
+    text-align: justify;
+}
+
+.div-img-habilidades{
+    width: 100%;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: 25px;
+}
+
+.div-img-habilidades img{
+    width: 50px;
+}
+
+/* CONTATO */
 
 #contato{
     width: 100%;
