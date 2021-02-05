@@ -1,0 +1,104 @@
+body{
+    margin: 0px;
+}
+
+section{
+    width: 100%;
+    height: 800px;
+    background-color: burlywood;
+}
+
+#quem-sou{
+    width: 100%;
+    height: 50%;
+    background-color: cadetblue;
+}
+
+#contato{
+    width: 100%;
+    height: 50%;
+    background-color: cornflowerblue;
+}
+
+.divcontato{
+    width: 100%;
+    height: 30px;
+    background-color: darkorange;
+}
+
+.divform{
+    width: 50%;
+    height: 370px;
+    background-color: cyan;
+    float: left;
+}
+
+.divsociais{
+    width: 50%;
+    height: 370px;
+    background-color: darkgray;
+    float: left;
+}
+
+textarea{
+    width: 50%;
+    height: 200px;
+}
+
+form{
+   
+}
+
+.div-nome-email{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.nome{
+    width: 30%;
+}
+
+.email{
+    width: 44%;
+}
+
+textarea{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 80%;
+}
+
+.enviar{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 81%;
+    height: 40px;
+    border: 1px solid blueviolet;
+}
+
+.a-email{
+    text-decoration: none;
+}
+
+.a-email:hover{
+    opacity: 50%;
+}
+
+.div-sociais-contato{
+    padding-left: 50px;
+    padding-top: 5px;
+}
+
+.img-contato{
+    padding-left: 50px;
+}
+
+.img-contato img{
+    width: 30px;
+}
+
+.img-contato img:hover{
+    opacity: 50%;
+}

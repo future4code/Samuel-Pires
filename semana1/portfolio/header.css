@@ -1,0 +1,19 @@
+header{
+    width: 100%;
+    height: 80px;
+    background-color: #CCC;
+}
+
+.logo{
+    width: 50%;
+    height: 80px;
+    background-color:#BEE;
+    float: left;
+}
+
+.menu{
+    width: 50%;
+    height: 80px;
+    background-color: #BBB;
+    float: left;
+}
