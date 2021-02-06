@@ -3,6 +3,7 @@ header{
     height: 80px;
     background-color: #000833;
     position: fixed;
+    display: block;
 }
 
 .logo{

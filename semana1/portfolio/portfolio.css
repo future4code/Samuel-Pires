@@ -1,0 +1,13 @@
+*{
+    font-family: 'Roboto Slab';
+    font-size: 16px;
+}
+
+body{
+    margin: 0px;
+}
+
+.divclass{
+    position: relative;
+    background-color: blueviolet;
+}

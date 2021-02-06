@@ -1,7 +1,6 @@
 *{
     font-family: 'Roboto Slab';
     font-size: 16px;
-
 }
 
 body{
@@ -126,10 +125,6 @@ section{
 textarea{
     width: 50%;
     height: 200px;
-}
-
-form{
-   
 }
 
 .div-nome-email{
