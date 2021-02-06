@@ -1,19 +1,35 @@
 header{
     width: 100%;
     height: 80px;
-    background-color: #CCC;
+    background-color: #000833;
+    position: fixed;
 }
 
 .logo{
     width: 50%;
     height: 80px;
-    background-color:#BEE;
     float: left;
 }
 
 .menu{
     width: 50%;
-    height: 80px;
-    background-color: #BBB;
+    height: 55px;
     float: left;
+    padding-top: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.click-home, .click-portfolio, .click-contato{
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    height: 30px;
+    padding-top: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.click-home:hover, .click-contato:hover, .click-portfolio:hover{
+    opacity: 70%;
 }
