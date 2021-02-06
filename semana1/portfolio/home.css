@@ -18,7 +18,7 @@ section{
 #quem-sou{
     width: 100%;
     height: 50%;
-    background-color: #020e53;
+    background-color: #000833;
     color: white;
 }
 
@@ -34,6 +34,7 @@ section{
     margin-top: 100px;
     border-radius: 100px;
     border: 1px solid black;
+    transition: all 0.5s linear;
 }
 
 .imagem img:hover{
@@ -41,9 +42,9 @@ section{
     border-radius: 200px;
     margin-top: 0px; */
     border: 0.5px solid black;
-    -moz-transform: scale(2.0);
-    -webkit-transform: scale(2.0);
-    transform: scale(2.0);
+    -moz-transform: scale(1.97);
+    -webkit-transform: scale(1.97);
+    transform: scale(1.97);
     
 }
 
@@ -104,7 +105,7 @@ section{
     margin: 0px;
     font-weight: bold;
     padding: 5px;
-    background-color:
+    color: #000833;
 }
 
 .divform{

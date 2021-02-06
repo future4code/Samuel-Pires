@@ -12,6 +12,13 @@ header{
     float: left;
 }
 
+.logo img{
+    width: 90px;
+    margin-left: 185%;
+    /* margin-left: 5%; */
+    margin-top: 18px;
+}
+
 .menu{
     width: 50%;
     height: 55px;
@@ -33,4 +40,8 @@ header{
 
 .click-home:hover, .click-contato:hover, .click-portfolio:hover{
     opacity: 70%;
+}
+
+.click-contato{
+    border: 1px solid white;
 }
