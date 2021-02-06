@@ -1,6 +1,7 @@
 *{
     font-family: 'Roboto Slab';
     font-size: 16px;
+    margin: 0;
 }
 
 body{
@@ -10,4 +11,27 @@ body{
 .divclass{
     position: relative;
     background-color: blueviolet;
+}
+
+auxiliar{
+    width: 100%;
+    height: 80px;
+    background-color: black;
+    display: block;
+}
+
+/* ARTICLE  */
+
+article{
+    width: 100%;
+    height: 300px;
+    background-color: cadetblue;
+}
+
+.projeto{
+    width: 40%;
+    height: 300px;
+    margin-left: 10%;
+    background-color: chocolate;
+    border-radius: 150px;
 }
