@@ -9,31 +9,94 @@ body {
 
 .green-background {
     background-color: green;
-    order: -1;
+    grid-column: 1/2;
+    display: grid;
+    align-items: center;
 }
 
 .yellow-background {
     background-color: yellow;
+    grid-column: 2/5;
+    display: grid;
+    align-items: center;
 }
 
 .pink-background {
     background-color: fuchsia;
+    grid-column: 1/5;
+    display: grid;
+    align-items: center;
 }
 
 .blue-background {
     background-color: blue;
+    grid-column: 1/3;
+    display: grid;
+    align-items: center;
 }
 
 .red-background {
     background-color: red;
+    display: grid;
+    align-items: center;
 }
 
 .lightgreen-background {
     background-color: lightgreen;
+    display: grid;
+    align-items: center;
 }
 
 .purple-background {
     background-color: purple;
+    display: grid;
+    align-items: center;
 }
 
+#main-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 50px 2fr 1fr 50px;
+    height: 100vh;
+    /* justify-items: center; */
+    /* align-items: center; */
+    text-align: center;
+}
 
+#top-container{
+    display: grid;
+    grid-column: 1/5;
+}
+
+#middle-container{
+    display: grid;
+    grid-column: 1/5;
+}
+
+#content2{
+    display: grid;
+    grid-column: 1/3;
+}
+
+#blank{
+    display: grid;
+    grid-column: 3/4;
+}
+
+#vertical-middle-container{
+    display: grid;
+    grid-column: 4/5;
+}
+
+#image{
+    display: grid;
+}
+
+#extra{
+    display: grid;
+}
+
+#footer{
+    display: grid;
+    grid-column: 1/5;
+}
