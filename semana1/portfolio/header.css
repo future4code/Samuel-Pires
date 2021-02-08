@@ -36,6 +36,7 @@ header{
     padding-top: 10px;
     color: white;
     font-weight: bold;
+    box-sizing: content-box;
 }
 
 .click-home:hover, .click-contato:hover, .click-portfolio:hover{
