@@ -1,0 +1,47 @@
+/* -------- HEADER ------*/
+
+header{
+  background-color:#a19a94e0;
+  display: flex;
+  height: 70px;
+}
+
+.icone-labetube{
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+.icone-labetube img{
+  width: 200px;
+}
+
+.busca-labetube{
+  display: flex;
+  flex-grow: 4;
+  justify-content: center;
+  align-items: center;
+}
+
+.icone-search{
+  width: 15px;
+}
+
+.icone-search:hover{
+  opacity: 50%;
+}
+
+.busca-labetube form{
+  width: 100%;
+  padding-left: 20px;
+}
+
+.input-search{
+  width: 50%;
+}
+
+.input-search:hover{
+  box-shadow: 0 0 20px #f67d00;
+}
