@@ -1,0 +1,202 @@
+*{
+    font-family: 'Roboto Slab';
+    font-size: 16px;
+}
+
+body{
+    margin: 0px;
+    background-color: rgb(197, 197, 197);
+}
+
+section{
+    width: 100%;
+    height: 800px;
+}
+
+/* QUEM SOU - INSTITUICAO DE ENSINO - HABILIDADES*/
+
+#quem-sou{
+    width: 100%;
+    height: 50%;
+    background-color: #000833;
+    color: white;
+}
+
+.imagem{
+    width: 31%;
+    height: 100%;
+    float: left;
+    text-align: center;
+}
+
+.imagem img{
+    width: 200px;
+    margin-top: 100px;
+    border-radius: 100px;
+    border: 1px solid black;
+    transition: all 0.5s linear;
+}
+
+.imagem img:hover{
+    /* width: 400px;
+    border-radius: 200px;
+    margin-top: 0px; */
+    border: 0.5px solid black;
+    -moz-transform: scale(1.97);
+    -webkit-transform: scale(1.97);
+    transform: scale(1.97);
+    
+}
+
+.meu-nome{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.caracteristicas{
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.div-quem-sou{
+    width: 65%;
+    height: 100%;
+    float: left;
+}
+
+.p-descricao{
+    margin: 100px 20px 30px 20px;
+    text-align: justify;
+}
+
+.div-img-habilidades{
+    width: 100%;
+    height: 50px;
+    margin-top: 30px;
+    margin-left: 25px;
+}
+
+.div-img-habilidades img{
+    width: 30px;
+}
+
+.div-img-habilidades ul{
+    margin-left: -25px;
+}
+
+/* CONTATO */
+
+#contato{
+    width: 100%;
+    height: 50%;
+    background-color: #dadada;
+}
+
+.divcontato{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    margin: 0px;
+    box-sizing: border-box;
+    border-bottom: 1px solid white;
+}
+
+.divcontato p{
+    margin: 0px;
+    font-weight: bold;
+    padding: 5px;
+    color: #000833;
+}
+
+.divform{
+    max-width: 50%;
+    width: 50%;
+    height: 370px;
+    float: left;
+    box-sizing: border-box;
+    border-right: 1px solid white;
+}
+
+.divsociais{
+    width: 50%;
+    height: 370px;
+    float: left;
+}
+
+textarea{
+    width: 50%;
+    height: 200px;
+}
+
+.div-nome-email{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.nome{
+    width: 30%;
+    height: 20px;
+}
+
+.nome:hover, .email:hover, textarea:hover{
+    box-shadow: 0 0 10px #000833;
+}
+
+.email{
+    width: 44%;
+}
+
+textarea{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 80%;
+}
+
+.enviar{
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 81%;
+    height: 40px;
+    background-color: #000833;
+    border: none;
+    color: white;
+}
+
+.enviar:hover{
+    opacity: 50%;
+}
+
+.a-email{
+    text-decoration: none;
+}
+
+.a-email:hover{
+    opacity: 50%;
+}
+
+.div-sociais-contato, .img-contato{
+    padding-left: 80px;
+    padding-top: 20px;
+    color: #000833;
+}
+
+.div-sociais-contato p:first-child{
+    font-size: 25px;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+.div-sociais-contato p:nth-child(2){
+    font-size: 15px;
+    margin-top: 0;
+}
+
+.img-contato img{
+    width: 30px;
+}
+
+.img-contato img:hover{
+    opacity: 50%;
+}

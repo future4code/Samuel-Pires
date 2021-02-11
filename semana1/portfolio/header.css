@@ -1,0 +1,48 @@
+header{
+    width: 100%;
+    height: 80px;
+    background-color: #000833;
+    position: fixed;
+    display: block;
+}
+
+.logo{
+    width: 50%;
+    height: 80px;
+    float: left;
+}
+
+.logo img{
+    width: 90px;
+    margin-left: 185%;
+    /* margin-left: 5%; */
+    margin-top: 18px;
+}
+
+.menu{
+    width: 50%;
+    height: 55px;
+    float: left;
+    padding-top: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.click-home, .click-portfolio, .click-contato{
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    height: 30px;
+    padding-top: 10px;
+    color: white;
+    font-weight: bold;
+    box-sizing: content-box;
+}
+
+.click-home:hover, .click-contato:hover, .click-portfolio:hover{
+    opacity: 70%;
+}
+
+.click-contato{
+    border: 1px solid white;
+}
