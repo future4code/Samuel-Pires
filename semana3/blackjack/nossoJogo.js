@@ -10,3 +10,23 @@
  * 
  * 
  */
+
+ if(confirm('Quer iniciar uma nova rodada?')){
+   const cartaUsuario = [comprarCarta(), comprarCarta()]
+   const cartaPC = [comprarCarta(), comprarCarta()]
+
+   pontuacaoUsuario = cartaUsuario[0].valor + cartaUsuario[1].valor;
+   pontuacaoPC = cartaPC[0].valor + cartaPC[1].valor;
+
+   console.log('Usuário: - cartas:', cartaUsuario[0].texto, cartaUsuario[1].texto,
+   '- pontuação', pontuacaoUsuario)
+   console.log('Computador: - cartas:', cartaPC[0].texto, cartaPC[1].texto,
+   '- pontuação', pontuacaoPC)
+
+   if(pontuacaoUsuario>pontuacaoPC)console.log('O usuário ganhou!')
+   else if(pontuacaoUsuario<pontuacaoPC)console.log('O computador ganhou!')
+   else console.log('Empate!')
+ }
+ else{
+    console.log('O jogo acabou')
+ }
