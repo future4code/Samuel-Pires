@@ -86,3 +86,71 @@ function quantidadeParesOtimizada(array){
    return k
 }
 console.log("Quantidade de pares otimizada:", quantidadeParesOtimizada(array))
+
+
+//DESAFIO --------------------------------------------------------------------
+console.log('DESAFIO --------------------------')
+
+//EXERCÍCIO 1 --------------------------------
+//1
+console.log('EXERCÍCIO 1 --------------------------')
+const imprimi = (parametro) => {
+   console.log(parametro)
+}
+console.log("1.1")
+imprimi('Olá mundo!')
+
+//2
+const somaSemRetorno = (a,b) =>{
+   imprimi(a+b)
+}
+console.log("1.2")
+somaSemRetorno(10,2)
+
+//EXERCÍCIO 2 --------------------------------
+console.log('EXERCÍCIO 2 ---------------------------')
+const numeros = [0, 8, 23, 16, 10, 15, 41, 12, 13]
+
+//2a
+console.log('2a.')
+function paresX2(array){
+   let pares = []
+   for(let i=0; i<array.length; i++)
+      parOuNao(array[i]) ? pares.push(array[i]*2) : false
+   
+   return pares
+}
+console.log("Pares:", paresX2(numeros))
+
+//2b
+console.log('2b.')
+function maiorNumeroArray(array){
+   let maior = array[0]
+   for(let i=1; i<array.length; i++)
+      maior<array[i] ? maior=array[i] : false
+   
+   return maior
+}
+console.log("Maior:", maiorNumeroArray(numeros))
+
+//2c
+console.log('2c.')
+function maiorNumeroArrayIndice(array){
+   let indice = 0;
+   for(let i=1; i<array.length; i++)
+      array[indice] < array[i] ? indice=i : false
+   
+   return indice
+}
+console.log("Indice:", maiorNumeroArrayIndice(numeros))
+
+//2d
+console.log('2d.')
+function arrayInverter(array){
+   let arrayInvertido = []
+   for(let i=array.length-1; i>=0; i--)
+      arrayInvertido.push(array[i])
+
+   return arrayInvertido
+}
+console.log("Array invertido:", arrayInverter(numeros))
