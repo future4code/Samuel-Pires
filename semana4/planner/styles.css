@@ -11,8 +11,13 @@ header {
     align-items: center;
 }
 
+.container-section{
+    display: flex;
+}
+
 section {
     display: flex;
+    flex-grow: 12;
     justify-content: space-evenly;
     height: 90vh;
 }
@@ -21,4 +26,38 @@ section {
     border: 1px dotted rgb(53, 53, 53);
     width: 14%;
     padding: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.semana >div{
+    margin-top: 10px;
+    flex-grow: 1;
+    display: grid;
+    grid-template-rows: repeat(17,1fr);
+    grid-template-columns: repeat(1, 1fr);
+}
+
+aside{
+    flex-grow: 1;
+    margin-top: 40px;
+    display: grid;
+    grid-template-rows: repeat(17,1fr)
+}
+
+aside p:nth-child(2n){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: rgb(212, 236, 227);
+}
+
+aside p:nth-child(2n+1){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: rgb(202, 223, 223);
 }

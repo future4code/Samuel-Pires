@@ -20,13 +20,6 @@ function cliqueiNaTarefa(pId){
 }
 
 function limpaTarefas(){
-  // const elementos = document.getElementsByClassName("semana")
-
-  // for(let i=0; i<elementos.length; i++){
-  //   const elemento = elementos.document.getElement
-  //   console.log(elemento)
-  // }
-
   const elementos = document.querySelectorAll(".semana > div")
   
   for(let i=0; i<elementos.length; i++){
