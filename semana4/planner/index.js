@@ -8,7 +8,7 @@ function botaoCriarTarefa(){
 
     const horario = document.getElementById("horario").value
     const diaSemana = document.getElementById("dias-semana").value
-    document.getElementById(diaSemana).innerHTML+=`<p onclick=cliqueiNaTarefa("p-id${qtdTarefa}") id=p-id${qtdTarefa} class=hora${horario}>-${tarefa}</p>`
+    document.getElementById(diaSemana).innerHTML+=`<p onclick=cliqueiNaTarefa("p-id${qtdTarefa}") id=p-id${qtdTarefa} class=hora${horario}>${tarefa}</p>`
     qtdTarefa++
   }
   else{
