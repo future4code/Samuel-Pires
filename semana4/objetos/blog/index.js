@@ -36,7 +36,7 @@ function criarPost(){
 
     inserirPost()
 
-    window.open("posts.html", "_blank")
+    window.open("posts.html", "_refresh")
   }
 
 }
