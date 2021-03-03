@@ -1,10 +1,3 @@
-const postBlog = {
-  titulo : "",
-  autor : "",
-  conteudo : "",
-  imagem : ""
-}
-
 const arrayPostBlog = []
 
 function criarPost(){
@@ -17,6 +10,13 @@ function criarPost(){
     alert("Os campos título, autor e conteúdo precisam estar preenchidos")
   }
   else{
+    const postBlog = {
+      titulo : "",
+      autor : "",
+      conteudo : "",
+      imagem : ""
+    }
+
     postBlog.titulo = titulo.value
     postBlog.autor = autor.value
     postBlog.conteudo = conteudo.value
@@ -33,20 +33,23 @@ function criarPost(){
     autor.value = ""
     conteudo.value = ""
     imagem.value = ""
+
+    inserirPost()
+
+    window.open("posts.html", "_blank")
   }
-  
-  inserirPost()
+
 }
 
 function inserirPost(){
-  const ultimoPost = arrayPostBlog[arrayPostBlog.length-1]
-  const containerPost = document.getElementById("container-de-posts")
   
-  containerPost.innerHTML+=`<div>
-    Título: ${ultimoPost.titulo}<br>
-    Autor: ${ultimoPost.autor}<br>
-    Conteúdo: ${ultimoPost.conteudo}<br>
-    <img src="${ultimoPost.imagem}">
-  </div>`
+  localStorage.setItem("tamanho", arrayPostBlog.length)
+  for(let i=0; i<arrayPostBlog.length; i++){
+    localStorage.setItem(`titulo${i}`, arrayPostBlog[i].titulo)
+    localStorage.setItem(`autor${i}`, arrayPostBlog[i].autor)
+    localStorage.setItem(`conteudo${i}`, arrayPostBlog[i].conteudo)
+    localStorage.setItem(`imagem${i}`, arrayPostBlog[i].imagem)
+  }
+
 }
 

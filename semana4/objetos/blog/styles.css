@@ -22,7 +22,7 @@ form {
 
 label {
     width: 10%;
-    text-align: right;
+    text-align: center;
     padding-right: 10px;
     margin-bottom: 10px;
 }
@@ -43,4 +43,19 @@ button {
 #container-de-posts {
     margin: 10px;
     border-top: 3px double rgb(77, 77, 77);
+}
+
+img{
+    width: 300px;
+}
+
+div{
+    text-align: center;
+}
+
+@media only screen and (max-width:420px){
+    label{
+        width: 100%;
+        padding: 0;
+    }
 }
