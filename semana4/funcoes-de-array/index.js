@@ -100,8 +100,7 @@ function filtrarDespesas(){
     let valorMax = document.getElementById('valorFiltroMax')
 
 
-    if(!(validarTipo(tipoFiltro) && parseInt(valorMin.value)>=0 && validarValor(valorMax) && valorMax.value>valorMin.value)){
-        console.log(validarTipo(tipoFiltro), validarValor(valorMin), validarValor(valorMax), valorMax>valorMin)
+    if(!(validarTipo(tipoFiltro) && parseInt(valorMin.value)>=0 && validarValor(valorMax) && parseInt(valorMax.value)>parseInt(valorMin.value))){
         alert("Preencha todos os dados corretamente")
         return
     }
