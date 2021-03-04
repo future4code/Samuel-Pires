@@ -119,13 +119,15 @@ function filtrarDespesas(){
             return false
         })
     }
-    console.log(despesasFiltradas)
     imprimirDespesas(despesasFiltradas)
 }
 
-
-
-
+function ordenarDespesas(){
+    arrDespesas.sort((a,b)=>{
+        return b.valor - a.valor
+    })
+    imprimirDespesas(arrDespesas)
+}
 
 
 
