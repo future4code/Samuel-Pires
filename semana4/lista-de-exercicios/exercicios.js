@@ -94,13 +94,40 @@ function checaTriangulo(a, b, c) {
 // Exercício 9
 
 function comparaDoisNumeros(num1, num2) {
-   // implemente sua lógica aqui
+   let objeto = {
+      maiorNumero : "",
+      maiorDivisivelporMenor : "",
+      diferenca : ""
+   }
+   if(num1>=num2){
+      objeto.maiorNumero = num1
+      objeto.diferenca = num1 - num2
+      if(num1%num2===0)objeto.maiorDivisivelporMenor = true
+      else objeto.maiorDivisivelporMenor = false
+   }
+   else {
+      objeto.maiorNumero = num2
+      objeto.diferenca = num2 - num1
+      if(num2%num1===0)objeto.maiorDivisivelporMenor = true
+      else objeto.maiorDivisivelporMenor = false
+   }
+
+   return objeto
 }
 
 // Exercício 10
 
 function segundoMaiorEMenor(array) {
-   // implemente sua lógica aqui
+   for(let i=0; i<array.length; i++){
+      for(let j=i+1; j<array.length; j++){
+         if(array[j]<array[i]){
+            const aux = array[i]
+            array[i] = array[j]
+            array[j] = aux
+         }
+      }
+   }
+   return [array[array.length-2], array[1]]
 }
 
 //Exercício 11
