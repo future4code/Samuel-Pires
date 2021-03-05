@@ -203,39 +203,50 @@ const arrayDePessoas = [
 // Exercício 16, letra A
 
 function maioresDe18(arrayDePessoas) {
-   const aux = arrayDePessoas.filter((pessoa)=>{
+   return aux = arrayDePessoas.filter((pessoa)=>{
       if(pessoa.idade>=20)return true
       return false
    })
-   return aux
 }
 
 // Exercício 16, letra B
 
 function menoresDe18(arrayDePessoas) {
-   const aux = arrayDePessoas.filter((pessoa)=>{
+   return  arrayDePessoas.filter((pessoa)=>{
       if(pessoa.idade<20)return true
       return false
    })
-   return aux
 }
 
 // Exercício 17, letra A
 
 function multiplicaArrayPor2(array) {
-   // implemente sua lógica aqui
+   const aux = []
+   array.forEach((elemento) => {
+      aux.push(elemento*2)
+   })
+   return aux
 }
 
 // Exercício 17, letra B
 
 function multiplicaArrayPor2S(array) {
-  // implemente sua lógica aqui
+  const aux = []
+  array.forEach((elemento)=>{
+     aux.push((elemento*2).toString())
+  })
+  return aux
 }
 
 // Exercício 17, letra C
 
 function verificaParidade(array) {
-   // implemente sua lógica aqui
+   const aux = []
+   array.forEach((elemento)=>{
+      if(elemento%2===0)aux.push(elemento.toString()+" é par")
+      else aux.push(elemento.toString()+" é ímpar")
+   })
+   return aux
 }
 
 // Exercício 18
