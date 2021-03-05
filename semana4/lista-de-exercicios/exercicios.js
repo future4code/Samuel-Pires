@@ -50,7 +50,14 @@ function retornaQuantidadeElementos (array) {
 //Exercício 6
 
 function retornaExpressoesBooleanas() {
-   // implemente sua lógica aqui
+   const b1 = true, b2 = false, b3 = !b2, b4 = !b3
+
+   return [b1 && b2 && !b4,
+           (b1 && b2) || !b3,
+           (b2 || b3) && (b4 || b1),
+           !(b2 && b3) || !(b1 && b3),
+           !(b1) && !(b3) || (!b4 && b3 && b3)
+   ]
 }
 
 //Exercício 7
