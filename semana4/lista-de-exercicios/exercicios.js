@@ -282,14 +282,33 @@ function retornaPessoasNaoAutorizadas() {
 //Exercício 19
 
 const consultas = [
-  { nome: "João", genero: "masculino", cancelada: true, dataDaConsulta: "01/10/2019" },
-  { nome: "Pedro", genero: "masculino", cancelada: false, dataDaConsulta: "02/10/2019" },
-  { nome: "Paula", genero: "feminino", cancelada: true, dataDaConsulta: "03/11/2019" },
-  { nome: "Márcia", genero: "feminino", cancelada: false, dataDaConsulta: "04/11/2019" }
-  ]
+   { nome: "João", genero: "masculino", cancelada: false, dataDaConsulta: "01/10/2019" },
+   { nome: "Pedro", genero: "masculino", cancelada: true, dataDaConsulta: "02/10/2019" },
+   { nome: "Paula", genero: "feminino", cancelada: false, dataDaConsulta: "03/11/2019" },
+   { nome: "Márcia", genero: "feminino", cancelada: true, dataDaConsulta: "04/11/2019" }
+ ]
 
-function retornaEmailConsulta(consultas) {
-  // implemente sua lógica aqui
+function retornaEmailConsulta() {
+  const aux = []
+  const aux1 = []
+  const msg = []
+  consultas.forEach((item, index)=>{
+     if(item.genero==="masculino"){
+        aux.push("Sr.")
+        aux1.push("lembrá-lo")
+     }
+     else{
+         aux.push("Sra.")
+         aux1.push("lembrá-la")
+     }
+     if(item.cancelada){
+         msg.push(`Olá, ${aux[index]} ${item.nome}. Infelizmente sua consulta marcada para o dia ${item.dataDaConsulta} foi cancelada. Se quiser, pode entrar em contato conosco para remarcá-la.`)
+     }
+     else{
+        msg.push(`Olá, ${aux[index]} ${item.nome}. Estamos enviando esta mensagem para ${aux1[index]} da sua consulta no dia ${item.dataDaConsulta}. Por favor, acuse o recebimento deste-email.`)
+     }
+  })
+  return msg
 }
 
 //Exercício 20
