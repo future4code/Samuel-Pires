@@ -5,13 +5,19 @@ function inverteArray(array) {
   for(let i=array.length-1; i>=0; i--)
    aux.push(array[i])
 
-  return aux;
+  return aux
 }
 
 //Exercício 2
 
 function retornaNumerosParesElevadosADois (array) {
-   // implemente sua lógica aqui
+   const aux = []
+   for(let i=0; i<array.length; i++){
+      if(array[i]%2===0)
+         aux.push(array[i]*array[i])
+   }
+
+   return aux
 }
 
 //Exercício 3
