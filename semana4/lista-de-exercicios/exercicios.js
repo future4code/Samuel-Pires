@@ -203,13 +203,21 @@ const arrayDePessoas = [
 // Exercício 16, letra A
 
 function maioresDe18(arrayDePessoas) {
-   // implemente sua lógica aqui
+   const aux = arrayDePessoas.filter((pessoa)=>{
+      if(pessoa.idade>=20)return true
+      return false
+   })
+   return aux
 }
 
 // Exercício 16, letra B
 
 function menoresDe18(arrayDePessoas) {
-   // implemente sua lógica aqui
+   const aux = arrayDePessoas.filter((pessoa)=>{
+      if(pessoa.idade<20)return true
+      return false
+   })
+   return aux
 }
 
 // Exercício 17, letra A
