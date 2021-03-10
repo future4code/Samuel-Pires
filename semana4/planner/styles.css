@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-section{
+    display: flex;
+}
+
+section {
+    display: flex;
+    flex-grow: 12;
+    justify-content: space-evenly;
+    height: 90vh;
+}
+
+.semana {
+    width: 14%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.semana >div{
+    margin-top: 5px;
+    flex-grow: 1;
+    display: grid;
+    grid-template-rows: repeat(17,1fr);
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.semana>h3{
+    border: 1px solid rgba(0, 0, 0, 0.171);
+    padding: 5px;
+}
+
+aside{
+    flex-grow: 1;
+    margin-top: 40px;
+    display: grid;
+    grid-template-rows: repeat(17,1fr)
+}
+
+aside p:nth-child(2n){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: rgb(212, 236, 227);
+}
+
+aside p:nth-child(2n+1){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: rgb(202, 223, 223);
+}
+
+.hora7,.hora9,.hora11,.hora13,.hora15,.hora17,.hora19,.hora21{
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(212, 236, 227);
+}
+
+.hora6,.hora8,.hora10,.hora12,.hora14,.hora16,.hora18,.hora20,.hora22{
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(202, 223, 223);
+}
+
+.hora6{
+    grid-row: 1/2;
+}
+.hora7{
+    grid-row: 2/3;
+}
+.hora8{
+    grid-row: 3/4;
+}
+.hora9{
+    grid-row: 4/5;
+}
+.hora10{
+    grid-row: 5/6;
+}
+.hora11{
+    grid-row: 6/7;
+}
+.hora12{
+    grid-row: 7/8;
+}
+.hora13{
+    grid-row: 8/9;
+}
+.hora14{
+    grid-row: 9/10;
+}
+.hora15{
+    grid-row: 10/11;
+}
+.hora16{
+    grid-row: 11/12;
+}
+.hora17{
+    grid-row: 12/13;
+}
+.hora18{
+    grid-row: 13/14;
+}
+.hora19{
+    grid-row: 14/15;
+}
+.hora20{
+    grid-row: 15/16;
+}
+.hora21{
+    grid-row: 16/17;
+}
+.hora22{
+    grid-row: 17/18;
+}
