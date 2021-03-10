@@ -7,6 +7,7 @@ import iconeCoracaoBranco from '../../img/favorite-white.svg'
 import iconeCoracaoPreto from '../../img/favorite.svg'
 import iconeComentario from '../../img/comment_icon.svg'
 import {SecaoComentario} from '../SecaoComentario/SecaoComentario'
+import {IconeMarcacao} from '../IconeMarcacao/IconeMarcacao'
 
 class Post extends React.Component {
   state = {
@@ -59,6 +60,7 @@ class Post extends React.Component {
       <div className={'post-header'}>
         <img className={'user-photo'} src={this.props.fotoUsuario} alt={'Imagem do usuario'}/>
         <p>{this.props.nomeUsuario}</p>
+        <IconeMarcacao />
       </div>
 
       <img className={'post-photo'} src={this.props.fotoPost} alt={'Imagem do post'}/>
