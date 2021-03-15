@@ -1,0 +1,14 @@
+.cardpequeno-container{
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+}
+
+.cardpequeno-container > img{
+  width: 30px;
+  margin-right: 10px;
+}
