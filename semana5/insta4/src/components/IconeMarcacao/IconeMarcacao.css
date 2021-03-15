@@ -1,0 +1,9 @@
+.salvar-container{
+  display: flex;
+  flex-grow: 1;
+  justify-content: end;
+}
+
+.salvar-container img{
+  width: 30px;
+}
