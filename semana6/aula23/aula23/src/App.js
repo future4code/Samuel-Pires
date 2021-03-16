@@ -33,7 +33,7 @@ class App extends React.Component {
         }
       ],
       inputValue: '',
-      filtro: 'pendentes'
+      filtro: ''
     }
 
   componentDidUpdate() {
@@ -51,7 +51,14 @@ class App extends React.Component {
   }
 
   criaTarefa = () => {
-
+    this.setState({
+      tarefas : [...this.state.tarefas, {
+        id: Date.now(),
+        texto : this.state.inputValue,
+        completa : false
+      }],
+      inputValue : ""
+    })
   }
 
   selectTarefa = (id) => {
