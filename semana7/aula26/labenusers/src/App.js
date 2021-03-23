@@ -92,7 +92,7 @@ class App extends React.Component{
   deleteUserState = (id) =>{
     const novaListaUsuarios = this.state.listaUsuarios.filter((item)=>{
       if(item.id === id)return false
-      else return false
+      else return true
     })
     this.setState({
       listaUsuarios : novaListaUsuarios
@@ -100,7 +100,8 @@ class App extends React.Component{
   }
 
   onClickDeletarItem = (id) =>{
-    this.deleteUser(id)
+    if(window.confirm('Tem certeza que deseja deletar?'))this.deleteUser(id)
+    else return
   }
 
   render(){
