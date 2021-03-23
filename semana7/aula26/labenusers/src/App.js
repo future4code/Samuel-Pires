@@ -2,13 +2,18 @@ import React from "react";
 // import styled from 'styled-components'
 import axios from 'axios'
 import Tela1 from './components/Tela1'
-
+import Tela2 from './components/Tela2'
 
 class App extends React.Component{
   state = {
     inputNome : '',
     inputEmail : '',
+    tela : 1,
     listaUsuarios : [],
+  }
+
+  objeto = {
+    sucesso : true
   }
 
   onClickCadastrar = ()=>{
@@ -47,17 +52,56 @@ class App extends React.Component{
     })
   }
 
+  onClickMudarPagina = ()=>{
+    this.getAllUsers()
+  }
+
+  getAllUsers = ()=>{
+
+    axios.get('https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users',{
+      headers: {
+        Authorization : 'samuel-mateus-cruz'
+      }
+    }).then((res)=>{
+      this.setState({
+        listaUsuarios : res.data,
+        tela: 2
+      })
+    }).catch((erro)=>{
+      console.log('erro:',erro.message, '\n', erro.data)
+    })
+  }
+
   render(){
+    console.log("listaUsuarios: ", this.state.listaUsuarios)
+
+
+    let telaRenderizada
+    let textoBotao
+    switch (this.state.tela) {
+      case 1:
+          telaRenderizada = <Tela1
+          onChangeEmail={this.onChangeEmail}
+          onChangeNome={this.onChangeNome}
+          onClickCadastrar={this.onClickCadastrar}
+          inputNome={this.state.inputNome}
+          inputEmail={this.state.inputEmail}
+        />
+        textoBotao = 'Ir para lista'
+        break;
+      case 2:
+          telaRenderizada = <Tela2 
+            listaUsuarios = {this.state.listaUsuarios}
+          />
+        textoBotao = 'Ir para cadastro'
+        break;
+      default:
+        break;
+    }
 
     return <div>
-      <Tela1
-        onChangeEmail={this.onChangeEmail}
-        onChangeNome={this.onChangeNome}
-        onClickCadastrar={this.onClickCadastrar}
-        inputNome={this.state.inputNome}
-        inputEmail={this.state.inputEmail}
-      />
-      <button onClick={this.onClickCadastrar}>Clica aqui</button>
+      <button onClick={this.onClickMudarPagina}>{textoBotao}</button>
+      {telaRenderizada}
     </div>
 
   }
