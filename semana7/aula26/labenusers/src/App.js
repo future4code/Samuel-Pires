@@ -81,11 +81,21 @@ class App extends React.Component{
         Authorization : 'samuel-mateus-cruz'
       }
     }).then((res)=>{
-      console.log('sucesso ao excluir')
       alert('Sucesso ao excluir usuário')
+      this.deleteUserState(id)
     }).catch((error)=>{
       console.log('erro ao excluir user:', error.message)
       alert('Erro ao excluir usuário')
+    })
+  }
+
+  deleteUserState = (id) =>{
+    const novaListaUsuarios = this.state.listaUsuarios.filter((item)=>{
+      if(item.id === id)return false
+      else return false
+    })
+    this.setState({
+      listaUsuarios : novaListaUsuarios
     })
   }
 
