@@ -53,7 +53,10 @@ class App extends React.Component{
   }
 
   onClickMudarPagina = ()=>{
-    this.getAllUsers()
+    if(this.state.tela===1)this.getAllUsers()
+    else this.setState({
+      tela: 1
+    })
   }
 
   getAllUsers = ()=>{
@@ -68,8 +71,26 @@ class App extends React.Component{
         tela: 2
       })
     }).catch((erro)=>{
-      console.log('erro:',erro.message, '\n', erro.data)
+      console.log('erro ao obter usuarios:',erro.message, '\n', erro.data)
     })
+  }
+
+  deleteUser = (id)=>{
+    axios.delete(`https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users/${id}`,{
+      headers: {
+        Authorization : 'samuel-mateus-cruz'
+      }
+    }).then((res)=>{
+      console.log('sucesso ao excluir')
+      alert('Sucesso ao excluir usuário')
+    }).catch((error)=>{
+      console.log('erro ao excluir user:', error.message)
+      alert('Erro ao excluir usuário')
+    })
+  }
+
+  onClickDeletarItem = (id) =>{
+    this.deleteUser(id)
   }
 
   render(){
@@ -92,6 +113,7 @@ class App extends React.Component{
       case 2:
           telaRenderizada = <Tela2 
             listaUsuarios = {this.state.listaUsuarios}
+            onClickDeletarItem = {this.onClickDeletarItem}
           />
         textoBotao = 'Ir para cadastro'
         break;

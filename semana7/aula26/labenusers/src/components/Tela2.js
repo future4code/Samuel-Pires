@@ -9,7 +9,10 @@ export default class Tela2 extends React.Component{
     render(){
         let listaNomes = this.props.listaUsuarios.map((item)=>{
 						console.log('item:', item)
-            return <li key={item.id}>{item.name}</li>
+            return <li key={item.id}>
+							{item.name}
+							<button onClick={()=>this.props.onClickDeletarItem(item.id)}>X</button>
+						</li>
         })
         return <Componente>
           {listaNomes}
