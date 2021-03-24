@@ -1,6 +1,19 @@
 import axios from 'axios'
 import React from 'react'
+import styled from 'styled-components'
 import { axiosConfig, baseUrl } from '../parameters'
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  
+  /* &>button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } */
+`
 
 export default class ListUserPage extends React.Component{
   state={
@@ -17,7 +30,7 @@ export default class ListUserPage extends React.Component{
     if(window.confirm('Tem certeza que deseja excluir?'))this.deleteUser(id)
   }
 
-  
+
   
   //----------------------- Funções internas
   deleteUserState = (id)=>{
@@ -58,10 +71,10 @@ export default class ListUserPage extends React.Component{
   //--------------------------------------------------------------------------
   render(){
     const renderizar = this.state.listaUsers.map((user)=>{
-      return <div key={user.id}>
-        <p>{user.name}</p>
+      return <Container key={user.id}>
+        <p onClick={()=>this.props.alternateUserEdit(user.id)}>{user.name}</p>
         <button onClick={()=>this.onClickDeleteUser(user.id)}>x</button>
-      </div>
+      </Container>
     })
     return <div>
       {renderizar}
