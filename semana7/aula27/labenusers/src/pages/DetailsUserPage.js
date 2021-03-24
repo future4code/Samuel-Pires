@@ -1,6 +1,11 @@
 import axios from 'axios'
 import React from 'react'
+import styled from 'styled-components'
 import { axiosConfig, baseUrl } from '../parameters'
+
+const Container = styled.div`
+  text-align:center;
+`
 
 export default class DetailsUserPage extends React.Component{
   state={
@@ -72,11 +77,12 @@ export default class DetailsUserPage extends React.Component{
 
   render(){
 
-    return <div>
+    return <Container>
+      <h2>Detalhes do usuário</h2>
       <input placeholder='Nome'  value={this.state.inputName}  disabled={this.state.editable} onChange={this.onChangeInputName}/>
       <input placeholder='Email' value={this.state.inputEmail} disabled={this.state.editable} onChange={this.onChangeInputEmail}/>
       <button onClick={this.onClickEditar}>{this.state.textButton}</button>
 
-    </div>
+    </Container>
   }
 }

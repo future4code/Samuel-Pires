@@ -6,6 +6,7 @@ import {baseUrl, axiosConfig} from '../parameters'
 const Container = styled.div`
   display: flex;
   flex-direction:column;
+  text-align: center;
   &>input{
     margin-bottom: 5px;
   }
@@ -58,6 +59,7 @@ export default class RegisterUserPage extends React.Component{
 
   render(){
     return <Container>
+      <h2>Registar usuário</h2>
       <input placeholder='Nome' value={this.state.inputName} onChange={this.onChangeInputName} />
       <input placeholder='Email' value={this.state.inputEmail} onChange={this.onChangeInputEmail} />
       <button onClick={this.onClickRegisterUser}>Registrar</button>

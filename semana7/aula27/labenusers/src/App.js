@@ -41,6 +41,7 @@ export default class App extends React.Component {
     this.alternateCurrentPage(3)
   }
 
+
   renderPage = ()=>{
     switch(this.state.currentPage){
       case 1:
