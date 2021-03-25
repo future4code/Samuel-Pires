@@ -21,11 +21,11 @@ export default class Header extends React.Component{
 
   render(){
     const renderiza = <Conteudo>
-      <p>Films</p>
-      <p>Vehicles</p>
-      <p>Planets</p>
+      <p onClick={()=>this.props.onClickChangeScreen('Films')}>Films</p>
+      <p onClick={()=>this.props.onClickChangeScreen('Vehicles')}>Vehicles</p>
+      <p onClick={()=>this.props.onClickChangeScreen('Planets')}>Planets</p>
     </Conteudo>
-
+ 
     return(
       <Container>
         {renderiza}

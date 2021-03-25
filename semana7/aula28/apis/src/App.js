@@ -8,12 +8,19 @@ import Vehicles from "./Components/Vehicles";
 export default class App extends React.Component{
 
   state={
-    tela : 'Vehicles'
+    screen : 'Films'
+  }
+
+  //Função para o header, mudar qual tela é exibida
+  onClickChangeScreen = (screenName)=>{
+    this.setState({
+      screen: screenName
+    })
   }
 
 
   renderizar = ()=>{
-    switch(this.state.tela){
+    switch(this.state.screen){
       case 'Films':
         return <Films />
       case 'Vehicles':
@@ -26,7 +33,7 @@ export default class App extends React.Component{
   render(){
     return(
       <div>
-        <Header />
+        <Header onClickChangeScreen={this.onClickChangeScreen}/>
         {this.renderizar()}
       </div>
     )
