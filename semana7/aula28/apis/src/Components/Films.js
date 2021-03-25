@@ -24,6 +24,11 @@ const Conteudo = styled.div`
   &>h2,>h3{
     text-align: center;
   }
+
+  &:hover{
+    background-color: #eee;
+  }
+
 `
 
 export default class Films extends React.Component{

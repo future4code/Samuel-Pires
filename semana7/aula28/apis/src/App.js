@@ -1,6 +1,7 @@
 import React from "react";
 import Films from "./Components/Films";
 import Header from "./Components/Header";
+import Planets from "./Components/Planets";
 import Vehicles from "./Components/Vehicles";
 
 
@@ -8,7 +9,7 @@ import Vehicles from "./Components/Vehicles";
 export default class App extends React.Component{
 
   state={
-    screen : 'Films'
+    screen : 'Planets'
   }
 
   //Função para o header, mudar qual tela é exibida
@@ -26,7 +27,7 @@ export default class App extends React.Component{
       case 'Vehicles':
         return <Vehicles />
       case 'Planets':
-        return <div></div>
+        return <Planets />
     }
   }
 

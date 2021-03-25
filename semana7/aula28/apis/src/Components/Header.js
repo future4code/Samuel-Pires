@@ -5,14 +5,29 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 100vw;
-
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
 `
 
 const Conteudo = styled.div`
   grid-column: 2/3;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+
+  &>p{
+    font-weight: bold;
+    border: 1px solid black;
+    width: 80px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+  }
+  &>p:hover{
+    background-color: #ddd;
+  }
 `
 
 export default class Header extends React.Component{

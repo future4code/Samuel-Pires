@@ -1,50 +1,52 @@
 import axios from "axios";
 import React from "react";
 import styled from 'styled-components'
-import { urlFilms, urlVehicles } from "../urls";
+import { urlFilms, urlPlanets } from "../urls";
 
 const Container = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+
+  
 `
 
 const Conteudo = styled.div`
   padding: 10px;
   width:320px;
-  height: 500px;
+  height: 430px;
   overflow: auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 
   &:hover{
     background-color: #ddd;
   }
+
 `
 
-export default class Vehicles extends React.Component{
-
+export default class Planets extends React.Component{
   state={
-    vehicles : [],
-    titleAndUrl: [],
+    planets : [],
+    titleAndUrl: []
   }
 
   componentDidMount(){
-    this.getVehicles()
+    this.getPlanets()
     this.getFilmes()
   }
 
   //API
-  getVehicles = async ()=>{
+  getPlanets = async ()=>{
     try{
-      let res = await axios.get(urlVehicles)
-      let newVehicles = res.data.results
+      let res = await axios.get(urlPlanets)
+      let newPlanets = res.data.results
       while(res.data.next !==null){
         res = await axios.get(res.data.next)
-        newVehicles = [...newVehicles, ...res.data.results]
+        newPlanets = [...newPlanets, ...res.data.results]
       }
-      this.setState({vehicles: newVehicles})
+      this.setState({planets: newPlanets})
     }
     catch(error){
       alert('Estamos com problemas internos, por favor tente novamente mais tarde.')
@@ -81,9 +83,6 @@ export default class Vehicles extends React.Component{
 
       listaFilms = [...listaFilms, ...aux]
     }
-
-    // console.log('listaFilms', listaFilms)
-
     const li = listaFilms.map((film)=>{
       return <li>
         {film.title}
@@ -93,31 +92,32 @@ export default class Vehicles extends React.Component{
     return li;
   }
 
+
   render(){
 
-    const renderiza = this.state.vehicles.map((vehicle)=>{
+    const renderiza = this.state.planets.map((planet)=>{
       return(
         <Conteudo>
-          <h2>{vehicle.name}</h2>
-          <h3>{vehicle.model}</h3>
-          <h4>{vehicle.manufacturer}</h4>
-          <ul>
-            <li>Cost in credits: ${vehicle.cost_in_credits}</li>
-            <li>Passengers: {vehicle.passengers}</li>
-            <li>Length: {vehicle.length}meters</li>
-          </ul>
-          <h3>Films</h3>
-          <ul>
-            {this.liFilm(vehicle.films)}
-          </ul>
+          <h2>{planet.name}</h2>
+          <h3>Population: {planet.population}</h3>
+          <h4>Climate: {planet.climate}</h4>
+          {
+            planet.films.length>0 && 
+            <h3>Films</h3> 
+          }
+          { planet.films.length>0 &&
+            <ul>
+              {this.liFilm(planet.films)}
+            </ul>
+          }
         </Conteudo>
       )
     })
 
-    return (
-    <Container>
-      {renderiza}
-    </Container>
+    return(
+      <Container>
+        {renderiza}
+      </Container>
     )
   }
 }
