@@ -26,8 +26,6 @@ export default class Header extends React.Component{
       <p>Planets</p>
     </Conteudo>
 
-    console.log('renderiza', renderiza)
-
     return(
       <Container>
         {renderiza}

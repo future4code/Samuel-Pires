@@ -12,7 +12,7 @@ const Container = styled.div`
 const Conteudo = styled.div`
   padding: 10px;
   width:320px;
-  height: 430px;
+  height: 500px;
   overflow: auto;
   display: flex;
   flex-direction: column;
@@ -73,13 +73,18 @@ export default class Vehicles extends React.Component{
   liFilm = (filmsUrl)=>{
     let listaFilms = []
     for(let i=0; i<filmsUrl.length; i++){
-      listaFilms.push(this.state.titleAndUrl.filter((film)=>{
-        if(filmsUrl === film.url)return true
+      const aux = this.state.titleAndUrl.filter((film)=>{
+        
+        if(filmsUrl[i] === film.url){
+          return true
+        }
         else return false
-      }))
+      })
+
+      listaFilms = [...listaFilms, ...aux]
     }
 
-    console.log("Lista filmes", listaFilms)
+    // console.log('listaFilms', listaFilms)
 
     const li = listaFilms.map((film)=>{
       return <li>
@@ -91,7 +96,6 @@ export default class Vehicles extends React.Component{
   }
 
   render(){
-
 
     const renderiza = this.state.vehicles.map((vehicle)=>{
       return(
