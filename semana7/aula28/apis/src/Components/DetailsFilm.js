@@ -11,9 +11,9 @@ const Container = styled.div`
 
 const Conteudo = styled.div`
   padding: 10px;
-  width:320px;
-  height: 430px;
-  overflow: auto;
+  /* width:320px; */
+  /* height: 430px; */
+  /* overflow: auto; */
   display: flex;
   flex-direction: column;
 
@@ -30,11 +30,16 @@ const Conteudo = styled.div`
 
 `
 
+const Characters = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
 export default class DetailsFilm extends React.Component{
   state={
     film: {},
     charactersName : [],
-    hideCharacter : 'Hide'
+    hideCharacter : 'UnHide'
   }
 
   componentDidMount(){
@@ -102,7 +107,7 @@ export default class DetailsFilm extends React.Component{
           <h2>Director: {director}</h2>
           <h4>Release date: {release_date}</h4>
           <p><b>Producer: {producer}</b></p>
-          <div><b>Characters:</b> <button onClick={this.onClickHideCharacter}>{this.state.hideCharacter}</button></div>
+          <Characters><b>Characters:</b> <button onClick={this.onClickHideCharacter}>{this.state.hideCharacter}</button></Characters>
           {this.state.hideCharacter==='Hide' &&
             <ul>
               {this.renderCharacters()}

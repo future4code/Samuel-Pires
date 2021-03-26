@@ -31,6 +31,18 @@ const Conteudo = styled.div`
   }
 
 `
+const DetailsFilmContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`
+
+const Back = styled.button`
+  margin: 10px 0;
+  text-align: center;
+  padding:10px;
+  border: 1px solid #3E3938;
+`
 
 export default class Films extends React.Component{
   state={
@@ -81,10 +93,10 @@ export default class Films extends React.Component{
       })
     }
     else if(this.state.screen === 'DetailsFilm'){
-      renderiza = <div>
-        <button onClick={this.onClickBack}>Back</button>
+      renderiza = <DetailsFilmContainer>
+        <Back onClick={this.onClickBack}>Back</Back>
         <DetailsFilm urlFilm = {this.state.urlFilmClick}/>
-        </div>
+        </DetailsFilmContainer>
     }
     return renderiza
   }

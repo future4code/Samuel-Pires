@@ -7,6 +7,10 @@ const Container = styled.div`
   width: 100vw;
   padding-bottom: 10px;
   border-bottom: 1px solid black;
+
+  &>h1{
+    margin-left: 20px;
+  }
 `
 
 const Conteudo = styled.div`
@@ -43,6 +47,7 @@ export default class Header extends React.Component{
  
     return(
       <Container>
+        <h1>Star Wars</h1>
         {renderiza}
       </Container>
     )
