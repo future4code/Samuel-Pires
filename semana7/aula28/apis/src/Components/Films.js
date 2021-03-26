@@ -2,6 +2,7 @@ import axios from "axios";
 import React from "react";
 import styled from 'styled-components'
 import { urlFilms } from "../urls";
+import DetailsFilm from "./DetailsFilm";
 
 const Container = styled.div`
   box-sizing: border-box;
@@ -13,8 +14,8 @@ const Container = styled.div`
 const Conteudo = styled.div`
   padding: 10px;
   width:320px;
-  height: 430px;
-  overflow: auto;
+  /* height: 430px; */
+  /* overflow: auto; */
   display: flex;
   flex-direction: column;
 
@@ -34,6 +35,8 @@ const Conteudo = styled.div`
 export default class Films extends React.Component{
   state={
     films : [],
+    screen : 'this',
+    urlFilmClick: '',
   }
 
   componentDidMount(){
@@ -52,22 +55,45 @@ export default class Films extends React.Component{
     }
   }
 
+  //DetailsFilm
+  onClickFilm = (url)=>{
+    this.setState({
+      screen: 'DetailsFilm',
+      urlFilmClick: url
+    })
+  }
+
+  onClickBack = ()=>{
+    this.setState({screen: 'this'})
+  }
+
+  renderizarScreen = ()=>{
+    let renderiza
+    if(this.state.screen === 'this'){
+      renderiza = this.state.films.map((film)=>{
+        return(
+          <Conteudo onClick={()=>this.onClickFilm(film.url)}>
+            <h2>{film.title}</h2>
+            <h3>{film.director}</h3>
+            <p>{film.opening_crawl.replace("\n","")}</p>
+          </Conteudo>
+        )
+      })
+    }
+    else if(this.state.screen === 'DetailsFilm'){
+      renderiza = <div>
+        <button onClick={this.onClickBack}>Back</button>
+        <DetailsFilm urlFilm = {this.state.urlFilmClick}/>
+        </div>
+    }
+    return renderiza
+  }
 
   render(){
 
-    const renderiza = this.state.films.map((film)=>{
-      return(
-        <Conteudo>
-          <h2>{film.title}</h2>
-          <h3>{film.director}</h3>
-          <p>{film.opening_crawl.replace("\n","")}</p>
-        </Conteudo>
-      )
-    })
-
     return (
     <Container>
-      {renderiza}
+      {this.renderizarScreen()}
     </Container>
     )
   }
