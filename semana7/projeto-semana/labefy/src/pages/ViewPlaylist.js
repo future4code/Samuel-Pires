@@ -15,11 +15,10 @@ export default class ViewPlaylists extends React.Component{
    getPLaylists = async ()=>{
       try{
          const res = await axios.get(baseUrl, axiosConfig)
-         console.log('res', res)
          this.setState({playlists: res.data.result.list})
       }
       catch(erro){
-         console.log(erro.response.data.message)
+         alert(erro.response.data.message)
       }
    }
 
@@ -46,7 +45,7 @@ export default class ViewPlaylists extends React.Component{
    renderizarScreen = ()=>{
       return this.state.playlists.map((playlist)=>{
          return(
-            <div>
+            <div key={playlist.id}>
                {playlist.name}
                <button onClick={()=>this.deletePlaylist(playlist.id)}>Delete</button>
             </div>
