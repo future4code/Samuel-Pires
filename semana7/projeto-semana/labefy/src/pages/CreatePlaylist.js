@@ -7,6 +7,19 @@ export default class CreatePlaylist extends React.Component{
       inputNome: '',
    }
 
+   //API
+   createPlaylist = async(namePlaylist)=>{
+      const body = {
+         name : namePlaylist
+      }
+      try{
+         const res = await axios.post(baseUrl, body, axiosConfig)
+      }
+      catch(erro){
+         alert(erro.response.data.message)
+      }
+   }
+
    //Interação com usuário
    onChangeInputNome = (e)=>{
       this.setState({
@@ -21,19 +34,6 @@ export default class CreatePlaylist extends React.Component{
    onClickSend = ()=>{
       this.createPlaylist(this.state.inputNome)
       this.setState({inputNome: ''})
-   }
-
-   //API
-   createPlaylist = async(namePlaylist)=>{
-      const body = {
-         name : namePlaylist
-      }
-      try{
-         const res = await axios.post(baseUrl, body, axiosConfig)
-      }
-      catch(erro){
-         alert(erro.response.data.message)
-      }
    }
 
    render(){
