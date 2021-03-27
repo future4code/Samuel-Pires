@@ -18,6 +18,8 @@ export default class App extends React.Component{
             return <CreatePlaylist />
          case 'View Playlists':
             return <ViewPlaylists />
+         default:
+            return <div></div>
       }
    }
 

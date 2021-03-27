@@ -13,7 +13,7 @@ export default class CreatePlaylist extends React.Component{
          name : namePlaylist
       }
       try{
-         const res = await axios.post(baseUrl, body, axiosConfig)
+         await axios.post(baseUrl, body, axiosConfig)
       }
       catch(erro){
          alert(erro.response.data.message)
