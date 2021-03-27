@@ -2,10 +2,11 @@ import React from 'react'
 import CreatePlaylist from './pages/CreatePlaylist'
 import Header from './components/Header'
 import ViewPlaylists from './pages/ViewPlaylist'
+import AddTrack from './pages/AddTrack'
 
 export default class App extends React.Component{
    state={
-      screen : 'Create Playlist'
+      screen : 'Add Track'
    }
 
    onClickChangeScreen = (screenChange)=>{
@@ -18,6 +19,8 @@ export default class App extends React.Component{
             return <CreatePlaylist />
          case 'View Playlists':
             return <ViewPlaylists />
+         case 'Add Track':
+            return <AddTrack />
          default:
             return <div></div>
       }

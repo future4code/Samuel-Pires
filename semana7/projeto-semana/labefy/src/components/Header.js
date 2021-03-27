@@ -10,8 +10,9 @@ export default class Header extends React.Component{
    render(){
       return(
          <Container>
-            <p onClick={()=>this.props.onClickChangeScreen('Create Playlist')}>Create Playlist</p>
-            <p onClick={()=>this.props.onClickChangeScreen('View Playlists')}>View Playlists</p>
+            <p onClick={()=>this.props.onClickChangeScreen('Create Playlist')}>CREATE PLAYLIST</p>
+            <p onClick={()=>this.props.onClickChangeScreen('View Playlists')}>VIEW PLAYLIST</p>
+            <p onClick={()=>this.props.onClickChangeScreen('Add Track')}>ADD TRACK</p>
          </Container>
       )
    }
