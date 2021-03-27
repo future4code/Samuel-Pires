@@ -19,7 +19,7 @@ const Container = styled.div`
 
 export default class App extends React.Component{
    state={
-      screen : 'View Playlists'
+      screen : 'Create Playlist'
    }
 
    onClickChangeScreen = (screenChange)=>{
