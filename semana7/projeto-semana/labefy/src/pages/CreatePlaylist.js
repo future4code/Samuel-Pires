@@ -1,6 +1,36 @@
 import axios from 'axios'
 import React from 'react'
+import styled from 'styled-components'
 import { baseUrl, axiosConfig} from '../parameters'
+
+const Container = styled.div`
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   &>input{
+      width: 235px;
+      border:0;
+      border-bottom: 1px solid black;
+      border-radius: 5px;
+      padding: 10px;
+   }
+   &>button{
+      width: 255px;
+      border: 0;
+      padding: 10px;
+      margin-top: 10px;
+      background-image: linear-gradient(180deg, #001270, black);
+      color: white;
+      font-size: 14px;
+      font-weight: bold;
+   }
+   &>button:hover{
+      opacity: 70%;
+   }
+   &>button:active{
+      opacity: 100%;
+   }
+`
 
 export default class CreatePlaylist extends React.Component{
    state={
@@ -38,14 +68,14 @@ export default class CreatePlaylist extends React.Component{
 
    render(){
       return(
-         <div>
-            <h3>Create playlist</h3>
+         <Container>
+            <h1>Create playlist</h1>
             <input 
                placeholder='Nome da playlist...' value={this.state.inputNome} 
                onChange={this.onChangeInputNome} onKeyDown={this.onKeyDownEnter}
             />
             <button onClick={this.onClickSend}>Send</button>
-         </div>
+         </Container>
       )
    }
 }

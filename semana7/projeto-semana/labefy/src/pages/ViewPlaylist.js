@@ -8,18 +8,39 @@ const Container = styled.div`
    display: grid;
    grid-template-columns: 300px 1fr;
    grid-template-rows: 1fr 100px;
-   min-height: 100%;
+   height: 100%;
+   border-top: 1px solid black;
 `
 
 const ContainerPlaylist = styled.div`
    grid-column:1/2;
    grid-row: -1/1;
+   border-right: 1px solid black;
+   padding: 5px 10px;
 `
 
 const Playlists = styled.div`
    display: flex;
    justify-content: space-between;
    margin-top: 2px;
+   align-items: center;
+   cursor: pointer;
+   
+   &>button{
+      cursor: pointer;
+      border: 0;
+      padding: 5px 10px;
+      :hover{
+         background-color: rgba(100,100,100,0.4);
+         border-radius: 5px;
+      }
+   }
+   &>p{
+      flex-grow: 1;
+      :hover{
+         text-decoration: underline;
+      }
+   }
 `
 
 export default class ViewPlaylists extends React.Component{
@@ -59,7 +80,10 @@ export default class ViewPlaylists extends React.Component{
          if(playlistId === playlist.id)return false
          else return true
       })
-      this.setState({playlists: newPLaylists})
+      this.setState({
+         playlists: newPLaylists,
+         currentPlaylistId: '',
+      })
    }
 
    //Interação com usuário
@@ -72,7 +96,7 @@ export default class ViewPlaylists extends React.Component{
          return(
             <Playlists key={playlist.id}>
                <p onClick={()=>this.onClickPlaylist(playlist.id)}>{playlist.name}</p>
-               <button onClick={()=>this.deletePlaylist(playlist.id)}>Delete</button>
+               <button onClick={()=>this.deletePlaylist(playlist.id)}>X</button>
             </Playlists>
          )
       })

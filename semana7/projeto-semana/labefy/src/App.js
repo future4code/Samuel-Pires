@@ -3,10 +3,23 @@ import CreatePlaylist from './pages/CreatePlaylist'
 import Header from './components/Header'
 import ViewPlaylists from './pages/ViewPlaylist'
 import AddTrack from './pages/AddTrack'
+import styled from 'styled-components'
+import './assets/fonts.css'
+
+const Container = styled.div`
+   font-family: 'Roboto Slab';
+   font-size: 16px;
+   height: 100vh;
+   display: flex;
+   flex-direction:column;
+   ::placeholder{
+      color: red;
+   }
+`
 
 export default class App extends React.Component{
    state={
-      screen : 'Add Track'
+      screen : 'View Playlists'
    }
 
    onClickChangeScreen = (screenChange)=>{
@@ -28,10 +41,10 @@ export default class App extends React.Component{
 
    render(){
       return(
-         <div>
+         <Container>
             <Header onClickChangeScreen={this.onClickChangeScreen} />
             {this.renderScreen()}
-         </div>
+         </Container>
       )
    }
 }
