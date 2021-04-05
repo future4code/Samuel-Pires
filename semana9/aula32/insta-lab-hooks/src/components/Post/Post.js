@@ -38,7 +38,31 @@ const Post = (props) => {
    setNumeroComentarios(numeroComentarios+1)
   }
 
+  // De acordo com a propriedade curtido do estado, o valor muda entre  iconeCoracaoPreto e o iconeCoracaoBranco, 
+    // que estão sendo importados nas linhas 7 e 8, respectivamente. 
+    const iconeCurtida = curtido ? (iconeCoracaoPreto) : (iconeCoracaoBranco)
+
+    // expressão condicional que, de acordo com o valor de comentando no estado, renderiza o componente
+    // SecaoComentario ou o CommentContainer. Esta expressão está sendo chamada no JSX na linha 104
+    const caixaDeComentario = comentando ? (
+      // Componente com o input e botão de enviar novo comentario. Import dele na linha 5.
+      <SecaoComentario enviarComentario={this.enviarComentario}/>
+    ) : (
+      // Funcao map sendo feita na propriedade comentarios do estado. Ou seja, está sendo pego todos os
+      // comentários do estado para serem renderizados na tela, dentro do componente CommentContainer 
+      comentarios.map(comentario => {
+        return (
+          <CommentContainer>
+            <p>{comentario}</p>
+          </CommentContainer>
+        )
+      })
+    )
+
   return (
+
+      
+
     <PostContainer>
       <PostHeader>
         <UserPhoto src={props.fotoUsuario} alt={'Imagem do usuario'}/>
@@ -49,18 +73,18 @@ const Post = (props) => {
 
       <PostFooter>
         <IconeComContador
-          // icone={iconeCurtida}
+          icone={iconeCurtida}
           onClickIcone={onClickCurtida}
-          // valorContador={numeroCurtidas}
+          valorContador={numeroCurtidas}
         />
 
         <IconeComContador
           icone={iconeComentario}
           onClickIcone={onClickComentario}
-          // valorContador={numeroComentarios}
+          valorContador={numeroComentarios}
         />
       </PostFooter>
-      {/* {caixaDeComentario} */}
+      {caixaDeComentario}
     </PostContainer>
   )
 }
