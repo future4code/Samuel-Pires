@@ -46,7 +46,7 @@ const Post = (props) => {
     // SecaoComentario ou o CommentContainer. Esta expressão está sendo chamada no JSX na linha 104
     const caixaDeComentario = comentando ? (
       // Componente com o input e botão de enviar novo comentario. Import dele na linha 5.
-      <SecaoComentario enviarComentario={this.enviarComentario}/>
+      <SecaoComentario enviarComentario={enviarComentario}/>
     ) : (
       // Funcao map sendo feita na propriedade comentarios do estado. Ou seja, está sendo pego todos os
       // comentários do estado para serem renderizados na tela, dentro do componente CommentContainer 
