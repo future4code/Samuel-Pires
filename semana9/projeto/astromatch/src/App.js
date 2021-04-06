@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import styled from 'styled-components'
+import DefaultScreen from './pages/defaultScreen'
 
 const Div = styled.div`
    width: 100vw;
@@ -16,6 +17,9 @@ const Header = styled.header`
    div{
       width: 50px;
       height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
    }
 `
 
@@ -35,9 +39,12 @@ export default function App() {
          <div></div>
       </Header>
    )
-
+      
+   const main = <DefaultScreen />
+   
    return <Div>
      {header}
+     {main}
    </Div>
 }
 
