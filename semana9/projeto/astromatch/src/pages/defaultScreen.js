@@ -68,7 +68,24 @@ const DefaultScreen = ()=>{
       }
    }
 
-   
+   const choosePerson = async(id, choice)=>{
+      const body = {
+         id: id,
+         choice: choice
+      }
+      try{
+         const res = await axios.post(`${baseUrl}/choose-person`, body)
+      }
+      catch(erro){
+         console.log('erro em default screen choosePerson', erro)
+      }
+   }
+
+   //interação com usuário
+   const onClickMatch = (id, choice)=>{
+      choosePerson(id, choice)
+      getProfileChoose()
+   }
 
 
    const useMountEffect = (call) => useEffect(call, []) //Uma espécie de "didMount"
@@ -89,8 +106,8 @@ const DefaultScreen = ()=>{
       </PhotoAndDescription>
          
       <Buttons>
-         <button>X</button>
-         <button>M</button>
+         <button onClick={()=>onClickMatch(profileChoose.id, false)}>X</button>
+         <button onClick={()=>onClickMatch(profileChoose.id, true)}>M</button>
       </Buttons>
    </Main>
 }
