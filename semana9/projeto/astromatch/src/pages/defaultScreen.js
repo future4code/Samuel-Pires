@@ -7,12 +7,22 @@ const Main = styled.main`
    width: 400px;
    height: 600px;
 `
+
+const Loading = styled.div`
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+`
+
 const PhotoAndDescription = styled.div`
    width: 400px;
    height: 500px;
    display: flex;
    flex-direction: column;
    justify-content: center;
+   background-image: url(${props=>props.imagem});
    >div{
       max-height: 100%;
       img{
@@ -56,12 +66,15 @@ const Buttons = styled.div`
 
 const DefaultScreen = ()=>{
    const [profileChoose, setProfileChoose] = useState({})
+   const [loading, setLoading] = useState(true)
 
    //API
    const getProfileChoose = async()=>{
+      setLoading(true)
       try{
          const res = await axios.get(`${baseUrl}/person`)
          setProfileChoose(res.data.profile)
+         setLoading(false)
       }
       catch(erro){
          console.log('erro em default screen getProfileChoose', erro)
@@ -92,23 +105,27 @@ const DefaultScreen = ()=>{
    useMountEffect(getProfileChoose)
 
    return <Main>
-      <PhotoAndDescription>
-         <div>
-            <img src={profileChoose.photo}/>
-            <Description>
-               <div>
-                  <h2>{profileChoose.name},</h2>
-                  <p> {profileChoose.age}</p>
-               </div>
-               <p>{profileChoose.bio}</p>
-            </Description>
-         </div>
-      </PhotoAndDescription>
-         
-      <Buttons>
-         <button onClick={()=>onClickMatch(profileChoose.id, false)}>X</button>
-         <button onClick={()=>onClickMatch(profileChoose.id, true)}>M</button>
-      </Buttons>
+      {loading && <Loading>Loading...</Loading>}
+      {!loading && profileChoose!==null && <>
+         <PhotoAndDescription imagem={profileChoose.photo}>
+            <div>
+               <img src={profileChoose.photo}/>
+               <Description>
+                  <div>
+                     <h2>{profileChoose.name},</h2>
+                     <p> {profileChoose.age}</p>
+                  </div>
+                  <p>{profileChoose.bio}</p>
+               </Description>
+            </div>
+         </PhotoAndDescription>
+            
+         <Buttons>
+            <button onClick={()=>onClickMatch(profileChoose.id, false)}>X</button>
+            <button onClick={()=>onClickMatch(profileChoose.id, true)}>M</button>
+         </Buttons>
+      </>
+      }
    </Main>
 }
 
