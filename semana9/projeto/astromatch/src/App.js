@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import styled from 'styled-components'
 import DefaultScreen from './pages/defaultScreen'
+import MatchsScreen from './pages/matchsScreen'
 
 const Div = styled.div`
    width: 100vw;
@@ -40,7 +41,7 @@ export default function App() {
       </Header>
    )
       
-   const main = <DefaultScreen />
+   const main = <MatchsScreen />
    
    return <Div>
      {header}
