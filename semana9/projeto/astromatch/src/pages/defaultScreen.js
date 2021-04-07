@@ -24,23 +24,24 @@ const PhotoAndDescription = styled.div`
    height: 500px;
    display: flex;
    flex-direction: column;
-   justify-content: center;
-   background-image: url(${props=>props.imagem});
+   justify-content: space-between;
    >div{
-      max-height: 100%;
-      img{
-         width: 100%;
-         max-height: 100%;
+      :nth-child(1){
+         height: 400px;
+         display: flex;
+         align-items: center;
+         img{
+            width: 100%;
+            max-height: 100%;
+         }
       }
    }
 `
 
 const Description = styled.div`
    width: 100%;
-   height: 0px;
+   height: 100px;
    padding: 0 10px;
-   position: relative;
-   bottom: 100px;
    color: #3e9f92;
    display: flex;
    flex-direction: column;
@@ -51,7 +52,7 @@ const Description = styled.div`
       }
    }
    >p{
-      width: 90%;
+      padding: 0 10px 0 0;
    }
 `
 
@@ -133,14 +134,14 @@ const DefaultScreen = ()=>{
          <PhotoAndDescription imagem={profileChoose.photo}>
             <div>
                <img src={profileChoose.photo}/>
-               <Description>
+            </div>
+            <Description>
                   <div>
                      <h2>{profileChoose.name},</h2>
                      <p> {profileChoose.age}</p>
                   </div>
                   <p>{profileChoose.bio}</p>
-               </Description>
-            </div>
+            </Description>
          </PhotoAndDescription>
             
          <Buttons>
