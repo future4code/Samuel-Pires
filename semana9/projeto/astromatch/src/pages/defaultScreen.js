@@ -38,9 +38,10 @@ const PhotoAndDescription = styled.div`
 const Description = styled.div`
    width: 100%;
    height: 0px;
+   padding: 0 10px;
    position: relative;
    bottom: 100px;
-   color: white;
+   color: #3e9f92;
    display: flex;
    flex-direction: column;
    justify-content: flex-start;
