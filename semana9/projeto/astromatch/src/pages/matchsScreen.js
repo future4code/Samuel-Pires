@@ -6,10 +6,12 @@ import styled from 'styled-components'
 const Main = styled.main`
    width: 400px;
    height: 600px;
+   overflow: auto;
 `
 
 const Matche = styled.div`
-   width: 100%;
+   padding: 0 10px;
+   width: calc(100% - 2px);
    height: 70px;
    margin-bottom: 20px;
    display: flex;

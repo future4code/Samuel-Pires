@@ -4,8 +4,11 @@ import styled from "styled-components"
 import {baseUrl} from '../parameters'
 
 const Main = styled.main`
-   width: 400px;
+   width: 100%;
    height: 600px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
 `
 
 const Loading = styled.div`
@@ -17,8 +20,8 @@ const Loading = styled.div`
 `
 
 const PhotoAndDescription = styled.div`
-   width: 400px;
-   height: 500px;
+   width: 100%;
+   height: 600px;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -26,7 +29,7 @@ const PhotoAndDescription = styled.div`
    >div{
       max-height: 100%;
       img{
-         width: 400px;
+         width: 100%;
          max-height: 100%;
       }
    }
