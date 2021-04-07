@@ -21,6 +21,7 @@ const Div = styled.div`
    }
    >button{
       align-self: flex-end;
+      margin-top: 10px;
    }
 `
 

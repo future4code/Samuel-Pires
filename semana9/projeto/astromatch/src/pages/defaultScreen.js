@@ -21,7 +21,7 @@ const Loading = styled.div`
 
 const PhotoAndDescription = styled.div`
    width: 100%;
-   height: 600px;
+   height: 500px;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -64,6 +64,25 @@ const Buttons = styled.div`
      width: 56px;
      height: 56px;
      border-radius:28px;
+     font-size: 30px;
+     color: red;
+     :hover{
+        transform: scale(1.3);
+        transition: all 0.3s;
+     }
+     :nth-child(1){
+        border: 1px solid red;
+        :hover{
+           color: white;
+           background-color: red;
+        }
+     }
+     :nth-child(2){
+        border: 1px solid green;
+        :hover{
+           background-color: green;
+        }
+     }
   }
 `
 
@@ -125,7 +144,7 @@ const DefaultScreen = ()=>{
             
          <Buttons>
             <button onClick={()=>onClickMatch(profileChoose.id, false)}>X</button>
-            <button onClick={()=>onClickMatch(profileChoose.id, true)}>M</button>
+            <button onClick={()=>onClickMatch(profileChoose.id, true)}>❤</button>
          </Buttons>
       </>
       }
