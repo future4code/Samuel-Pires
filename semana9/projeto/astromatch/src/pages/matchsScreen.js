@@ -47,7 +47,6 @@ export default function MatchsScreen(props) {
   useEffect(getMatches, []);
   useEffect(() => {
     getMatches();
-    console.log("props.clearSwipe", props.clearSwipe);
   }, [props.clearSwipe]);
 
   const listMatches = matches.map((item) => {
@@ -59,6 +58,5 @@ export default function MatchsScreen(props) {
     );
   });
 
-  console.log("matches", matches);
   return <Main>{listMatches}</Main>;
 }

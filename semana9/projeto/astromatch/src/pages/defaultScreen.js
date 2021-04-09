@@ -17,6 +17,9 @@ const Loading = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #752C92;
+  font-size: 30px;
+  font-weight: bold;
 `;
 
 const PhotoAndDescription = styled.div`
@@ -127,7 +130,6 @@ const DefaultScreen = (props) => {
   useMountEffect(getProfileChoose);
   useEffect(() => {
     getProfileChoose();
-    console.log('props.clearSwipe', props.clearSwipe)
   }, [props.clearSwipe]);
 
   return (
