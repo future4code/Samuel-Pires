@@ -1,16 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Header from '../components/Header'
-const Container= styled.div`
-  width: 100%;
-  height: 100%;
-  div{
-    width: min(900px, 90%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-`
+import Container from '../components/Container'
 
 const InputA = styled.input``
 const InputB = styled.input`` 

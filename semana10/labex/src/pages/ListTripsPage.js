@@ -4,26 +4,17 @@ import {MiniLogo} from '../components/Logo'
 import Filter from '../components/Filter'
 import CardTrip from '../components/CardTrip'
 import styled from 'styled-components'
+import Container from '../components/Container'
 
-const Container = styled.div`
-  width: 100%;
-  height: 100%;
-  div{
-    width: min(900px, 90%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-`
 
 export default function ListTripsPage(){
   return(
     <Container>
-      <div>
-        <Header>
+      <Header>
           <MiniLogo></MiniLogo>
           <button>Voltar</button>
-        </Header>
+      </Header>
+      <div>
         <Filter />
         <CardContainer>
           <CardTrip />
