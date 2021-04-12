@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import Logo from '../components/Logo'
+import React from 'react'
 
 const Container = styled.div`
   display: flex;
