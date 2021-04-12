@@ -1,14 +1,7 @@
 import styled from 'styled-components'
+import Logo from '../components/Logo'
 
 const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`
-
-const Logo = styled.div`
-  width: 400px;
-  height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
