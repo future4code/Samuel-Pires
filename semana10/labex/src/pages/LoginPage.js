@@ -22,13 +22,13 @@ const DivInputs = styled.div`
 export default function(){
   return(
     <Container>
-      <Logo>
-        {/* aqui logo */}
+      {/* <Logo>
       </Logo>
       <DivInputs>
         <input placeholder='Email' />
         <input placeholder='Senha' type='password' />
-      </DivInputs>
+      </DivInputs> */}
+      <p>LoginPage</p>
     </Container>
   )
 }

@@ -13,7 +13,7 @@ const Text = styled.textarea``
 export default function ApplicationFormPage(){
   return(
     <Container>
-      <Header />
+      {/* <Header />
       <div>
         <Trip>
           <option></option>
@@ -29,7 +29,8 @@ export default function ApplicationFormPage(){
           </Country>
         </DivInputs>
         <Text />
-      </div>
+      </div> */}
+      <p>ApplicationFormPage</p>
     </Container>
   )
 }

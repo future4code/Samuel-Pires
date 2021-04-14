@@ -12,7 +12,7 @@ const Button = styled.button``
 export default function CreateTripPage(){
   return(
     <Container>
-      <Header>
+      {/* <Header>
 
       </Header>
       <div>
@@ -24,7 +24,8 @@ export default function CreateTripPage(){
         </Planet>
         <Text />
         <Button>Criar</Button>
-      </div>
+      </div> */}
+      <p>CreateTripPage</p>
     </Container>
   )
 }

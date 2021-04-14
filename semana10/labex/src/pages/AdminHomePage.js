@@ -6,12 +6,13 @@ import Container from '../components/Container'
 export default function AdminHomePage(){
   return(
     <Container>
-      <Header></Header>
+      {/* <Header></Header>
       <div>
         <CardTripContainer>
           <CardTripAdmin />
         </CardTripContainer>
-      </div>
+      </div> */}
+      <p>AdminHomePage</p>
     </Container>
   )
 }

@@ -6,8 +6,9 @@ import Container from '../components/Container'
 export default function TripDetailsPage(){
   return(
     <Container>
-      <CardTrip />
-      <CardCandidate />
+      {/* <CardTrip />
+      <CardCandidate /> */}
+      <p>TripDetailsPage</p>
     </Container>
   )
 }

@@ -10,7 +10,7 @@ import Container from '../components/Container'
 export default function ListTripsPage(){
   return(
     <Container>
-      <Header>
+      {/* <Header>
           <MiniLogo></MiniLogo>
           <button>Voltar</button>
       </Header>
@@ -19,7 +19,8 @@ export default function ListTripsPage(){
         <CardContainer>
           <CardTrip />
         </CardContainer>
-      </div>
+      </div> */}
+      <p>ListTripsPage</p>
     </Container>
   )
 }

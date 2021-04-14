@@ -22,13 +22,14 @@ const Buttons = styled.div`
 export default function(){
   return(
     <Container>
-      <Logo>
-        {/* aqui logo */}
+      {/* <Logo>
+        
       </Logo>
       <Buttons>
         <button>Viagens</button>
         <button>Admin</button>
-      </Buttons>
+      </Buttons> */}
+      <p>HomePage</p>
     </Container>
   )
 }
