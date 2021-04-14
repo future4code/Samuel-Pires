@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
-import { useParams } from 'react-router'
+import { useParams } from 'react-router-dom'
 import { useState } from 'react/cjs/react.development'
 import CardCandidate from '../components/CardCandidate'
 import CardTrip from '../components/CardTrip'
