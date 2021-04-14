@@ -8,6 +8,7 @@ import ApplicationFormPage from './pages/ApplicationFormPage'
 import CreateTripPage from './pages/CreateTripPage'
 import LoginPage from './pages/LoginPage'
 import TripDetailsPage from './pages/TripDetailsPage'
+import Header from './components/Header'
 
 
 function App() {

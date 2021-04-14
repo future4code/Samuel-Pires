@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { useState } from 'react/cjs/react.development'
 import CardCandidate from '../components/CardCandidate'
 import CardTrip from '../components/CardTrip'
-import Container from '../components/Container'
+import {ContainerStyled} from '../styledComponents'
 import useProtectedPage from '../hooks/useProtectedPage'
 import { baseUrl, headers } from '../parameters'
 
@@ -45,10 +45,10 @@ export default function TripDetailsPage(){
   },[])
 
   return(
-    <Container>
+    <ContainerStyled>
       {/* <CardTrip />
       <CardCandidate /> */}
       <p>TripDetailsPage</p>
-    </Container>
+    </ContainerStyled>
   )
 }

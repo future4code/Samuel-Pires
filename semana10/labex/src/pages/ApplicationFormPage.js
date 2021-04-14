@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Header from '../components/Header'
-import Container from '../components/Container'
-
+import {ContainerStyled} from '../styledComponents'
 const Trip = styled.select``
 const DivInputs = styled.div``
 const InputA = styled.input``
@@ -12,7 +11,7 @@ const Text = styled.textarea``
 
 export default function ApplicationFormPage(){
   return(
-    <Container>
+    <ContainerStyled>
       {/* <Header />
       <div>
         <Trip>
@@ -31,6 +30,6 @@ export default function ApplicationFormPage(){
         <Text />
       </div> */}
       <p>ApplicationFormPage</p>
-    </Container>
+    </ContainerStyled>
   )
 }

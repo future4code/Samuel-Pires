@@ -1,15 +1,14 @@
 import React from 'react'
 import Header from '../components/Header'
-import {MiniLogo} from '../components/Logo'
+import {MiniLogo} from '../styledComponents'
 import Filter from '../components/Filter'
 import CardTrip from '../components/CardTrip'
 import styled from 'styled-components'
-import Container from '../components/Container'
-
+import {ContainerStyled} from '../styledComponents'
 
 export default function ListTripsPage(){
   return(
-    <Container>
+    <ContainerStyled>
       {/* <Header>
           <MiniLogo></MiniLogo>
           <button>Voltar</button>
@@ -21,6 +20,6 @@ export default function ListTripsPage(){
         </CardContainer>
       </div> */}
       <p>ListTripsPage</p>
-    </Container>
+    </ContainerStyled>
   )
 }

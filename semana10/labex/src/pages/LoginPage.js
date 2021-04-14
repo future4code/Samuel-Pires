@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import Logo from '../components/Logo'
 import React from 'react'
 import {useInput} from '../hooks/useInput'
 import axios from 'axios'

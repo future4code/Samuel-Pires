@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Header from '../components/Header'
-import Container from '../components/Container'
+import {ContainerStyled} from '../styledComponents'
 import useProtectedPage from '../hooks/useProtectedPage'
 import { useInput } from '../hooks/useInput'
 import axios from 'axios'
@@ -37,7 +37,7 @@ export default function CreateTripPage(){
   }
 
   return(
-    <Container>
+    <ContainerStyled>
       {/* <Header>
 
       </Header>
@@ -52,6 +52,6 @@ export default function CreateTripPage(){
         <Button>Criar</Button>
       </div> */}
       <p>CreateTripPage</p>
-    </Container>
+    </ContainerStyled>
   )
 }

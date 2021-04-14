@@ -1,6 +1,8 @@
 import React from 'react'
-import Container from '../components/Container'
+import {ContainerStyled} from '../styledComponents'
 
 export default function CardCandidate(props){
-  
+  return(
+    <div>oi</div>
+  )
 }

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React from 'react'
 import Header from '../components/Header'
-import Container from '../components/Container'
+import {ContainerStyled} from '../styledComponents'
 import useProtectedPage from "../hooks/useProtectedPage";
 import axios from "axios";
 import { baseUrl, headers } from "../parameters";
@@ -22,7 +22,7 @@ export default function AdminHomePage(){
     }
   }
   return(
-    <Container>
+    <ContainerStyled>
       {/* <Header></Header>
       <div>
         <CardTripContainer>
@@ -30,6 +30,6 @@ export default function AdminHomePage(){
         </CardTripContainer>
       </div> */}
       <p>AdminHomePage</p>
-    </Container>
+    </ContainerStyled>
   )
 }

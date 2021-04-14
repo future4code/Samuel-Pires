@@ -1,8 +1,10 @@
 import styled from 'styled-components'
-import Logo from '../components/Logo'
 import React from 'react'
+import labex from '../assets/labex.png'
+import {ButtonStyled, ContainerStyled, LogoStyled} from '../styledComponents'
+import {Link} from 'react-router-dom'
 
-const Container = styled.div`
+const Container = styled(ContainerStyled)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,23 +15,25 @@ const Buttons = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  button{
-    border: 1px solid black;
-    border-radius: 20px;
-  }
+`
+
+const Button = styled(ButtonStyled)`
+  width: 300px;
+  height: 100px;
+  color: white;
+  font-size: 30px;
 `
 
 export default function(){
   return(
     <Container>
-      {/* <Logo>
-        
-      </Logo>
+      <LogoStyled>
+        <img src={labex} />
+      </LogoStyled>
       <Buttons>
-        <button>Viagens</button>
-        <button>Admin</button>
-      </Buttons> */}
-      <p>HomePage</p>
+        <Link to='/trips/list'><Button>Viagens</Button></Link>
+        <Link to='/login'><Button>Admin</Button></Link>
+      </Buttons>
     </Container>
   )
 }
