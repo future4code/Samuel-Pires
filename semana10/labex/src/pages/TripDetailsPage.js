@@ -6,9 +6,10 @@ import CardCandidate from '../components/CardCandidate'
 import CardTrip from '../components/CardTrip'
 import Container from '../components/Container'
 import useProtectedPage from '../hooks/useProtectedPage'
-import { baseUrl } from '../parameters'
+import { baseUrl, headers } from '../parameters'
 
 export default function TripDetailsPage(){
+  useProtectedPage()
   const {id} = useParams()
   const [trip, setTrip] = useState({})
 
@@ -27,7 +28,18 @@ export default function TripDetailsPage(){
       console.log('erro ao pegar viagem específica', err)
     }
   }
-  useProtectedPage()
+  
+  const decideCandidate = async(candidateId, approve)=>{
+    const token = window.localStorage.getItem('token')
+    const body = {approve: approve}
+    try{
+      await axios.put(`${baseUrl}/trips/${id}/candidates/${candidateId}/decide`, body, headers(token))
+    }
+    catch(err){
+      console.log('erro ao decidir candidato', err)
+    }
+  }
+
   useEffect(()=>{
     getTripDetail()
   },[])
