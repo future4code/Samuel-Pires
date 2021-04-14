@@ -4,6 +4,7 @@ import React from 'react'
 import {useInput} from '../hooks/useInput'
 import axios from 'axios'
 import { baseUrl } from '../parameters'
+import { useHistory } from 'react-router'
 
 const Container = styled.div`
   display: flex;
@@ -26,6 +27,7 @@ const DivInputs = styled.div`
 export default function(){
   const [email, setEmail] = useInput()
   const [password, setPassword] = useInput()
+  const history = useHistory()
 
   const login = async()=>{
     const body={
@@ -36,8 +38,7 @@ export default function(){
     try{
       const res = await axios.post(`${baseUrl}/login`,body)
       window.localStorage.setItem('token', res.data.token)
-      setEmail()
-      setPassword()
+      history.push('/admin/trips/list')
     }
     catch(err){
       console.log('erro ao tentar fazer login', err)

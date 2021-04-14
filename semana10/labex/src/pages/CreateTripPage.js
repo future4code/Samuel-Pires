@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Header from '../components/Header'
 import Container from '../components/Container'
+import useProtectedPage from '../hooks/useProtectedPage'
 
 const InputA = styled.input``
 const InputB = styled.input`` 
@@ -10,6 +11,7 @@ const Text = styled.textarea``
 const Button = styled.button``
 
 export default function CreateTripPage(){
+  useProtectedPage()
   return(
     <Container>
       {/* <Header>
