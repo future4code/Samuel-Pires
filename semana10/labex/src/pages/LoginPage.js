@@ -1,11 +1,15 @@
 import styled from 'styled-components'
 import Logo from '../components/Logo'
 import React from 'react'
+import {useInput} from '../hooks/useInput'
+import axios from 'axios'
+import { baseUrl } from '../parameters'
 
 const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 `
 
 const DivInputs = styled.div`
@@ -20,6 +24,28 @@ const DivInputs = styled.div`
 `
 
 export default function(){
+  const [email, setEmail] = useInput()
+  const [password, setPassword] = useInput()
+
+  const login = async()=>{
+    const body={
+      email,
+      password
+    }
+    console.log(body)
+    try{
+      const res = await axios.post(`${baseUrl}/login`,body)
+      window.localStorage.setItem('token', res.data.token)
+      setEmail()
+      setPassword()
+    }
+    catch(err){
+      console.log('erro ao tentar fazer login', err)
+      setEmail()
+      setPassword()
+    }
+  }
+
   return(
     <Container>
       {/* <Logo>
@@ -29,6 +55,9 @@ export default function(){
         <input placeholder='Senha' type='password' />
       </DivInputs> */}
       <p>LoginPage</p>
+      <input value={email} placeholder='Email' onChange={setEmail} />
+      <input value={password} placeholder='Password' onChange={setPassword} type='password' />
+      <button onClick={login}>Login</button>
     </Container>
   )
 }
