@@ -6,9 +6,18 @@ import CardTrip from '../components/CardTrip'
 import styled from 'styled-components'
 import {ContainerStyled} from '../styledComponents'
 
+const Container = styled(ContainerStyled)`
+  display: flex;
+  flex-direction: column;
+  >div{
+    align-self: center;
+    width: 100%;
+  }
+`
+
 export default function ListTripsPage(){
   return(
-    <ContainerStyled>
+    <Container>
       {/* <Header>
           <MiniLogo></MiniLogo>
           <button>Voltar</button>
@@ -19,7 +28,10 @@ export default function ListTripsPage(){
           <CardTrip />
         </CardContainer>
       </div> */}
-      <p>ListTripsPage</p>
-    </ContainerStyled>
+      <Header />
+      <div>
+        <Filter />
+      </div>
+    </Container>
   )
 }

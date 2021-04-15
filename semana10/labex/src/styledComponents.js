@@ -3,12 +3,6 @@ import styled from 'styled-components'
 export const ContainerStyled= styled.div`
   width: 100vw;
   min-height: 100vh;
-  div{
-    width: min(900px, 90%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
 `
 
 export const ButtonStyled = styled.button`
@@ -22,7 +16,7 @@ export const ButtonStyled = styled.button`
   :active{
     background-color: rgba(0, 82, 136, 1);
   }
-  box-shadow: 2px 1px black;
+  box-shadow: 2px 1px 5px black;
 `
 
 export const LogoStyled = styled.div`
@@ -38,8 +32,12 @@ export const LogoStyled = styled.div`
 `
 
 export const MiniLogoStyled = styled.div`
-  width: 60px;
+  width: 150px;
   height: 60px;
+  img{
+    width: 150px;
+    height: 50px;
+  }
   display: flex;
   justify-content: center;
   align-items: center;
