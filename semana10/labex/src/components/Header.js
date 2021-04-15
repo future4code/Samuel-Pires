@@ -37,7 +37,7 @@ export default function Header(){
   return(
     <Container>
       <MiniLogoStyled>
-        <img src={labexMini} />
+      <Link to='/'><img src={labexMini} /></Link>
       </MiniLogoStyled>
       <Nav>
         <ul>

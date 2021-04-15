@@ -57,16 +57,6 @@ export default function ListTripsPage(){
 
   return(
     <Container>
-      {/* <Header>
-          <MiniLogo></MiniLogo>
-          <button>Voltar</button>
-      </Header>
-      <div>
-        <Filter />
-        <CardContainer>
-          <CardTrip />
-        </CardContainer>
-      </div> */}
       <Header />
       <div>
         <Filter trips={trips} setTripsFiltered={setTripsFiltered}/>

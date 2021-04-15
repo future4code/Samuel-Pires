@@ -4,23 +4,28 @@ import {useInput} from '../hooks/useInput'
 import axios from 'axios'
 import { baseUrl } from '../parameters'
 import { useHistory } from 'react-router'
-
+import { ButtonStyled, LogoStyled } from '../styledComponents'
+import labex from '../assets/labex.png'
+import { Link } from 'react-router-dom'
 const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
 `
 
 const DivInputs = styled.div`
   height: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  button{
-    border: 1px solid black;
-    border-radius: 20px;
-  }
+  justify-content: center;
+  >input{
+    padding: 20px;
+    margin-bottom: 10px;
+  }  
+`
+const Button = styled(ButtonStyled)`
+  border-radius: 5px;
+  box-shadow: 0px 0px 3px black;
 `
 
 export default function(){
@@ -40,24 +45,22 @@ export default function(){
       history.push('/admin/trips/list')
     }
     catch(err){
-      console.log('erro ao tentar fazer login', err)
+      alert(err.response.data.message)
       setEmail()
       setPassword()
     }
   }
-
+  
   return(
     <Container>
-      {/* <Logo>
-      </Logo>
+      <LogoStyled>
+        <Link to='/'><img src={labex} /></Link>
+      </LogoStyled>
       <DivInputs>
-        <input placeholder='Email' />
-        <input placeholder='Senha' type='password' />
-      </DivInputs> */}
-      <p>LoginPage</p>
-      <input value={email} placeholder='Email' onChange={setEmail} />
-      <input value={password} placeholder='Password' onChange={setPassword} type='password' />
-      <button onClick={login}>Login</button>
+        <input value={email} placeholder='Email' onChange={setEmail} />
+        <input value={password} placeholder='Password' onChange={setPassword} type='password' />
+        <Button onClick={login}>Login</Button>
+      </DivInputs>
     </Container>
   )
 }

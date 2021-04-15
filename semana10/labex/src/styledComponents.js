@@ -10,6 +10,7 @@ export const ButtonStyled = styled.button`
   background-color: #A7A9AC;
   border-radius: 20px;
   padding: 10px;
+  color: white;
   :hover{
     background-color: rgba(0, 82, 136, 0.9);
   }
