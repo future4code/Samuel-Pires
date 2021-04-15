@@ -48,6 +48,9 @@ export default function Header(){
             <Link to='/trips/list'><p>Viagens</p></Link>
           </li>
           <li>
+            <Link to='/trips/application'>Inscrever-se</Link>
+          </li>
+          <li>
             <Link to='/admin/trips/list'><p>Admin</p></Link>
           </li>
           {

@@ -1,6 +1,6 @@
 import React from 'react'
 import {BrowserRouter, Switch, Route} from 'react-router-dom'
-
+import styled from 'styled-components'
 import HomePage from './pages/HomePage'
 import ListTripsPage from './pages/ListTripsPage'
 import AdminHomePage from './pages/AdminHomePage'
@@ -10,10 +10,13 @@ import LoginPage from './pages/LoginPage'
 import TripDetailsPage from './pages/TripDetailsPage'
 import Header from './components/Header'
 
+const Browser = styled(BrowserRouter)`
+  width: 100vw;
+`
 
 function App() {
   return (
-    <BrowserRouter>
+    <Browser>
       <Switch>
         <Route exact path="/">
           <HomePage />
@@ -37,7 +40,7 @@ function App() {
           <TripDetailsPage />
         </Route>
       </Switch>
-    </BrowserRouter>
+    </Browser>
   );
 }
 
