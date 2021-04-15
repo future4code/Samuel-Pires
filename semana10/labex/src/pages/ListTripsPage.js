@@ -32,11 +32,13 @@ const Cards = styled.div`
 
 export default function ListTripsPage(){
   const[trips, setTrips] = useState([])
+  const [tripsFiltered, setTripsFiltered] = useState([])
 
   const getTrips = async()=>{
     try{
       const res = await axios.get(`${baseUrl}/trips`)
       setTrips(res.data.trips)
+      setTripsFiltered(res.data.trips)
     }
     catch(err){
       console.log('erro ao obter viagens getTrips', err)
@@ -48,7 +50,7 @@ export default function ListTripsPage(){
   },[])
 
   const tripsRendered = ()=>{
-    return trips.map((trip)=>{
+    return tripsFiltered.map((trip)=>{
       return <CardTrip trip={trip}/>
     })
   }
@@ -67,7 +69,7 @@ export default function ListTripsPage(){
       </div> */}
       <Header />
       <div>
-        <Filter />
+        <Filter trips={trips} setTripsFiltered={setTripsFiltered}/>
         <Cards>
           {tripsRendered()}
         </Cards>

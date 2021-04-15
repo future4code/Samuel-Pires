@@ -11,7 +11,7 @@ export function useInput(callback){
   }
 
   useEffect(()=>{
-    if(typeof callback === 'function' && typeof value ==='string' && value.length>0)callback()
+    callback()
   },[value])
 
   return [value, handleInput]

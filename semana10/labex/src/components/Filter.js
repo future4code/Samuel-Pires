@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react/cjs/react.development'
 import styled from 'styled-components'
 import { useInput } from '../hooks/useInput'
 
@@ -29,8 +30,7 @@ const Busca = styled.input`
 // `
 export default function Filter(props){
   const [busca, setBusca] = useInput(order)
-  const [trips, setTrips] = useState(props.trips)
-  const [tripsFiltered, setTripsFiltered] = useState(props.trips)
+  const [trips, setTrips] = useState([])
 
   function order(){
     const newTrips = trips.filter((trip)=>{
@@ -39,13 +39,19 @@ export default function Filter(props){
       planet = planet.toLowerCase()
       description = description.toLowerCase()
       const newBusca = busca.toLowerCase()
-
-      if((name.includes(newBusca) || planet.includes(newBusca) || name.includes(newBusca)))
+      
+      if(name.includes(newBusca) || planet.includes(newBusca) || description.includes(newBusca) || newBusca===''){
         return true
+      }
     })
     
-    props.tripsFiltered(newTrips)
+    props.setTripsFiltered(newTrips)
   }
+
+  useEffect(()=>{
+    setTrips(props.trips)
+    console.log('props.trips',props.trips)
+  },[props.trips])
 
   return(
     <Container>
