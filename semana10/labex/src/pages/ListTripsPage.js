@@ -1,21 +1,58 @@
 import React from 'react'
 import Header from '../components/Header'
-import {MiniLogo} from '../styledComponents'
 import Filter from '../components/Filter'
 import CardTrip from '../components/CardTrip'
 import styled from 'styled-components'
 import {ContainerStyled} from '../styledComponents'
+import { useEffect, useState } from 'react/cjs/react.development'
+import axios from 'axios'
+import { baseUrl } from '../parameters'
 
 const Container = styled(ContainerStyled)`
+  height: 100vh;
   display: flex;
   flex-direction: column;
   >div{
     align-self: center;
-    width: 100%;
+    width: calc(100% - 40px);
+    display: flex;
+    flex-direction: column;
   }
+  overflow: auto;
+`
+
+const Cards = styled.div`
+  width: 100%;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 5px;
 `
 
 export default function ListTripsPage(){
+  const[trips, setTrips] = useState([])
+
+  const getTrips = async()=>{
+    try{
+      const res = await axios.get(`${baseUrl}/trips`)
+      setTrips(res.data.trips)
+    }
+    catch(err){
+      console.log('erro ao obter viagens getTrips', err)
+    }
+  }
+
+  useEffect(()=>{
+    getTrips()
+  },[])
+
+  const tripsRendered = ()=>{
+    return trips.map((trip)=>{
+      return <CardTrip trip={trip}/>
+    })
+  }
+
   return(
     <Container>
       {/* <Header>
@@ -31,6 +68,9 @@ export default function ListTripsPage(){
       <Header />
       <div>
         <Filter />
+        <Cards>
+          {tripsRendered()}
+        </Cards>
       </div>
     </Container>
   )

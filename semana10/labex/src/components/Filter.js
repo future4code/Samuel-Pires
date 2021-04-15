@@ -9,7 +9,7 @@ const Container = styled.div`
   justify-content: space-around;
 `
 const Busca = styled.input`
-  width: max(300px, 80%);
+  width: max(300px, 100%);
   height: 100%;
 `
 // const Data = styled.input`

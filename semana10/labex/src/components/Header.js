@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { MiniLogoStyled } from '../styledComponents'
 import labexMini from '../assets/labex-mini.png'
 const Container = styled.header`
+  width: 100%;
   height: 60px;
   display: flex;
   align-items: center;
