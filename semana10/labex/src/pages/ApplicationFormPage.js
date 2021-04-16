@@ -7,12 +7,6 @@ import { baseUrl } from "../parameters";
 import { ContainerStyled, ButtonStyled } from "../components/styledComponents";
 import axios from 'axios'
 
-const Container = styled(ContainerStyled)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
 const Trip = styled.select`
   width: 90%;
   height: 60px;
@@ -94,7 +88,7 @@ export default function ApplicationFormPage() {
   },[])
 
   return (
-    <Container>
+    <ContainerStyled>
       <Header />
       <Form onSubmit={submit} >
         <Trip name="trip" required value={form.trip} onChange={setForm}>
@@ -376,6 +370,6 @@ export default function ApplicationFormPage() {
           minLength="30"></Text>
         <Button>Enviar</Button>
       </Form>
-    </Container>
+    </ContainerStyled>
   );
 }

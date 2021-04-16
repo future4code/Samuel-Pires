@@ -31,11 +31,7 @@ const Form = styled.form`
   flex-wrap: wrap;
   justify-content: space-between;
 `;
-const Container = styled(ContainerStyled)`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
+
 
 const initialForm = {
   name: "",
@@ -83,7 +79,7 @@ export default function CreateTripPage() {
   console.log('form  data', form.date)
   console.log('dataString', dataString(new Date()))
   return (
-    <Container>
+    <ContainerStyled>
       <Header />
       <Form onSubmit={createTrip}>
         <InputA
@@ -135,6 +131,6 @@ export default function CreateTripPage() {
         />
         <Button>Criar</Button>
       </Form>
-    </Container>
+    </ContainerStyled>
   );
 }

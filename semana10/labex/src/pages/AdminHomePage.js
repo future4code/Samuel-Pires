@@ -8,11 +8,6 @@ import { baseUrl, headers } from "../parameters";
 import { useParams } from "react-router-dom";
 import CardTrip from "../components/CardTrip";
 
-const Container = styled(ContainerStyled)`
-  display:flex;
-  flex-direction: column;
-`
-
 const Cards = styled.div`
   width: 100%;
   overflow: auto;
@@ -59,11 +54,11 @@ export default function AdminHomePage(){
     })
   }
   return(
-    <Container>
+    <ContainerStyled>
       <Header />
       <Cards>
         {tripsRendered()}
       </Cards>
-    </Container>
+    </ContainerStyled>
   )
 }

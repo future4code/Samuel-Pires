@@ -10,13 +10,6 @@ import { baseUrl, headers } from '../parameters'
 import styled from 'styled-components'
 import Header from '../components/Header'
 
-const Container = styled(ContainerStyled)`
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-  padding-top: 10px;
-`
-
 export default function TripDetailsPage(){
   useProtectedPage()
   const {id} = useParams()
@@ -45,10 +38,10 @@ export default function TripDetailsPage(){
   console.log('trip aqui', trip)
 
   return(
-    <Container>
+    <ContainerStyled>
       <Header />
       <CardTrip trip={trip}/>
       <CardCandidates candidates={trip.candidates} id={id}/>
-    </Container>
+    </ContainerStyled>
   )
 }

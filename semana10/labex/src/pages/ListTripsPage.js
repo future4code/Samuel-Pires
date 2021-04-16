@@ -9,9 +9,6 @@ import axios from 'axios'
 import { baseUrl } from '../parameters'
 
 const Container = styled(ContainerStyled)`
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
   >div{
     align-self: center;
     width: calc(100% - 40px);

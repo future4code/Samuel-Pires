@@ -1,10 +1,12 @@
 import styled from 'styled-components'
 import React from 'react'
 import labex from '../assets/labex.png'
-import {ButtonStyled, ContainerStyled, LogoStyled} from '../components/styledComponents'
+import {ButtonStyled, LogoStyled} from '../components/styledComponents'
 import {Link} from 'react-router-dom'
 
-const Container = styled(ContainerStyled)`
+const Container = styled.div`
+  width: 100%;
+  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
