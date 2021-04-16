@@ -96,3 +96,12 @@ export const FormStyled = styled.form`
   flex-wrap: wrap;
   justify-content: space-between;
 `
+
+export const CardsStyled = styled.div`
+  width: 90%;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 5px;
+`

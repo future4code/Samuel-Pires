@@ -2,7 +2,7 @@ import Header from "../components/Header";
 import Filter from "../components/Filter";
 import CardTrip from "../components/CardTrip";
 import styled from "styled-components";
-import { ContainerStyled } from "../components/styledComponents";
+import { CardsStyled, ContainerStyled } from "../components/styledComponents";
 import React, { useEffect, useState } from "react";
 import { useGetApi } from "../hooks/useRequest";
 
@@ -12,19 +12,10 @@ const Container = styled(ContainerStyled)`
     width: calc(100% - 40px);
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
   overflow: auto;
 `;
-
-const Cards = styled.div`
-  width: 100%;
-  overflow: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 5px;
-`;
-
 export default function ListTripsPage() {
   const [trips, setTrips] = useState([]);
   const [tripsFiltered, setTripsFiltered] = useState([]);
@@ -56,7 +47,7 @@ export default function ListTripsPage() {
       <Header />
       <div>
         <Filter trips={trips} setTripsFiltered={setTripsFiltered} />
-        <Cards>{tripsRendered()}</Cards>
+        <CardsStyled>{tripsRendered()}</CardsStyled>
       </div>
     </Container>
   );

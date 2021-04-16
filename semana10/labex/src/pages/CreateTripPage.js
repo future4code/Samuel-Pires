@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import Header from "../components/Header";
 import { ContainerStyled, ButtonStyled, SelectStyled, InputStyled, TextAreaStyled, FormStyled } from "../components/styledComponents";
 import useProtectedPage from "../hooks/useProtectedPage";

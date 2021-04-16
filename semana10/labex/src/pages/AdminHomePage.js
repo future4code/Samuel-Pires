@@ -1,20 +1,10 @@
-import styled from "styled-components";
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
-import { ContainerStyled } from "../components/styledComponents";
+import { CardsStyled, ContainerStyled } from "../components/styledComponents";
 import useProtectedPage from "../hooks/useProtectedPage";
 import { headers } from "../assets/parameters";
 import CardTrip from "../components/CardTrip";
 import { delApi, useGetApi } from "../hooks/useRequest";
-
-const Cards = styled.div`
-  width: 100%;
-  overflow: auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 5px;
-`;
 
 export default function AdminHomePage() {
   useProtectedPage();
@@ -49,7 +39,7 @@ export default function AdminHomePage() {
   return (
     <ContainerStyled>
       <Header />
-      <Cards>{tripsRendered()}</Cards>
+      <CardsStyled>{tripsRendered()}</CardsStyled>
     </ContainerStyled>
   );
 }
