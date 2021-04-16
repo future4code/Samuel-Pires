@@ -7,6 +7,7 @@ import {ContainerStyled} from '../components/styledComponents'
 import { useEffect, useState } from 'react/cjs/react.development'
 import axios from 'axios'
 import { baseUrl } from '../assets/parameters'
+import { useGetApi } from '../hooks/useRequest'
 
 const Container = styled(ContainerStyled)`
   >div{
@@ -30,21 +31,32 @@ const Cards = styled.div`
 export default function ListTripsPage(){
   const[trips, setTrips] = useState([])
   const [tripsFiltered, setTripsFiltered] = useState([])
+  const [getApi, setGetApi] = useGetApi('Erro ao obter viagens')
+  // const getTrips = async()=>{
+  //   try{
+  //     const res = await axios.get(`${baseUrl}/trips`)
+  //     setTrips(res.data.trips)
+  //     setTripsFiltered(res.data.trips)
+  //   }
+  //   catch(err){
+  //     console.log('erro ao obter viagens getTrips', err)
+  //   }
+  // }
 
-  const getTrips = async()=>{
-    try{
-      const res = await axios.get(`${baseUrl}/trips`)
-      setTrips(res.data.trips)
-      setTripsFiltered(res.data.trips)
-    }
-    catch(err){
-      console.log('erro ao obter viagens getTrips', err)
-    }
+  const getTrips=()=>{
+    setGetApi('/trips')
   }
 
   useEffect(()=>{
     getTrips()
   },[])
+
+  useEffect(()=>{
+    if(getApi && getApi.data && getApi.data.trips){
+      setTrips(getApi.data.trips)
+      setTripsFiltered(getApi.data.trips)
+    }
+  },[getApi])
 
   const tripsRendered = ()=>{
     return tripsFiltered.map((trip)=>{
