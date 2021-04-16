@@ -1,36 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
-import { ContainerStyled, ButtonStyled } from "../components/styledComponents";
+import { ContainerStyled, ButtonStyled, SelectStyled, InputStyled, TextAreaStyled, FormStyled } from "../components/styledComponents";
 import useProtectedPage from "../hooks/useProtectedPage";
 import { headers } from "../assets/parameters";
 import useForm from "../hooks/useForm";
 import { postApi } from "../hooks/useRequest";
-
-const InputA = styled.input`
-  width: 100%;
-`;
-const InputB = styled.input`
-  width: 48%;
-`;
-const Planet = styled.select`
-  width: 100%;
-`;
-const Text = styled.textarea`
-  width: 100%;
-  height: 300px;
-`;
-const Button = styled(ButtonStyled)`
-  width: 100%;
-  margin-top: 10px;
-  font-size: 17px;
-`;
-const Form = styled.form`
-  width: 90%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-`;
 
 const initialForm = {
   name: "",
@@ -79,8 +54,8 @@ export default function CreateTripPage() {
   return (
     <ContainerStyled>
       <Header />
-      <Form onSubmit={createTrip}>
-        <InputA
+      <FormStyled onSubmit={createTrip} width='90%'>
+        <InputStyled width='100%'
           name="name"
           required
           minLength="5"
@@ -88,7 +63,7 @@ export default function CreateTripPage() {
           value={form.name}
           onChange={setForm}
         />
-        <InputB
+        <InputStyled width='48%'
           name="date"
           required
           type="date"
@@ -97,7 +72,7 @@ export default function CreateTripPage() {
           value={form.date}
           onChange={setForm}
         />
-        <InputB
+        <InputStyled width='48%'
           name="durationInDays"
           required
           type="number"
@@ -106,7 +81,7 @@ export default function CreateTripPage() {
           value={form.durationInDays}
           onChange={setForm}
         />
-        <Planet name="planet" required value={form.planet} onChange={setForm}>
+        <SelectStyled width='100%' name="planet" required value={form.planet} onChange={setForm}>
           <option value=""></option>
           <option value="Mercury">Mercury</option>
           <option value="Venus">Venus</option>
@@ -118,8 +93,8 @@ export default function CreateTripPage() {
           <option value="Uranus">Uranus</option>
           <option value="Neptune">Neptune</option>
           <option value="Pluto">Pluto</option>
-        </Planet>
-        <Text
+        </SelectStyled>
+        <TextAreaStyled width='100%'
           name="description"
           required
           minLength="30"
@@ -127,8 +102,10 @@ export default function CreateTripPage() {
           value={form.description}
           onChange={setForm}
         />
-        <Button>Criar</Button>
-      </Form>
+        <ButtonStyled width='100%'>
+          Criar
+        </ButtonStyled>
+      </FormStyled>
     </ContainerStyled>
   );
 }

@@ -23,6 +23,11 @@ export const ButtonStyled = styled.button`
       props.primary ? "rgba(121, 122, 124, 0.9)" : "rgba(0, 82, 136, 1)"};
   }
   box-shadow: 2px 1px 5px black;
+  margin: 5px 0;
+  font-size: ${props=>props.fsize};
+  width: ${props=>props.width};
+  margin-right: ${props=>props.mright};
+  margin-left: ${props=>props.mleft};
 `;
 
 export const LogoStyled = styled.div`
@@ -48,3 +53,46 @@ export const MiniLogoStyled = styled.div`
   justify-content: center;
   align-items: center;
 `;
+
+export const SelectStyled = styled.select`
+  width: ${props=>props.width};
+  height: 60px;
+  margin: 5px 0;
+  margin-right: ${props=>props.mright};
+  margin-left: ${props=>props.mleft};
+`
+
+export const InputStyled = styled.input`
+  width: ${props=>props.width};
+  margin: 5px 0;
+  margin-right: ${props=>props.mright};
+  margin-left: ${props=>props.mleft};
+  height: 60px;
+  border-radius: 5px;
+  padding-left: 10px;
+  border: 2px solid #005288;
+  :hover{
+    box-shadow: 0 0 5px #003759;
+  }
+`
+
+export const TextAreaStyled = styled.textarea`
+  width: ${props=>props.width};
+  height: 300px;
+  border: 2px solid #005288;
+  padding: 10px;
+  :hover{
+    box-shadow: 0 0 5px #003759;
+  }
+  margin: 5px 0;
+  margin-right: ${props=>props.mright};
+  margin-left: ${props=>props.mleft};
+  border-radius: 5px;
+`
+
+export const FormStyled = styled.form`
+  width: ${props=>props.width};
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+`
