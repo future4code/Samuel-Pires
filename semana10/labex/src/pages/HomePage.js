@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import React from 'react'
 import labex from '../assets/labex.png'
-import {ButtonStyled, ContainerStyled, LogoStyled} from '../styledComponents'
+import {ButtonStyled, ContainerStyled, LogoStyled} from '../components/styledComponents'
 import {Link} from 'react-router-dom'
 
 const Container = styled(ContainerStyled)`

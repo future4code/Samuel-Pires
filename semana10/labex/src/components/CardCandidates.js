@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import { useEffect } from 'react/cjs/react.development'
 import { baseUrl, headers } from '../parameters'
-import {ContainerStyled} from '../styledComponents'
+import {ContainerStyled} from './styledComponents'
 
 export default function CardCandidates(props){
   const [lista, setLista] = useState([])

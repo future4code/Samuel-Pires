@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
-import { ContainerStyled, ButtonStyled} from "../styledComponents";
+import { ContainerStyled, ButtonStyled} from "../components/styledComponents";
 import useProtectedPage from "../hooks/useProtectedPage";
 import { useInput } from "../hooks/useInput";
 import axios from "axios";

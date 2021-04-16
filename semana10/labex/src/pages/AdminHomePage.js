@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React, {useState, useEffect} from 'react'
 import Header from '../components/Header'
-import {ContainerStyled} from '../styledComponents'
+import {ContainerStyled} from '../components/styledComponents'
 import useProtectedPage from "../hooks/useProtectedPage";
 import axios from "axios";
 import { baseUrl, headers } from "../parameters";
