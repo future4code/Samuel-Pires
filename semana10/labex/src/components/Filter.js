@@ -25,14 +25,12 @@ export default function Filter(props) {
       description = description.toLowerCase();
       const newBusca = busca.toLowerCase();
 
-      if (
-        name.includes(newBusca) ||
+      if(name.includes(newBusca) ||
         planet.includes(newBusca) ||
         description.includes(newBusca) ||
-        newBusca === ""
-      ) {
-        return true;
-      }
+        newBusca === ""){
+          return true;
+        }
     });
 
     props.setTripsFiltered(newTrips);

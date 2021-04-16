@@ -12,7 +12,7 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Buttons = styled.div`
+const DivButtons = styled.div`
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -31,14 +31,14 @@ export default function () {
       <LogoStyled>
         <img src={labex} />
       </LogoStyled>
-      <Buttons>
+      <DivButtons>
         <Link to="/trips/list">
           <Button>Viagens</Button>
         </Link>
         <Link to="/login">
           <Button primary>Admin</Button>
         </Link>
-      </Buttons>
+      </DivButtons>
     </Container>
   );
 }

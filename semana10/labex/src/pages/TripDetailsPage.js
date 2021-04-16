@@ -1,6 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
 import CardCandidates from "../components/CardCandidates";
 import CardTrip from "../components/CardTrip";
 import { ContainerStyled } from "../components/styledComponents";
@@ -20,6 +19,10 @@ export default function TripDetailsPage() {
     setGetApi(`/trip/${id}`, headers(token));
   };
 
+  const decide = ()=>{
+    getTripDetail()
+  }
+
   useEffect(() => {
     getTripDetail();
   }, []);
@@ -32,7 +35,7 @@ export default function TripDetailsPage() {
     <ContainerStyled>
       <Header />
       <CardTrip trip={trip} />
-      <CardCandidates candidates={trip.candidates} id={id} />
+      <CardCandidates candidates={trip.candidates} id={id} decide={decide} />
     </ContainerStyled>
   );
 }

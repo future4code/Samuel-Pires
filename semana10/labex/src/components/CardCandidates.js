@@ -11,7 +11,10 @@ export default function CardCandidates(props) {
     putApi(
       `/trips/${props.id}/candidates/${candidateId}/decide`,
       body,
-      headers(token)
+      headers(token),
+      'Erro. Por favor tente novamente mais tarde',
+      '',
+      (res)=>{props.decide()}
     );
   };
 
