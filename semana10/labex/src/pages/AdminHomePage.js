@@ -1,13 +1,11 @@
 import styled from "styled-components";
-import React, {useState, useEffect} from 'react'
-import Header from '../components/Header'
-import {ContainerStyled} from '../components/styledComponents'
+import React, { useState, useEffect } from "react";
+import Header from "../components/Header";
+import { ContainerStyled } from "../components/styledComponents";
 import useProtectedPage from "../hooks/useProtectedPage";
-import axios from "axios";
-import { baseUrl, headers } from "../assets/parameters";
-import { useParams } from "react-router-dom";
+import { headers } from "../assets/parameters";
 import CardTrip from "../components/CardTrip";
-import { delApi } from "../hooks/useRequest";
+import { delApi, useGetApi } from "../hooks/useRequest";
 
 const Cards = styled.div`
   width: 100%;
@@ -16,43 +14,42 @@ const Cards = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 5px;
-`
+`;
 
-export default function AdminHomePage(){
-  useProtectedPage()
+export default function AdminHomePage() {
+  useProtectedPage();
 
-  const [trips, setTrips] = useState([])
+  const [trips, setTrips] = useState([]);
+  const [getApi, setGetApi] = useGetApi();
 
-  const getTrips = async()=>{
-    try{
-      const res = await axios.get(`${baseUrl}/trips`)
-      setTrips(res.data.trips)
-    }
-    catch(err){
-      console.log('erro ao obter viagens getTrips', err)
-    }
-  }
+  const getTrips = () => {
+    setGetApi("/trips");
+  };
 
-  useEffect(()=>{
-    getTrips()
-  },[])
+  useEffect(() => {
+    getTrips();
+  }, []);
 
-  const deleteTrip = (id)=>{
-    const token = window.localStorage.getItem('token')
-    delApi(`/trips/${id}`, headers(token), '','', (res)=>{getTrips()})
-  }
+  useEffect(() => {
+    if (getApi && getApi.data && getApi.data.trips) setTrips(getApi.data.trips);
+  }, [getApi]);
 
-  const tripsRendered = ()=>{
-    return trips.map((trip)=>{
-      return <CardTrip trip={trip} del={true} deleteTrip={deleteTrip}/>
-    })
-  }
-  return(
+  const deleteTrip = (id) => {
+    const token = window.localStorage.getItem("token");
+    delApi(`/trips/${id}`, headers(token), "", "", (res) => {
+      getTrips();
+    });
+  };
+
+  const tripsRendered = () => {
+    return trips.map((trip) => {
+      return <CardTrip trip={trip} del={true} deleteTrip={deleteTrip} />;
+    });
+  };
+  return (
     <ContainerStyled>
       <Header />
-      <Cards>
-        {tripsRendered()}
-      </Cards>
+      <Cards>{tripsRendered()}</Cards>
     </ContainerStyled>
-  )
+  );
 }

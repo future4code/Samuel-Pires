@@ -1,11 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
-import { ContainerStyled, ButtonStyled} from "../components/styledComponents";
+import { ContainerStyled, ButtonStyled } from "../components/styledComponents";
 import useProtectedPage from "../hooks/useProtectedPage";
-import { useInput } from "../hooks/useInput";
-import axios from "axios";
-import { baseUrl, headers } from "../assets/parameters";
+import { headers } from "../assets/parameters";
 import useForm from "../hooks/useForm";
 import { postApi } from "../hooks/useRequest";
 
@@ -34,7 +32,6 @@ const Form = styled.form`
   justify-content: space-between;
 `;
 
-
 const initialForm = {
   name: "",
   planet: "",
@@ -46,35 +43,39 @@ const initialForm = {
 export default function CreateTripPage() {
   useProtectedPage();
   const [form, setForm, clearForm] = useForm(initialForm);
-  const data = new Date()
+  const data = new Date();
 
-  const dataString = (data)=>{
-    console.log('data', data)
-    const year = data.getFullYear().toString()
+  const dataString = (data) => {
+    console.log("data", data);
+    const year = data.getFullYear().toString();
 
-    let month
-    if(data.getMonth()+1<10)month='0'+(data.getMonth()+1).toString()
-    else month = (data.getMonth()+1).toString()
+    let month;
+    if (data.getMonth() + 1 < 10)
+      month = "0" + (data.getMonth() + 1).toString();
+    else month = (data.getMonth() + 1).toString();
 
-    let day
-    if((data.getDate()+1)<10)day='0'+(data.getDate()+1).toString()
-    else day = (data.getDate()+1).toString()
-    
-    return year+'-'+month+'-'+day
-  }
+    let day;
+    if (data.getDate() + 1 < 10) day = "0" + (data.getDate() + 1).toString();
+    else day = (data.getDate() + 1).toString();
 
-  const createTrip = (e)=>{
-    e.preventDefault()
-    // createTripApi(baseUrl, form)
-    const token = window.localStorage.getItem('token')
-    postApi(`/trips`, form, headers(token), 'Erro ao criar viagem, por favor tente novamente mais tarde',
-    'Sucesso ao criar viagem!')
-    clearForm()
-  }
+    return year + "-" + month + "-" + day;
+  };
 
+  const createTrip = (e) => {
+    e.preventDefault();
+    const token = window.localStorage.getItem("token");
+    postApi(
+      `/trips`,
+      form,
+      headers(token),
+      "Erro ao criar viagem, por favor tente novamente mais tarde",
+      "Sucesso ao criar viagem!"
+    );
+    clearForm();
+  };
 
-  console.log('form  data', form.date)
-  console.log('dataString', dataString(new Date()))
+  console.log("form  data", form.date);
+  console.log("dataString", dataString(new Date()));
   return (
     <ContainerStyled>
       <Header />
@@ -92,7 +93,7 @@ export default function CreateTripPage() {
           required
           type="date"
           min={dataString(new Date())}
-          title='Requer uma data no futuro'
+          title="Requer uma data no futuro"
           value={form.date}
           onChange={setForm}
         />

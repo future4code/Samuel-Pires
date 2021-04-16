@@ -1,23 +1,20 @@
-import React from 'react'
-import Header from '../components/Header'
-import Filter from '../components/Filter'
-import CardTrip from '../components/CardTrip'
-import styled from 'styled-components'
-import {ContainerStyled} from '../components/styledComponents'
-import { useEffect, useState } from 'react/cjs/react.development'
-import axios from 'axios'
-import { baseUrl } from '../assets/parameters'
-import { useGetApi } from '../hooks/useRequest'
+import Header from "../components/Header";
+import Filter from "../components/Filter";
+import CardTrip from "../components/CardTrip";
+import styled from "styled-components";
+import { ContainerStyled } from "../components/styledComponents";
+import React, { useEffect, useState } from "react";
+import { useGetApi } from "../hooks/useRequest";
 
 const Container = styled(ContainerStyled)`
-  >div{
+  > div {
     align-self: center;
     width: calc(100% - 40px);
     display: flex;
     flex-direction: column;
   }
   overflow: auto;
-`
+`;
 
 const Cards = styled.div`
   width: 100%;
@@ -26,53 +23,41 @@ const Cards = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 5px;
-`
+`;
 
-export default function ListTripsPage(){
-  const[trips, setTrips] = useState([])
-  const [tripsFiltered, setTripsFiltered] = useState([])
-  const [getApi, setGetApi] = useGetApi('Erro ao obter viagens')
-  // const getTrips = async()=>{
-  //   try{
-  //     const res = await axios.get(`${baseUrl}/trips`)
-  //     setTrips(res.data.trips)
-  //     setTripsFiltered(res.data.trips)
-  //   }
-  //   catch(err){
-  //     console.log('erro ao obter viagens getTrips', err)
-  //   }
-  // }
+export default function ListTripsPage() {
+  const [trips, setTrips] = useState([]);
+  const [tripsFiltered, setTripsFiltered] = useState([]);
+  const [getApi, setGetApi] = useGetApi("Erro ao obter viagens");
 
-  const getTrips=()=>{
-    setGetApi('/trips')
-  }
+  const getTrips = () => {
+    setGetApi("/trips");
+  };
 
-  useEffect(()=>{
-    getTrips()
-  },[])
+  useEffect(() => {
+    getTrips();
+  }, []);
 
-  useEffect(()=>{
-    if(getApi && getApi.data && getApi.data.trips){
-      setTrips(getApi.data.trips)
-      setTripsFiltered(getApi.data.trips)
+  useEffect(() => {
+    if (getApi && getApi.data && getApi.data.trips) {
+      setTrips(getApi.data.trips);
+      setTripsFiltered(getApi.data.trips);
     }
-  },[getApi])
+  }, [getApi]);
 
-  const tripsRendered = ()=>{
-    return tripsFiltered.map((trip)=>{
-      return <CardTrip trip={trip}/>
-    })
-  }
+  const tripsRendered = () => {
+    return tripsFiltered.map((trip) => {
+      return <CardTrip trip={trip} />;
+    });
+  };
 
-  return(
+  return (
     <Container>
       <Header />
       <div>
-        <Filter trips={trips} setTripsFiltered={setTripsFiltered}/>
-        <Cards>
-          {tripsRendered()}
-        </Cards>
+        <Filter trips={trips} setTripsFiltered={setTripsFiltered} />
+        <Cards>{tripsRendered()}</Cards>
       </div>
     </Container>
-  )
+  );
 }

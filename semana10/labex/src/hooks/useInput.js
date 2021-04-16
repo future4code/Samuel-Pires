@@ -1,18 +1,17 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from "react";
 
-export function useInput(callback){
-  const [value, setValue] = useState('')
+export function useInput(callback) {
+  const [value, setValue] = useState("");
 
-  const handleInput=(e)=>{
-    if(e && e.target && e.target.value){
-      setValue(e.target.value)
-    }
-    else setValue('')
-  }
+  const handleInput = (e) => {
+    if (e && e.target && e.target.value) {
+      setValue(e.target.value);
+    } else setValue("");
+  };
 
-  useEffect(()=>{
-    if(typeof callback === 'function')callback()
-  },[value])
+  useEffect(() => {
+    if (typeof callback === "function") callback();
+  }, [value]);
 
-  return [value, handleInput]
+  return [value, handleInput];
 }

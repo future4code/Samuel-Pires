@@ -1,18 +1,18 @@
-import React from 'react'
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
-import styled from 'styled-components'
-import HomePage from './pages/HomePage'
-import ListTripsPage from './pages/ListTripsPage'
-import AdminHomePage from './pages/AdminHomePage'
-import ApplicationFormPage from './pages/ApplicationFormPage'
-import CreateTripPage from './pages/CreateTripPage'
-import LoginPage from './pages/LoginPage'
-import TripDetailsPage from './pages/TripDetailsPage'
-import Header from './components/Header'
+import React from "react";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+import styled from "styled-components";
+import HomePage from "./pages/HomePage";
+import ListTripsPage from "./pages/ListTripsPage";
+import AdminHomePage from "./pages/AdminHomePage";
+import ApplicationFormPage from "./pages/ApplicationFormPage";
+import CreateTripPage from "./pages/CreateTripPage";
+import LoginPage from "./pages/LoginPage";
+import TripDetailsPage from "./pages/TripDetailsPage";
+import Header from "./components/Header";
 
 const Browser = styled(BrowserRouter)`
   width: 100vw;
-`
+`;
 
 function App() {
   return (

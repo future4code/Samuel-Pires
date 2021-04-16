@@ -1,47 +1,38 @@
-import axios from 'axios'
-import React, { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
-import { useState } from 'react'
-import CardCandidates from '../components/CardCandidates'
-import CardTrip from '../components/CardTrip'
-import {ContainerStyled} from '../components/styledComponents'
-import useProtectedPage from '../hooks/useProtectedPage'
-import { baseUrl, headers } from '../assets/parameters'
-import styled from 'styled-components'
-import Header from '../components/Header'
+import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+import CardCandidates from "../components/CardCandidates";
+import CardTrip from "../components/CardTrip";
+import { ContainerStyled } from "../components/styledComponents";
+import useProtectedPage from "../hooks/useProtectedPage";
+import { headers } from "../assets/parameters";
+import Header from "../components/Header";
+import { useGetApi } from "../hooks/useRequest";
 
-export default function TripDetailsPage(){
-  useProtectedPage()
-  const {id} = useParams()
-  const [trip, setTrip] = useState({})
+export default function TripDetailsPage() {
+  useProtectedPage();
+  const { id } = useParams();
+  const [trip, setTrip] = useState({});
+  const [getApi, setGetApi] = useGetApi();
 
-  const getTripDetail = async()=>{
-    const token = window.localStorage.getItem('token')
-    try{
-      const res = await axios.get(`${baseUrl}/trip/${id}`,{
-        headers:{
-          auth: token
-        }
-      })
-      setTrip(res.data.trip)
-      console.log('Trip', trip)
-    }
-    catch(err){
-      console.log('erro ao pegar viagem específica', err)
-    }
-  }
+  const getTripDetail = () => {
+    const token = window.localStorage.getItem("token");
+    setGetApi(`/trip/${id}`, headers(token));
+  };
 
-  useEffect(()=>{
-    getTripDetail()
-  },[])
+  useEffect(() => {
+    getTripDetail();
+  }, []);
 
-  console.log('trip aqui', trip)
+  useEffect(() => {
+    if (getApi && getApi.data && getApi.data.trip) setTrip(getApi.data.trip);
+  }, [getApi]);
 
-  return(
+  return (
     <ContainerStyled>
       <Header />
-      <CardTrip trip={trip}/>
-      <CardCandidates candidates={trip.candidates} id={id}/>
+      <CardTrip trip={trip} />
+      <CardCandidates candidates={trip.candidates} id={id} />
     </ContainerStyled>
-  )
+  );
 }

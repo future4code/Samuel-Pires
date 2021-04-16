@@ -1,11 +1,10 @@
 import React from "react";
-import { useEffect, useState } from "react/cjs/react.development";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
 import useForm from "../hooks/useForm";
-import { baseUrl } from "../assets/parameters";
 import { ContainerStyled, ButtonStyled } from "../components/styledComponents";
-import axios from 'axios'
+import { postApi, useGetApi } from "../hooks/useRequest";
 
 const Trip = styled.select`
   width: 90%;
@@ -56,56 +55,79 @@ const initialForm = {
 };
 
 export default function ApplicationFormPage() {
-  const [form, setForm, clearForm] = useForm(initialForm)
-  const [trips, setTrips] = useState([])
+  const [form, setForm, clearForm] = useForm(initialForm);
+  const [trips, setTrips] = useState([]);
+  const [getApi, setGetApi] = useGetApi();
 
-  const getTrips = async()=>{
-    try{
-      const res = await axios.get(`${baseUrl}/trips`)
-      setTrips(res.data.trips)
-    }
-    catch(err){
-      console.log('erro ao obter viagens getTrips', err)
-    }
-  }
+  const getTrips = () => {
+    setGetApi("/trips");
+  };
 
-  const tripsOptions = trips.map((trip)=>{
-    return <option value={trip.id}>{trip.name}</option>
-  })
+  const submit = (e) => {
+    e.preventDefault();
+    postApi(
+      `/trips/${form.trip}/apply`,
+      form,
+      null,
+      "Erro ao aplicar para viagem, por favor tente novamente mais tarde",
+      "Sucesso ao aplicar para viagem",
+      (res) => {
+        clearForm();
+      }
+    );
+  };
 
-  const submit=(e)=>{
-    e.preventDefault()
-    // applyToTripApi(baseUrl, form)
-  }
+  useEffect(() => {
+    getTrips();
+  }, []);
 
-  useEffect(()=>{
-    getTrips()
-  },[])
+  useEffect(() => {
+    if (getApi && getApi.data && getApi.data.trips) setTrips(getApi.data.trips);
+  }, [getApi]);
 
+  const tripsOptions = trips.map((trip) => {
+    return <option value={trip.id}>{trip.name}</option>;
+  });
   return (
     <ContainerStyled>
       <Header />
-      <Form onSubmit={submit} >
+      <Form onSubmit={submit}>
         <Trip name="trip" required value={form.trip} onChange={setForm}>
           <option value=""></option>
           {tripsOptions}
         </Trip>
-        <InputA 
-          name="name" required value={form.name} onChange={setForm} 
-          placeholder="Nome..." minLength="3" />
-        <InputB 
-          name="age" required value={form.age} onChange={setForm}
+        <InputA
+          name="name"
+          required
+          value={form.name}
+          onChange={setForm}
+          placeholder="Nome..."
+          minLength="3"
+        />
+        <InputB
+          name="age"
+          required
+          value={form.age}
+          onChange={setForm}
           placeholder="Idade..."
           type="number"
           min="18"
         />
         <InputA
-          name="profession" required value={form.profession} onChange={setForm}
+          name="profession"
+          required
+          value={form.profession}
+          onChange={setForm}
           placeholder="Profissão..."
           minLength="10"
         />
-        <Country name="country" required value={form.country} onChange={setForm}>
-          <option value=''></option>
+        <Country
+          name="country"
+          required
+          value={form.country}
+          onChange={setForm}
+        >
+          <option value=""></option>
           <option value="Afganistan">Afghanistan</option>
           <option value="Albania">Albania</option>
           <option value="Algeria">Algeria</option>
@@ -361,8 +383,13 @@ export default function ApplicationFormPage() {
           <option value="Zambia">Zambia</option>
           <option value="Zimbabwe">Zimbabwe</option>
         </Country>
-        <Text name="applicationText" required value={form.applicationText} onChange={setForm} 
-          minLength="30"></Text>
+        <Text
+          name="applicationText"
+          required
+          value={form.applicationText}
+          onChange={setForm}
+          minLength="30"
+        ></Text>
         <Button>Enviar</Button>
       </Form>
     </ContainerStyled>
