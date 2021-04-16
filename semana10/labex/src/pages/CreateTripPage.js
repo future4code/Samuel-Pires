@@ -7,7 +7,7 @@ import { useInput } from "../hooks/useInput";
 import axios from "axios";
 import { baseUrl, headers } from "../assets/parameters";
 import useForm from "../hooks/useForm";
-import createTripApi from '../assets/createTripApi'
+import { postApi } from "../hooks/useRequest";
 
 const InputA = styled.input`
   width: 100%;
@@ -65,7 +65,10 @@ export default function CreateTripPage() {
 
   const createTrip = (e)=>{
     e.preventDefault()
-    createTripApi(baseUrl, form)
+    // createTripApi(baseUrl, form)
+    const token = window.localStorage.getItem('token')
+    postApi(`/trips`, form, headers(token), 'Erro ao criar viagem, por favor tente novamente mais tarde',
+    'Sucesso ao criar viagem!')
     clearForm()
   }
 

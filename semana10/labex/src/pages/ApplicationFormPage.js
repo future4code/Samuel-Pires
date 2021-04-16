@@ -6,7 +6,6 @@ import useForm from "../hooks/useForm";
 import { baseUrl } from "../assets/parameters";
 import { ContainerStyled, ButtonStyled } from "../components/styledComponents";
 import axios from 'axios'
-import applyToTripApi from "../assets/applyToTripApi";
 
 const Trip = styled.select`
   width: 90%;
