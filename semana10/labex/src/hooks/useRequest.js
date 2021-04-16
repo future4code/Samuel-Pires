@@ -58,7 +58,6 @@ export const postApi=async(endpoint, data, config, msgError, msgOK, callback)=>{
 }
 
 //-------------------------------------PUT
-
 export const usePutApi=(msgError, msgOK, callback)=>{
   const [value, setValue] = useState()
 
@@ -82,6 +81,39 @@ export const usePutApi=(msgError, msgOK, callback)=>{
 export const putApi=async(endpoint, data, config, msgError, msgOK, callback)=>{
   try{
     const res = await axios.put(`${baseUrl}${endpoint}`, data, config)
+    if(res && typeof callback==='function')callback(res)
+    message(msgOK)
+  }
+  catch(err){
+    message(msgError)
+  }
+}
+
+//-------------------------------------DEL
+
+export const useDelApi=(msgError, msgOK, callback)=>{
+  const [value, setValue] = useState()
+
+  const delApi = async(endpoint, config)=>{
+    try{
+      const res = await axios.delete(`${baseUrl}${endpoint}`, config)
+      if(res){
+        setValue(res)
+        if(typeof callback==='function')callback(res)
+      }
+      message(msgOK)
+    }
+    catch(err){
+      message(msgError)
+    }
+  }
+
+  return [value, delApi]
+}
+
+export const delApi=async(endpoint, config, msgError, msgOK, callback)=>{
+  try{
+    const res = await axios.delete(`${baseUrl}${endpoint}`, config)
     if(res && typeof callback==='function')callback(res)
     message(msgOK)
   }

@@ -7,6 +7,7 @@ import axios from "axios";
 import { baseUrl, headers } from "../assets/parameters";
 import { useParams } from "react-router-dom";
 import CardTrip from "../components/CardTrip";
+import { delApi } from "../hooks/useRequest";
 
 const Cards = styled.div`
   width: 100%;
@@ -36,16 +37,9 @@ export default function AdminHomePage(){
     getTrips()
   },[])
 
-
-  const deleteTrip = async(id)=>{
+  const deleteTrip = (id)=>{
     const token = window.localStorage.getItem('token')
-    try{
-      const res = await axios.delete(`${baseUrl}/trips/${id}`, headers(token))
-      getTrips()
-    }
-    catch(err){
-      console.log('erro ao excluir resposta', err)
-    }
+    delApi(`/trips/${id}`, headers(token), '','', (res)=>{getTrips()})
   }
 
   const tripsRendered = ()=>{
