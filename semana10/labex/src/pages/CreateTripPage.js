@@ -7,6 +7,7 @@ import { useInput } from "../hooks/useInput";
 import axios from "axios";
 import { baseUrl, headers } from "../assets/parameters";
 import useForm from "../hooks/useForm";
+import createTripApi from '../assets/createTripApi'
 
 const InputA = styled.input`
   width: 100%;
@@ -44,7 +45,7 @@ const initialForm = {
 
 export default function CreateTripPage() {
   useProtectedPage();
-  const [form, setForm] = useForm(initialForm);
+  const [form, setForm, clearForm] = useForm(initialForm);
   const data = new Date()
 
   const dataString = (data)=>{
@@ -62,19 +63,11 @@ export default function CreateTripPage() {
     return year+'-'+month+'-'+day
   }
 
-  const createTrip = async (e) => {
+  const createTrip = (e)=>{
     e.preventDefault()
-    const token = window.localStorage.getItem("token");
-
-    try {
-      await axios.post(`${baseUrl}/trips`, form, headers(token));
-      console.log("sucesso ao criar viagem");
-      setForm(initialForm)
-    } catch (err) {
-      console.log("erro ao criar viagem", err);
-    }
-  };
-  
+    createTripApi(baseUrl, form)
+    clearForm()
+  }
 
 
   console.log('form  data', form.date)
