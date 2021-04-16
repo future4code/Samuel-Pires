@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { MiniLogoStyled } from "./styledComponents";
 import labexMini from "../img/labex-mini.png";
@@ -11,6 +11,7 @@ const Container = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
+  background-image: linear-gradient(black, #002430, #000C14);
 `;
 
 const Nav = styled.nav`
@@ -24,15 +25,20 @@ const Nav = styled.nav`
   a {
     text-decoration: none;
     cursor: pointer;
+    color: white;
+    :hover{
+      color: #A7A9AC;
+    }
   }
 `;
 
 export default function Header() {
   const [token, setToken] = useState(window.localStorage.getItem("token"));
-
+  const history = useHistory()
   const logout = () => {
     window.localStorage.removeItem("token");
     setToken(null);
+    history.push('/')
   };
   return (
     <Container>
@@ -56,14 +62,20 @@ export default function Header() {
           <li>
             <Link to="/trips/application">Inscrever-se</Link>
           </li>
-          <li>
-            <Link to="/admin/trips/list">
-              <p>Admin</p>
-            </Link>
-          </li>
-          <li>
-            <Link to="/admin/trips/create">Criar</Link>
-          </li>
+          { token?(
+            <li>
+              <Link to="/admin/trips/list">Admin</Link>
+            </li>
+          ) : (
+            <></>
+          )}
+          { token?(
+            <li>
+              <Link to="/admin/trips/create">Criar</Link>
+            </li>
+          ) : (
+            <></>
+          )}
           {token ? (
             <li>
               <a onClick={logout}>Logout</a>

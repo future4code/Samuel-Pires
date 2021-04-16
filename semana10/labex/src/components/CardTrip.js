@@ -6,18 +6,20 @@ const ContainerAll = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 49%;
+  width: 49.5%;
   margin-bottom: 10px;
   height: 300px;
   max-height: 500px;
-  box-shadow: 1px 1px 3px #003759;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 5px;
   :hover {
-    box-shadow: 1px 1px 10px #002134;
+    box-shadow: 10px 10px 10px black;
   }
   overflow: auto;
   a {
     text-decoration: none;
   }
+  background-color: #a7a9ac;
 `;
 
 const Container = styled.div`
@@ -42,12 +44,12 @@ const Svg = styled.svg`
   padding: 10px;
   margin-right: 10px;
   fill: currentColor;
-  color: #005288;
+  color: #002c3b;
   transition: all 0.3s;
   :hover {
     border-radius: 25px;
-    background-color: #a7a9ac;
-    color: #002134;
+    background-color: #909294;
+    color: #002430;
     transform: scale(1.3);
   }
 `;

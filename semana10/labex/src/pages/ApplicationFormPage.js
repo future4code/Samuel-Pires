@@ -53,7 +53,7 @@ export default function ApplicationFormPage() {
       <Header />
       <FormStyled onSubmit={submit} width='90%'>
         <SelectStyled width='80%' name="trip" required value={form.trip} onChange={setForm}>
-          <option value=""></option>
+          <option value="">Selecione um planeta...</option>
           {tripsOptions}
         </SelectStyled>
         <SelectStyled width='19%'
@@ -62,7 +62,7 @@ export default function ApplicationFormPage() {
           value={form.country}
           onChange={setForm}
         >
-          <option value=""></option>
+          <option value="">Selecione o seu país...</option>
           <option value="Afganistan">Afghanistan</option>
           <option value="Albania">Albania</option>
           <option value="Algeria">Algeria</option>
@@ -346,6 +346,7 @@ export default function ApplicationFormPage() {
         />
         
         <TextAreaStyled width='100%'
+          placeholder='Texto de aplicação...'
           name="applicationText"
           required
           value={form.applicationText}

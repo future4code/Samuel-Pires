@@ -81,7 +81,7 @@ export default function CreateTripPage() {
           onChange={setForm}
         />
         <SelectStyled width='100%' name="planet" required value={form.planet} onChange={setForm}>
-          <option value=""></option>
+          <option value="">Selecione um planeta...</option>
           <option value="Mercury">Mercury</option>
           <option value="Venus">Venus</option>
           <option value="Earth">Earth</option>

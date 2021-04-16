@@ -6,21 +6,22 @@ export const ContainerStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #000C14;
 `;
 
 export const ButtonStyled = styled.button`
   border: 0;
-  background-color: ${(props) => (props.primary ? "#A7A9AC" : "#003759")};
+  background-color: ${(props) => (props.primary ? "#003759" : "#8e8f91")};
   border-radius: 10px;
   padding: 10px;
   color: white;
   :hover {
     background-color: ${(props) =>
-      props.primary ? "rgba(121, 122, 124, 1)" : "rgba(0, 82, 136, 0.9)"};
+      props.primary ? "rgba(121, 122, 124, 1)" : "rgba(0, 27, 45, 1)"};
   }
   :active {
     background-color: ${(props) =>
-      props.primary ? "rgba(121, 122, 124, 0.9)" : "rgba(0, 82, 136, 1)"};
+      props.primary ? "rgba(121, 122, 124, 0.9)" : "rgba(0, 27, 45, 0.5)"};
   }
   box-shadow: 2px 1px 5px black;
   margin: 5px 0;
@@ -60,6 +61,10 @@ export const SelectStyled = styled.select`
   margin: 5px 0;
   margin-right: ${props=>props.mright};
   margin-left: ${props=>props.mleft};
+  background-color: #BABCBF;
+  border-radius: 5px;
+  /* appearance: none; */
+  padding-left: 5px;
 `
 
 export const InputStyled = styled.input`
@@ -70,24 +75,35 @@ export const InputStyled = styled.input`
   height: 60px;
   border-radius: 5px;
   padding-left: 10px;
-  border: 2px solid #005288;
+  border: 2px solid #001922;
+  background-color: #BABCBF;
   :hover{
-    box-shadow: 0 0 5px #003759;
+    box-shadow: 0 0 5px #005288;
   }
+  :focus{
+    box-shadow: 0 0 10px #005288;
+    outline: 0;
+  }
+  
 `
 
 export const TextAreaStyled = styled.textarea`
   width: ${props=>props.width};
   height: 300px;
-  border: 2px solid #005288;
+  border: 2px solid #001922;
   padding: 10px;
-  :hover{
-    box-shadow: 0 0 5px #003759;
-  }
   margin: 5px 0;
   margin-right: ${props=>props.mright};
   margin-left: ${props=>props.mleft};
   border-radius: 5px;
+  background-color: #BABCBF;
+  :hover{
+    box-shadow: 0 0 5px #005288;
+  }
+  :focus{
+    box-shadow: 0 0 10px #005288;
+    outline: 0;
+  }
 `
 
 export const FormStyled = styled.form`
