@@ -76,7 +76,7 @@ export default function ApplicationFormPage() {
 
   const submit=(e)=>{
     e.preventDefault()
-    applyToTripApi(baseUrl, form)
+    // applyToTripApi(baseUrl, form)
   }
 
   useEffect(()=>{

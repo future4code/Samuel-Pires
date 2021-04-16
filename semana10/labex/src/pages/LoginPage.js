@@ -8,7 +8,7 @@ import { ButtonStyled, LogoStyled } from '../components/styledComponents'
 import labex from '../img/labex.png'
 import { Link } from 'react-router-dom'
 import useForm from '../hooks/useForm'
-import loginApi from '../assets/loginApi'
+import { postApi } from '../hooks/useRequest'
 
 const Container = styled.div`
   display: flex;
@@ -53,7 +53,10 @@ export default function(){
 
   const login = (e)=>{
     e.preventDefault()
-    loginApi(baseUrl, form, history)
+    postApi('/login', form, null, '', '', (res)=>{
+      window.localStorage.setItem('token', res.data.token)
+      history.push('/admin/trips/list')
+    })
     clearForm()
   }
   
