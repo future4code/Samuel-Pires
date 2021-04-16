@@ -3,47 +3,8 @@ import { useEffect, useState } from "react";
 import styled from "styled-components";
 import Header from "../components/Header";
 import useForm from "../hooks/useForm";
-import { ContainerStyled, ButtonStyled } from "../components/styledComponents";
+import { ContainerStyled, ButtonStyled, FormStyled, SelectStyled, InputStyled, TextAreaStyled } from "../components/styledComponents";
 import { postApi, useGetApi } from "../hooks/useRequest";
-
-const Trip = styled.select`
-  width: 90%;
-  height: 60px;
-  margin-bottom: 20px;
-`;
-
-const InputA = styled.input`
-  width: calc(60% - 10px);
-  margin-right: 10px;
-  margin-bottom: 10px;
-  height: 60px;
-`;
-const InputB = styled.input`
-  width: 30%;
-  height: 60px;
-`;
-const Country = styled.select`
-  width: 30%;
-  height: 60px;
-`;
-const Text = styled.textarea`
-  width: 90%;
-  height: 300px;
-`;
-
-const Form = styled.form`
-  width: 80%;
-  min-width: 300px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-`;
-
-const Button = styled(ButtonStyled)`
-  margin: 10px 0;
-  width: 90%;
-  border-radius: 5px;
-`;
 
 const initialForm = {
   name: "",
@@ -91,37 +52,12 @@ export default function ApplicationFormPage() {
   return (
     <ContainerStyled>
       <Header />
-      <Form onSubmit={submit}>
-        <Trip name="trip" required value={form.trip} onChange={setForm}>
+      <FormStyled onSubmit={submit} width='90%'>
+        <SelectStyled width='80%' name="trip" required value={form.trip} onChange={setForm}>
           <option value=""></option>
           {tripsOptions}
-        </Trip>
-        <InputA
-          name="name"
-          required
-          value={form.name}
-          onChange={setForm}
-          placeholder="Nome..."
-          minLength="3"
-        />
-        <InputB
-          name="age"
-          required
-          value={form.age}
-          onChange={setForm}
-          placeholder="Idade..."
-          type="number"
-          min="18"
-        />
-        <InputA
-          name="profession"
-          required
-          value={form.profession}
-          onChange={setForm}
-          placeholder="Profissão..."
-          minLength="10"
-        />
-        <Country
+        </SelectStyled>
+        <SelectStyled width='19%'
           name="country"
           required
           value={form.country}
@@ -382,16 +318,43 @@ export default function ApplicationFormPage() {
           <option value="Zaire">Zaire</option>
           <option value="Zambia">Zambia</option>
           <option value="Zimbabwe">Zimbabwe</option>
-        </Country>
-        <Text
+        </SelectStyled>
+        
+        <InputStyled width='50%'
+          name="name"
+          required
+          value={form.name}
+          onChange={setForm}
+          placeholder="Nome..."
+          minLength="3"
+        />
+        <InputStyled width='10%'
+          name="age"
+          required
+          value={form.age}
+          onChange={setForm}
+          placeholder="Idade..."
+          type="number"
+          min="18"
+        />
+        <InputStyled width='39%'
+          name="profession"
+          required
+          value={form.profession}
+          onChange={setForm}
+          placeholder="Profissão..."
+          minLength="10"
+        />
+        
+        <TextAreaStyled width='100%'
           name="applicationText"
           required
           value={form.applicationText}
           onChange={setForm}
           minLength="30"
-        ></Text>
-        <Button>Enviar</Button>
-      </Form>
+        ></TextAreaStyled>
+        <ButtonStyled width='100%'>Enviar</ButtonStyled>
+      </FormStyled>
     </ContainerStyled>
   );
 }
