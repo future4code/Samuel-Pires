@@ -104,4 +104,5 @@ export const CardsStyled = styled.div`
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 5px;
+  margin: 5px 0;
 `

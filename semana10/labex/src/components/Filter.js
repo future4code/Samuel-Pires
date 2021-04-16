@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useInput } from "../hooks/useInput";
+import { InputStyled } from "./styledComponents";
 
 const Container = styled.div`
   width: 100%;
-  height: 50px;
+  height: 60px;
   display: flex;
   justify-content: space-around;
-`;
-const Busca = styled.input`
-  width: max(300px, 100%);
-  height: 100%;
+  margin: 5px 0;
 `;
 
 export default function Filter(props) {
@@ -43,7 +41,7 @@ export default function Filter(props) {
 
   return (
     <Container>
-      <Busca
+      <InputStyled width='90%'
         placeholder="Buscar por nome, descrição ou planeta..."
         value={busca}
         onChange={setBusca}
