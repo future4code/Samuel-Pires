@@ -15,10 +15,12 @@ export const ButtonStyled = styled.button`
   padding: 10px;
   color: white;
   :hover{
-    background-color: rgba(0, 82, 136, 0.9);
+    /* background-color: rgba(0, 82, 136, 0.9); */
+    background-color: ${props=> props.primary ? 'rgba(121, 122, 124, 1)' : 'rgba(0, 82, 136, 0.9)'};
   }
   :active{
-    background-color: rgba(0, 82, 136, 1);
+    background-color: ${props=> props.primary ? 'rgba(121, 122, 124, 0.9)' : 'rgba(0, 82, 136, 1)'};
+
   }
   box-shadow: 2px 1px 5px black;
 `

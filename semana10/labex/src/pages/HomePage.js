@@ -33,7 +33,7 @@ export default function(){
       </LogoStyled>
       <Buttons>
         <Link to='/trips/list'><Button>Viagens</Button></Link>
-        <Link to='/login'><Button>Admin</Button></Link>
+        <Link to='/login'><Button primary>Admin</Button></Link>
       </Buttons>
     </Container>
   )
