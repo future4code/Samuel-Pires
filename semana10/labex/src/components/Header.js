@@ -53,6 +53,9 @@ export default function Header(){
           <li>
             <Link to='/admin/trips/list'><p>Admin</p></Link>
           </li>
+          <li>
+            <Link to='/admin/trips/create'>Criar</Link>
+          </li>
           {
             token ?( 
             <li>

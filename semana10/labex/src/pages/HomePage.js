@@ -22,7 +22,6 @@ const Buttons = styled.div`
 const Button = styled(ButtonStyled)`
   width: 300px;
   height: 100px;
-  color: white;
   font-size: 30px;
 `
 

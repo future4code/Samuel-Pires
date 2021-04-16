@@ -10,8 +10,8 @@ export const ContainerStyled= styled.div`
 
 export const ButtonStyled = styled.button`
   border: 0;
-  background-color: #A7A9AC;
-  border-radius: 20px;
+  background-color: ${props=> props.primary ? '#A7A9AC' : '#003759'};
+  border-radius: 10px;
   padding: 10px;
   color: white;
   :hover{

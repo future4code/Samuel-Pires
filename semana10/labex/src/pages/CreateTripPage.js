@@ -24,6 +24,7 @@ const Text = styled.textarea`
 const Button = styled(ButtonStyled)`
   width: 100%;
   margin-top: 10px;
+  font-size: 17px;
 `;
 const Form = styled.form`
   width: 90%;
