@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import React from 'react'
-import labex from '../assets/labex.png'
+import labex from '../img/labex.png'
 import {ButtonStyled, LogoStyled} from '../components/styledComponents'
 import {Link} from 'react-router-dom'
 

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react/cjs/react.development";
 import styled from "styled-components";
 import Header from "../components/Header";
 import useForm from "../hooks/useForm";
-import { baseUrl } from "../parameters";
+import { baseUrl } from "../assets/parameters";
 import { ContainerStyled, ButtonStyled } from "../components/styledComponents";
 import axios from 'axios'
 

@@ -5,7 +5,7 @@ import { ContainerStyled, ButtonStyled} from "../components/styledComponents";
 import useProtectedPage from "../hooks/useProtectedPage";
 import { useInput } from "../hooks/useInput";
 import axios from "axios";
-import { baseUrl, headers } from "../parameters";
+import { baseUrl, headers } from "../assets/parameters";
 import useForm from "../hooks/useForm";
 
 const InputA = styled.input`

@@ -4,7 +4,7 @@ import Header from '../components/Header'
 import {ContainerStyled} from '../components/styledComponents'
 import useProtectedPage from "../hooks/useProtectedPage";
 import axios from "axios";
-import { baseUrl, headers } from "../parameters";
+import { baseUrl, headers } from "../assets/parameters";
 import { useParams } from "react-router-dom";
 import CardTrip from "../components/CardTrip";
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { MiniLogoStyled } from './styledComponents'
-import labexMini from '../assets/labex-mini.png'
+import labexMini from '../img/labex-mini.png'
 const Container = styled.header`
   width: 100%;
   height: 60px;

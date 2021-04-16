@@ -6,7 +6,7 @@ import styled from 'styled-components'
 import {ContainerStyled} from '../components/styledComponents'
 import { useEffect, useState } from 'react/cjs/react.development'
 import axios from 'axios'
-import { baseUrl } from '../parameters'
+import { baseUrl } from '../assets/parameters'
 
 const Container = styled(ContainerStyled)`
   >div{
