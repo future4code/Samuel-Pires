@@ -8,5 +8,9 @@ export default function useForm(initialForm){
     setForm({...form, [name]: value})
   }
 
-  return [form, onChange]
+  const clearForm =()=>{
+    setForm(initialForm)
+  }
+
+  return [form, onChange, clearForm]
 }

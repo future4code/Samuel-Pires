@@ -8,6 +8,8 @@ import { ButtonStyled, LogoStyled } from '../components/styledComponents'
 import labex from '../img/labex.png'
 import { Link } from 'react-router-dom'
 import useForm from '../hooks/useForm'
+import loginApi from '../assets/loginApi'
+
 const Container = styled.div`
   display: flex;
   align-items: center;
@@ -46,21 +48,13 @@ const initialForm = {
 export default function(){
   const [email, setEmail] = useInput()
   const [password, setPassword] = useInput()
-  const [form, setForm] = useForm(initialForm)
+  const [form, setForm, clearForm] = useForm(initialForm)
   const history = useHistory()
 
-  const login = async(e)=>{
+  const login = (e)=>{
     e.preventDefault()
-    try{
-      const res = await axios.post(`${baseUrl}/login`,form)
-      window.localStorage.setItem('token', res.data.token)
-      history.push('/admin/trips/list')
-    }
-    catch(err){
-      alert(err.response.data.message)
-      setEmail()
-      setPassword()
-    }
+    loginApi(baseUrl, form, history)
+    clearForm()
   }
   
   return(
