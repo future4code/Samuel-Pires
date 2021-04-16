@@ -2,11 +2,20 @@ import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useState } from 'react/cjs/react.development'
-import CardCandidate from '../components/CardCandidate'
+import CardCandidates from '../components/CardCandidates'
 import CardTrip from '../components/CardTrip'
 import {ContainerStyled} from '../styledComponents'
 import useProtectedPage from '../hooks/useProtectedPage'
 import { baseUrl, headers } from '../parameters'
+import styled from 'styled-components'
+import Header from '../components/Header'
+
+const Container = styled(ContainerStyled)`
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  padding-top: 10px;
+`
 
 export default function TripDetailsPage(){
   useProtectedPage()
@@ -28,27 +37,18 @@ export default function TripDetailsPage(){
       console.log('erro ao pegar viagem específica', err)
     }
   }
-  
-  const decideCandidate = async(candidateId, approve)=>{
-    const token = window.localStorage.getItem('token')
-    const body = {approve: approve}
-    try{
-      await axios.put(`${baseUrl}/trips/${id}/candidates/${candidateId}/decide`, body, headers(token))
-    }
-    catch(err){
-      console.log('erro ao decidir candidato', err)
-    }
-  }
 
   useEffect(()=>{
     getTripDetail()
   },[])
 
+  console.log('trip aqui', trip)
+
   return(
-    <ContainerStyled>
-      {/* <CardTrip />
-      <CardCandidate /> */}
-      <p>TripDetailsPage</p>
-    </ContainerStyled>
+    <Container>
+      <Header />
+      <CardTrip trip={trip}/>
+      <CardCandidates candidates={trip.candidates} id={id}/>
+    </Container>
   )
 }

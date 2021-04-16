@@ -46,7 +46,7 @@ export default function AdminHomePage(){
     const token = window.localStorage.getItem('token')
     try{
       const res = await axios.delete(`${baseUrl}/trips/${id}`, headers(token))
-      console.log('resposta ao excluir viagem', res)
+      getTrips()
     }
     catch(err){
       console.log('erro ao excluir resposta', err)
