@@ -6,6 +6,7 @@ import useForm from "../hooks/useForm";
 import { baseUrl } from "../assets/parameters";
 import { ContainerStyled, ButtonStyled } from "../components/styledComponents";
 import axios from 'axios'
+import applyToTripApi from "../assets/applyToTripApi";
 
 const Trip = styled.select`
   width: 90%;
@@ -56,7 +57,7 @@ const initialForm = {
 };
 
 export default function ApplicationFormPage() {
-  const [form, setForm] = useForm(initialForm)
+  const [form, setForm, clearForm] = useForm(initialForm)
   const [trips, setTrips] = useState([])
 
   const getTrips = async()=>{
@@ -73,14 +74,9 @@ export default function ApplicationFormPage() {
     return <option value={trip.id}>{trip.name}</option>
   })
 
-  const submit=async(e)=>{
+  const submit=(e)=>{
     e.preventDefault()
-    try{
-      const res = await axios.post(`${baseUrl}/trips/${form.trip}/apply`, form)
-      console.log('resultado da aplicaão', res)
-    }catch(err){
-      console.log('erro ao tentar aplicar para viagem', err)
-    }
+    applyToTripApi(baseUrl, form)
   }
 
   useEffect(()=>{
