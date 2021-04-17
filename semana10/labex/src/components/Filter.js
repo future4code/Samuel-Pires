@@ -38,7 +38,6 @@ export default function Filter(props) {
 
   useEffect(() => {
     setTrips(props.trips);
-    console.log("props.trips", props.trips);
   }, [props.trips]);
 
   return (

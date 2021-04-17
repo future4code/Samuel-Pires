@@ -27,7 +27,6 @@ export default function CreateTripPage() {
   const data = new Date();
 
   const dataString = (data) => {
-    console.log("data", data);
     const year = data.getFullYear().toString();
 
     let month;
@@ -55,8 +54,6 @@ export default function CreateTripPage() {
     clearForm();
   };
 
-  console.log("form  data", form.date);
-  console.log("dataString", dataString(new Date()));
   return (
     <ContainerStyled>
       <Header />

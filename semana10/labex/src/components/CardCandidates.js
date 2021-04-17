@@ -43,7 +43,6 @@ export default function CardCandidates(props) {
   };
 
   const list = () => {
-    console.log("props.candidates: ", props.candidates);
     if (props && props.candidates) {
       return props.candidates.map((candidate) => {
         return (
