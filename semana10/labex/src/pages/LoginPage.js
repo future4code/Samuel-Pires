@@ -57,10 +57,10 @@ export default function () {
     clearForm();
   };
 
-  useEffect(() => {
-    const token = window.localStorage.getItem("token");
-    if (token) history.push("/admin/trips/list");
-  }, []);
+  // useEffect(() => {
+  //   const token = window.localStorage.getItem("token");
+  //   if (token) history.push("/admin/trips/list");
+  // }, []);
 
   return (
     <Container>
