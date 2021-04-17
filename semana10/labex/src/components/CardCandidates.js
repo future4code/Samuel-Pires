@@ -1,6 +1,24 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 import { headers } from "../assets/parameters";
 import { putApi } from "../hooks/useRequest";
+
+const Container = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 50%;
+  padding: 10px;
+  border: 1px solid white;
+  margin-bottom: 5px;
+`;
+
+const Card = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  color: white;
+`;
 
 export default function CardCandidates(props) {
   const [lista, setLista] = useState([]);
@@ -12,10 +30,16 @@ export default function CardCandidates(props) {
       `/trips/${props.id}/candidates/${candidateId}/decide`,
       body,
       headers(token),
-      'Erro. Por favor tente novamente mais tarde',
-      '',
-      (res)=>{props.decide()}
+      "Erro. Por favor tente novamente mais tarde",
+      "",
+      (res) => {
+        props.decide();
+      }
     );
+  };
+
+  const confirm = (id, approve) => {
+    if (window.confirm("Tem certeza?")) decideCandidate(id, approve);
   };
 
   const list = () => {
@@ -23,19 +47,19 @@ export default function CardCandidates(props) {
     if (props && props.candidates) {
       return props.candidates.map((candidate) => {
         return (
-          <div key={candidate.id}>
-            <p>Nome: {candidate.name}</p>
-            <p>Idade: {candidate.age}</p>
-            <p>Profissão: {candidate.profesion}</p>
-            <p>País: {candidate.country}</p>
-            <p>{candidate.applicationText}</p>
-            <button onClick={() => decideCandidate(candidate.id, false)}>
+          <Container key={candidate.id}>
+            <Card>
+              <p>Nome: {candidate.name}</p>
+              <p>Idade: {candidate.age}</p>
+              <p>Profissão: {candidate.profesion}</p>
+              <p>País: {candidate.country}</p>
+              <p>{candidate.applicationText}</p>
+            </Card>
+            <button onClick={() => confirm(candidate.id, false)}>
               Reprovar
             </button>
-            <button onClick={() => decideCandidate(candidate.id, true)}>
-              Aprovar
-            </button>
-          </div>
+            <button onClick={() => confirm(candidate.id, true)}>Aprovar</button>
+          </Container>
         );
       });
     }
@@ -45,5 +69,5 @@ export default function CardCandidates(props) {
     setLista(list());
   }, [props]);
 
-  return <div>{lista}</div>;
+  return <>{lista}</>;
 }

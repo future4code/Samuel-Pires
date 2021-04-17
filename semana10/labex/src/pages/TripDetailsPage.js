@@ -19,9 +19,9 @@ export default function TripDetailsPage() {
     setGetApi(`/trip/${id}`, headers(token));
   };
 
-  const decide = ()=>{
-    getTripDetail()
-  }
+  const decide = () => {
+    getTripDetail();
+  };
 
   useEffect(() => {
     getTripDetail();
@@ -34,7 +34,7 @@ export default function TripDetailsPage() {
   return (
     <ContainerStyled>
       <Header />
-      <CardTrip trip={trip} />
+      <CardTrip trip={trip} render={true} />
       <CardCandidates candidates={trip.candidates} id={id} decide={decide} />
     </ContainerStyled>
   );

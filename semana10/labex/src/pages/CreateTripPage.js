@@ -1,6 +1,13 @@
 import React from "react";
 import Header from "../components/Header";
-import { ContainerStyled, ButtonStyled, SelectStyled, InputStyled, TextAreaStyled, FormStyled } from "../components/styledComponents";
+import {
+  ContainerStyled,
+  ButtonStyled,
+  SelectStyled,
+  InputStyled,
+  TextAreaStyled,
+  FormStyled,
+} from "../components/styledComponents";
 import useProtectedPage from "../hooks/useProtectedPage";
 import { headers } from "../assets/parameters";
 import useForm from "../hooks/useForm";
@@ -53,8 +60,9 @@ export default function CreateTripPage() {
   return (
     <ContainerStyled>
       <Header />
-      <FormStyled onSubmit={createTrip} width='90%'>
-        <InputStyled width='100%'
+      <FormStyled onSubmit={createTrip} width="90%">
+        <InputStyled
+          width="100%"
           name="name"
           required
           minLength="5"
@@ -62,7 +70,8 @@ export default function CreateTripPage() {
           value={form.name}
           onChange={setForm}
         />
-        <InputStyled width='48%'
+        <InputStyled
+          width="48%"
           name="date"
           required
           type="date"
@@ -71,7 +80,8 @@ export default function CreateTripPage() {
           value={form.date}
           onChange={setForm}
         />
-        <InputStyled width='48%'
+        <InputStyled
+          width="48%"
           name="durationInDays"
           required
           type="number"
@@ -80,7 +90,13 @@ export default function CreateTripPage() {
           value={form.durationInDays}
           onChange={setForm}
         />
-        <SelectStyled width='100%' name="planet" required value={form.planet} onChange={setForm}>
+        <SelectStyled
+          width="100%"
+          name="planet"
+          required
+          value={form.planet}
+          onChange={setForm}
+        >
           <option value="">Selecione um planeta...</option>
           <option value="Mercury">Mercury</option>
           <option value="Venus">Venus</option>
@@ -93,7 +109,8 @@ export default function CreateTripPage() {
           <option value="Neptune">Neptune</option>
           <option value="Pluto">Pluto</option>
         </SelectStyled>
-        <TextAreaStyled width='100%'
+        <TextAreaStyled
+          width="100%"
           name="description"
           required
           minLength="30"
@@ -101,9 +118,7 @@ export default function CreateTripPage() {
           value={form.description}
           onChange={setForm}
         />
-        <ButtonStyled width='100%'>
-          Criar
-        </ButtonStyled>
+        <ButtonStyled width="100%">Criar</ButtonStyled>
       </FormStyled>
     </ContainerStyled>
   );

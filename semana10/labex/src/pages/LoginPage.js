@@ -5,12 +5,13 @@ import labex from "../img/labex.png";
 import { Link, useHistory } from "react-router-dom";
 import useForm from "../hooks/useForm";
 import { postApi } from "../hooks/useRequest";
+import { useEffect } from "react/cjs/react.development";
 
 const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000C14;
+  background-color: #000c14;
   height: 100vh;
 `;
 
@@ -55,6 +56,11 @@ export default function () {
     });
     clearForm();
   };
+
+  useEffect(() => {
+    const token = window.localStorage.getItem("token");
+    if (token) history.push("/admin/trips/list");
+  }, []);
 
   return (
     <Container>

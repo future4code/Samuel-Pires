@@ -19,7 +19,7 @@ const ContainerAll = styled.div`
   a {
     text-decoration: none;
   }
-  background-color: #a7a9ac;
+  background-color: #001523;
 `;
 
 const Container = styled.div`
@@ -34,13 +34,14 @@ const P = styled.div`
   color: #708090;
   padding: 5px;
   p {
-    color: black;
+    color: white;
     /* display: inline; */
   }
 `;
 
 const Svg = styled.svg`
-  width: 50px;
+  min-width: 50px;
+  max-width: 50px;
   padding: 10px;
   margin-right: 10px;
   fill: currentColor;
@@ -56,27 +57,34 @@ const Svg = styled.svg`
 
 export default function CardTrip(props) {
   const { id, name, description, planet, durationInDays, date } = props.trip;
+
+  const render = (
+    <Container key={id}>
+      <P>
+        Nome <p>{name}</p>
+      </P>
+      <P>
+        Planeta <p>{planet}</p>
+      </P>
+      <P>
+        Duração <p>{durationInDays} dias</p>
+      </P>
+      <P>
+        Data <p>{date}</p>
+      </P>
+      <P>
+        Descrição <p>{description}</p>
+      </P>
+    </Container>
+  );
+
   return (
     <ContainerAll>
-      <Link to={`/admin/trips/${id}`}>
-        <Container key={id}>
-          <P>
-            Nome <p>{name}</p>
-          </P>
-          <P>
-            Planeta <p>{planet}</p>
-          </P>
-          <P>
-            Duração <p>{durationInDays} dias</p>
-          </P>
-          <P>
-            Data <p>{date}</p>
-          </P>
-          <P>
-            Descrição <p>{description}</p>
-          </P>
-        </Container>
-      </Link>
+      {props.render ? (
+        <Link to={`/admin/trips/${id}`}>{render}</Link>
+      ) : (
+        <Link to={`/trips/application`}>{render}</Link>
+      )}
       {props.del && (
         <Svg
           onClick={() => props.deleteTrip(id)}

@@ -33,7 +33,14 @@ export default function AdminHomePage() {
 
   const tripsRendered = () => {
     return trips.map((trip) => {
-      return <CardTrip trip={trip} del={true} deleteTrip={deleteTrip} />;
+      return (
+        <CardTrip
+          trip={trip}
+          del={true}
+          render={true}
+          deleteTrip={deleteTrip}
+        />
+      );
     });
   };
   return (

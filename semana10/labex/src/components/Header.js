@@ -11,7 +11,7 @@ const Container = styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 0 20px;
-  background-image: linear-gradient(black, #002430, #000C14);
+  background-image: linear-gradient(black, #002430, #000c14);
 `;
 
 const Nav = styled.nav`
@@ -20,25 +20,29 @@ const Nav = styled.nav`
     display: flex;
     li {
       padding: 10px;
+      margin-left: 10px;
+      :nth-child(6) {
+        border: 1px solid white;
+      }
     }
   }
   a {
     text-decoration: none;
     cursor: pointer;
     color: white;
-    :hover{
-      color: #A7A9AC;
+    :hover {
+      color: #a7a9ac;
     }
   }
 `;
 
 export default function Header() {
   const [token, setToken] = useState(window.localStorage.getItem("token"));
-  const history = useHistory()
+  const history = useHistory();
   const logout = () => {
     window.localStorage.removeItem("token");
     setToken(null);
-    history.push('/')
+    history.push("/");
   };
   return (
     <Container>
@@ -62,14 +66,14 @@ export default function Header() {
           <li>
             <Link to="/trips/application">Inscrever-se</Link>
           </li>
-          { token?(
+          {token ? (
             <li>
               <Link to="/admin/trips/list">Admin</Link>
             </li>
           ) : (
             <></>
           )}
-          { token?(
+          {token ? (
             <li>
               <Link to="/admin/trips/create">Criar</Link>
             </li>

@@ -10,7 +10,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000C14;
+  background-color: #000c14;
 `;
 
 const DivButtons = styled.div`

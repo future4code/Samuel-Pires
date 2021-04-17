@@ -2,7 +2,14 @@ import React from "react";
 import { useEffect, useState } from "react";
 import Header from "../components/Header";
 import useForm from "../hooks/useForm";
-import { ContainerStyled, ButtonStyled, FormStyled, SelectStyled, InputStyled, TextAreaStyled } from "../components/styledComponents";
+import {
+  ContainerStyled,
+  ButtonStyled,
+  FormStyled,
+  SelectStyled,
+  InputStyled,
+  TextAreaStyled,
+} from "../components/styledComponents";
 import { postApi, useGetApi } from "../hooks/useRequest";
 
 const initialForm = {
@@ -51,12 +58,19 @@ export default function ApplicationFormPage() {
   return (
     <ContainerStyled>
       <Header />
-      <FormStyled onSubmit={submit} width='90%'>
-        <SelectStyled width='80%' name="trip" required value={form.trip} onChange={setForm}>
+      <FormStyled onSubmit={submit} width="90%">
+        <SelectStyled
+          width="80%"
+          name="trip"
+          required
+          value={form.trip}
+          onChange={setForm}
+        >
           <option value="">Selecione um planeta...</option>
           {tripsOptions}
         </SelectStyled>
-        <SelectStyled width='19%'
+        <SelectStyled
+          width="19%"
           name="country"
           required
           value={form.country}
@@ -318,8 +332,9 @@ export default function ApplicationFormPage() {
           <option value="Zambia">Zambia</option>
           <option value="Zimbabwe">Zimbabwe</option>
         </SelectStyled>
-        
-        <InputStyled width='50%'
+
+        <InputStyled
+          width="50%"
           name="name"
           required
           value={form.name}
@@ -327,7 +342,8 @@ export default function ApplicationFormPage() {
           placeholder="Nome..."
           minLength="3"
         />
-        <InputStyled width='10%'
+        <InputStyled
+          width="10%"
           name="age"
           required
           value={form.age}
@@ -336,7 +352,8 @@ export default function ApplicationFormPage() {
           type="number"
           min="18"
         />
-        <InputStyled width='39%'
+        <InputStyled
+          width="39%"
           name="profession"
           required
           value={form.profession}
@@ -344,16 +361,17 @@ export default function ApplicationFormPage() {
           placeholder="Profissão..."
           minLength="10"
         />
-        
-        <TextAreaStyled width='100%'
-          placeholder='Texto de aplicação...'
+
+        <TextAreaStyled
+          width="100%"
+          placeholder="Texto de aplicação..."
           name="applicationText"
           required
           value={form.applicationText}
           onChange={setForm}
           minLength="30"
         ></TextAreaStyled>
-        <ButtonStyled width='100%'>Enviar</ButtonStyled>
+        <ButtonStyled width="100%">Enviar</ButtonStyled>
       </FormStyled>
     </ContainerStyled>
   );
