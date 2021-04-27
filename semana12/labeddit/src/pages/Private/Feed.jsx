@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import validateLogin from "../validateLogin";
 import {useGetApi} from "../../hooks/useRequest";
 import {useHistory} from 'react-router-dom'
+import Header from "./components/Header/Header";
 
 export default function (){
   const token = validateLogin()
@@ -29,6 +30,7 @@ export default function (){
   },[])
   return(
     <div>
+      <Header />
       {loading ? (
         <div>Carregando</div>
       ):(
