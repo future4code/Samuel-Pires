@@ -5,6 +5,10 @@ import {useHistory} from 'react-router-dom'
 import Header from "./components/Header/Header";
 import Loading from "./components/Loading/Loading";
 import PrivateContext from "../Context/PrivateContext";
+import {
+  Container,
+  All
+} from "./styled";
 
 export default function (){
   const token = validateLogin()
@@ -35,18 +39,23 @@ export default function (){
 
   useEffect(()=>{
     console.log('postsFiltered', postsFiltered)
+    setLoading(false)
   },[postsFiltered])
 
   const states={posts, postsFiltered}
   const setters={setPostsFiltered, setLoading}
   return(
     <PrivateContext.Provider value={{states, setters}}>
-      <Header value={'postsFiltered'} setValue={'setPostsFiltered'}/>
-      {loading ? (
-        <Loading />
-      ):(
-        <div>Carregou</div>
-      )}
+      <All>
+        <Header value={'posts'} setValue={'setPostsFiltered'}/>
+        <Container>
+          {loading ? (
+            <Loading />
+          ):(
+            <div>Carregou</div>
+          )}
+        </Container>
+      </All>
     </PrivateContext.Provider>
   )
 }

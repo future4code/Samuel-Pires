@@ -2,10 +2,10 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
-  height: 55px;
-  position: sticky;
+  height: 60px;
   display: flex;
   padding: 0px 15px;
+  position: fixed;
   display: flex;
   justify-content: space-between;
   align-items: center;

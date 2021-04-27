@@ -4,5 +4,6 @@ import {styled} from '@material-ui/core/styles'
 export const MyButton = styled(Button)({
   color: '#ff4500',
   border: '2px solid #ff4500',
-  height: '40px'
+  height: '40px',
+  position: 'relative'
 })

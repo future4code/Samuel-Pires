@@ -1,4 +1,4 @@
-import React,{useContext} from 'react'
+import React,{useContext, useState} from 'react'
 import PrivateContext from "../../../Context/PrivateContext";
 import {useInput} from "../../../../hooks/useInput";
 import {
@@ -6,7 +6,8 @@ import {
   DivInput
 } from "./styled";
 import{
-  MySearchIcon
+  MySearchIcon,
+  MyCloseIcon
 } from "./styledMaterial";
 
 export default function (props){
@@ -14,8 +15,10 @@ export default function (props){
   const value = states[props.value]
   const setValue = setters[props.setValue]
   const [input, setInput] = useInput()
+  const [icon, setIcon] = useState(true);
 
-  function filter(){
+  const filter=()=>{
+    setIcon(false)
     setters.setLoading(true)
     let newValue = []
     value.forEach(v=>{
@@ -27,6 +30,13 @@ export default function (props){
     setValue(newValue)
   }
 
+  const removeFilter=()=>{
+    setInput('')
+    setIcon(true)
+    setters.setLoading(true)
+    setValue(value)
+  }
+
   const onKeyPress = (e)=>{
     if(e.key === 'Enter'){
       filter()
@@ -36,7 +46,12 @@ export default function (props){
   return(
     <DivInput width={props.width}>
       <Input placeholder={'Search'} value={input} onChange={setInput} onKeyPress={onKeyPress}/>
-      <MySearchIcon onClick={filter}/>
+      {icon? (
+        <MySearchIcon onClick={filter}/>
+      ):(
+        <MyCloseIcon onClick={removeFilter}/>
+      )
+      }
     </DivInput>
   )
 }
