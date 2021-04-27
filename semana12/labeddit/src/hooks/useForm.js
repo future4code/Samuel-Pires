@@ -8,8 +8,11 @@ export default function useForm(initialForm) {
     setForm({ ...form, [name]: value });
   };
 
-  const clearForm = () => {
-    setForm(initialForm);
+  const clearForm = (newForm) => {
+    if(typeof newForm==='object'){
+      setForm(newForm)
+    }
+    else setForm(initialForm);
   };
 
   return [form, onChange, clearForm];
