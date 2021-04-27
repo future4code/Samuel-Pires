@@ -18,7 +18,7 @@ export default function () {
       <Form>
         <Input id="outlined-basic" label="Email" variant="outlined" required />
         <Input id="outlined-basic" label="Senha" variant="outlined" required />
-        <InputButton variant={'contained'} color={'primary'}>SIGN UP</InputButton>
+        <InputButton variant={'contained'} color={'primary'}><p>SIGN IN</p></InputButton>
       </Form>
     </Container>
   );

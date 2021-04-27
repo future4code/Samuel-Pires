@@ -30,4 +30,8 @@ export const Lock = styled(LockOutlinedIcon)``
 
 export const InputButton = styled(Button)`
   width: 100%;
+  p{
+    font-weight: bold;
+    font-size: 16px;
+  }
 `
