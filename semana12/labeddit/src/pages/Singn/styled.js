@@ -1,7 +1,4 @@
 import styled from 'styled-components'
-import TextField from '@material-ui/core/TextField';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
-import Button from '@material-ui/core/Button';
 
 export const Container = styled.div`
   width: 100%;
@@ -18,20 +15,33 @@ export const Title = styled.div`
 `
 
 export const Form = styled.form`
-  width: 500px;
+  width: min(500px, 90%);
+  min-width: 300px;
 `
 
-export const Input = styled(TextField)`
-  width: 100%;
-  height: 70px;
+export const DivLock = styled.div`
+  padding: 10px;
+  background-color: #ff4500;
+  border-radius: 30px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
-export const Lock = styled(LockOutlinedIcon)``
-
-export const InputButton = styled(Button)`
+export const MyButton = styled.button`
   width: 100%;
-  p{
-    font-weight: bold;
-    font-size: 16px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 7px;
+  padding: 10px;
+  color: white;
+  background-color: #FF6106;
+  transition: all 0.5s;
+  :hover{
+    background-color:#ff4500;
+  }
+  :active{
+    background: linear-gradient(45deg,#FF6106,#FF2C02);
   }
 `
