@@ -3,6 +3,7 @@ import validateLogin from "../validateLogin";
 import {useGetApi} from "../../hooks/useRequest";
 import {useHistory} from 'react-router-dom'
 import Header from "./components/Header/Header";
+import Loading from "./components/Loading/Loading";
 import PrivateContext from "../Context/PrivateContext";
 
 export default function (){
@@ -42,7 +43,7 @@ export default function (){
     <PrivateContext.Provider value={{states, setters}}>
       <Header value={'postsFiltered'} setValue={'setPostsFiltered'}/>
       {loading ? (
-        <div>Carregando</div>
+        <Loading />
       ):(
         <div>Carregou</div>
       )}
