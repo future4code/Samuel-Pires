@@ -4,6 +4,7 @@ import {useGetApi} from "../../hooks/useRequest";
 import {useHistory} from 'react-router-dom'
 import Header from "./components/Header/Header";
 import Loading from "./components/Loading/Loading";
+import ContentCard from "./components/ContentCard/ContentCard";
 import PrivateContext from "../Context/PrivateContext";
 import {
   Container,
@@ -39,7 +40,6 @@ export default function (){
 
   useEffect(()=>{
     console.log('postsFiltered', postsFiltered)
-    setLoading(false)
   },[postsFiltered])
 
   const states={posts, postsFiltered}
@@ -52,7 +52,7 @@ export default function (){
           {loading ? (
             <Loading />
           ):(
-            <div>Carregou</div>
+            <ContentCard value={posts[0]} id={'posts'}/>
           )}
         </Container>
       </All>

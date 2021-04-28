@@ -6,11 +6,12 @@ export const All = styled.div`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
 `
 
 export const Container = styled.section`
   margin-top: 60px;
-  width: 100%;
+  max-width: 80%;
   min-height: calc(100vh - 60px);
   display: flex;
   flex-direction: column;
