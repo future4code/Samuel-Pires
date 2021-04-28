@@ -15,18 +15,14 @@ export const User = styled.div`
 export const Text = styled.div`
   width: 100%;
   height: auto;
-  max-height: ${props=>props.maxHeight? '100px' : 'auto'};
-  overflow: hidden;
-  >p{
-    display: inline;
-  }
-`
-
-export const Content = styled.div`
   > a {
     color: #6c6a6a;
     cursor: pointer;
   }
+`
+
+export const Content = styled.div`
+  
 `
 
 export const Footer = styled.div`

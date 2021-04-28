@@ -1,4 +1,6 @@
 import React, {useState, useEffect, useRef} from 'react'
+import {putApi} from "../../../../hooks/useRequest";
+import config from "../../../config";
 import {
   Container,
   Footer,
@@ -12,48 +14,61 @@ import {
   MyArrowUpIcon,
   MyCommentIcon
 } from './styledMaterial'
-export default function ({value, id}){
-  const [hiddenShow, setHiddenShow] = useState('Ver mais');
-  const [maxHeight, setMaxHeight] = useState(true);
-  const [heightText, setHeightText] = useState(0)
+
+export default function ({value, idPost}){
+  const [hiddenShow, setHiddenShow] = useState('Ver mais...');
   const [vote, setVote] = useState(0)
-  const ref = useRef(null);
+
   const changeHiddenShow=()=>{
-    if(maxHeight){
-      setMaxHeight(false)
+    if(hiddenShow==='Ver mais...'){
       setHiddenShow('Esconder...')
     }
     else{
-      setMaxHeight(true)
       setHiddenShow('Ver mais...')
     }
   }
 
-  useEffect(()=>{
-    const height = ref.current.clientHeight
-    console.log('height', height)
-    setHeightText(height)
-  },[ref])
+  const text = ()=>{
+    if(hiddenShow==='Ver mais...'){
+      if (value.text.length < 400) {
+        return value.text
+      } else {
+        return <>{value.text.slice(0,400)}... <a onClick={changeHiddenShow}>{hiddenShow}</a></>
+      }
+    }else{
+      return <>{value.text} <a onClick={changeHiddenShow}>{hiddenShow}</a></>
+    }
+  }
+
+  const votePut = (direction)=>{
+    if(direction===vote) direction=0
+
+    if(!idPost){
+      putApi(`/posts/${value.id}/vote`,{direction}, config(), (res)=>{
+        setVote(direction)
+        console.log('votado')
+      })
+    }
+    else{
+      putApi(`/posts/${idPost}/comment/${value.id}/vote`, {direction}, config(),(res)=>{
+        setVote(direction)
+        console.log('votado')
+      })
+    }
+  }
 
   return(
-    <Container>
+    <Container key={value.id}>
       <User>
         <strong>{value.username}</strong>
       </User>
-      <Content>
-        <Text maxHeight={maxHeight} ref={ref}>
-          <p>{value.text}</p>
-        </Text>
-        {heightText<=95 ? (
-          <></>
-        ):(
-            <a onClick={changeHiddenShow}>{hiddenShow}</a>
-        )}
-      </Content>
+      <Text>
+        {text()}
+      </Text>
       <Footer>
-        <MyArrowUpIcon vote={vote} onClick={()=>setVote(1)}/>
+        <MyArrowUpIcon vote={vote} onClick={()=>votePut(1)}/>
         <p>{value.votesCount}</p>
-        <MyArrowDownIcon vote={vote} onClick={()=>setVote(-1)}/>
+        <MyArrowDownIcon vote={vote} onClick={()=>votePut(-1)}/>
         <Comments>
           <MyCommentIcon />
           <p>{value.commentsCount} Comentários</p>

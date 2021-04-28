@@ -42,6 +42,14 @@ export default function (){
     console.log('postsFiltered', postsFiltered)
   },[postsFiltered])
 
+  const postsRendered = ()=>{
+    return postsFiltered.map(post=>{
+      return(
+        <ContentCard value={post} id={'posts'}/>
+      )
+    })
+  }
+
   const states={posts, postsFiltered}
   const setters={setPostsFiltered, setLoading}
   return(
@@ -52,7 +60,8 @@ export default function (){
           {loading ? (
             <Loading />
           ):(
-            <ContentCard value={posts[0]} id={'posts'}/>
+            // <ContentCard value={posts[0]} id={'posts'}/>
+            postsRendered()
           )}
         </Container>
       </All>
