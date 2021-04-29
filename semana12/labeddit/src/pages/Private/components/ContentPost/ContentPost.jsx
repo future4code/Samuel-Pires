@@ -50,7 +50,7 @@ export default function ({value, setShowDetails}){
   }
 
   return(
-    <Container key={value.id} >
+    <Container>
       <User>
         <strong>{value.username}</strong>
       </User>

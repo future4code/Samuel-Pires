@@ -10,11 +10,13 @@ import{
   MyCloseIcon
 } from "./styledMaterial";
 
-export default function (props){
+export default function ({idValue, idSetValue, width}){
   const {states, setters} = useContext(PrivateContext)
-  const value = states[props.value]
-  const setValue = setters[props.setValue]
-  const [input, setInput] = useInput()
+  const value = states[idValue]
+  const setValue = setters[idSetValue]
+  const [input, setInput] = useInput(()=>{
+    if(input==='')removeFilter()
+  })
   const [icon, setIcon] = useState(true);
 
   const filter=()=>{
@@ -30,7 +32,7 @@ export default function (props){
     setValue(newValue)
   }
 
-  const removeFilter=()=>{
+  function removeFilter(){
     setInput('')
     setIcon(true)
     setters.setLoading(true)
@@ -44,7 +46,7 @@ export default function (props){
   }
 
   return(
-    <DivInput width={props.width}>
+    <DivInput width={width}>
       <Input placeholder={'Search'} value={input} onChange={setInput} onKeyPress={onKeyPress}/>
       {icon? (
         <MySearchIcon onClick={filter}/>

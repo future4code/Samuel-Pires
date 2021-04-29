@@ -30,6 +30,7 @@ export default function (){
     getApiPosts('/posts', config, (res,setValue)=>{
       setValue(res.data.posts)
       setPostsFiltered(res.data.posts)
+      console.log('posts', res.data.posts)
       setLoading(false)
     },(err)=>{
       if(err.response.data.message==='Não autorizado'){
@@ -42,12 +43,16 @@ export default function (){
   },[])
 
   useEffect(()=>{
+    if(postsFiltered.length){
+      setLoading(false)
+      console.log('mudei post filtered')
+    }
   },[postsFiltered])
 
   const postsRendered = ()=>{
     return postsFiltered.map(post=>{
       return(
-        <ContentPost value={post} setShowDetails={setShowDetails}/>
+        <ContentPost value={post} setShowDetails={setShowDetails} key={post.id}/>
       )
     })
   }
@@ -57,7 +62,7 @@ export default function (){
   return(
     <PrivateContext.Provider value={{states, setters}}>
       <All>
-        <Header value={'posts'} setValue={'setPostsFiltered'}/>
+        <Header idValue={'posts'} idSetValue={'setPostsFiltered'}/>
         <ContainerAll showDetails={showDetails}>
           {loading ? (
             <Loading />

@@ -5,7 +5,7 @@ import Logo from "../../../logo/Logo";
 import Search from "../Search/Search";
 import {useHistory} from 'react-router-dom'
 
-export default function (props){
+export default function ({idValue, idSetValue}){
   const history = useHistory()
 
   const logout=()=>{
@@ -15,7 +15,7 @@ export default function (props){
   return(
     <Container>
       <Logo small/>
-      <Search value={props.value} setValue={props.setValue}/>
+      <Search idValue={idValue} idSetValue={idSetValue}/>
       <MyButton variant="outlined" onClick={logout}>Logout</MyButton>
     </Container>
   )
