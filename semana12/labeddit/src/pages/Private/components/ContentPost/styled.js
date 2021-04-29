@@ -43,15 +43,15 @@ export const Comments = styled.div`
   align-items: center;
   padding: 5px;
   color: #424242;
-  cursor: pointer;
+  cursor: ${props=>props.click? 'pointer' : 'auto'};
   border-radius: 2px;
 
   :hover {
-    background-color: #e2e2e2;
+    background-color: ${props=>props.click? '#e2e2e2' : 'none'};
   }
 
   :active {
-    background-color: #d4d4d4;
+    background-color: ${props=>props.click? '#d4d4d4' : 'none'};
   }
 
   > p {

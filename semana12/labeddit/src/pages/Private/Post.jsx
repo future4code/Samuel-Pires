@@ -7,7 +7,7 @@ import {
 import {useGetApi} from "../../hooks/useRequest";
 import config from "../config";
 import Loading from "./components/Loading/Loading";
-import ContentCard from "./components/ContentCard/ContentCard";
+import ContentPost from "./components/ContentPost/ContentPost";
 
 export default function Post(props){
   const [idPost, setId] = useState('')
@@ -52,7 +52,7 @@ export default function Post(props){
         {loading? (
           <Loading />
         ):(post? (
-          <ContentCard value={post} idPost={'a'}/> ): (<></>)
+          <ContentPost value={post}/> ): (<></>)
         )}
       </Container>
     </All>

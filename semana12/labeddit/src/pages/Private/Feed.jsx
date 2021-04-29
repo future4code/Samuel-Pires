@@ -4,7 +4,7 @@ import {useGetApi} from "../../hooks/useRequest";
 import {useHistory} from 'react-router-dom'
 import Header from "./components/Header/Header";
 import Loading from "./components/Loading/Loading";
-import ContentCard from "./components/ContentCard/ContentCard";
+import ContentPost from "./components/ContentPost/ContentPost";
 import PrivateContext from "../Context/PrivateContext";
 import {
   Container,
@@ -47,7 +47,7 @@ export default function (){
   const postsRendered = ()=>{
     return postsFiltered.map(post=>{
       return(
-        <ContentCard value={post} id={'posts'} setShowDetails={setShowDetails}/>
+        <ContentPost value={post} setShowDetails={setShowDetails}/>
       )
     })
   }

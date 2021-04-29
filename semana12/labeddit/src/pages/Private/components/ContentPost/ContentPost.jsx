@@ -15,7 +15,7 @@ import {
   MyCommentIcon
 } from './styledMaterial'
 
-export default function ({value, idPost, setShowDetails}){
+export default function ({value, setShowDetails}){
   const [hiddenShow, setHiddenShow] = useState('Ver mais...');
   const [vote, setVote] = useState(0)
 
@@ -43,16 +43,10 @@ export default function ({value, idPost, setShowDetails}){
   const votePut = (direction)=>{
     if(direction===vote) direction=0
 
-    if(!idPost){
-      putApi(`/posts/${value.id}/vote`,{direction}, config(), (res)=>{
-        setVote(direction)
-      })
-    }
-    else{
-      putApi(`/posts/${idPost}/comment/${value.id}/vote`, {direction}, config(),(res)=>{
-        setVote(direction)
-      })
-    }
+    putApi(`/posts/${value.id}/vote`,{direction}, config(), (res)=>{
+      setVote(direction)
+    })
+
   }
 
   return(
@@ -67,13 +61,14 @@ export default function ({value, idPost, setShowDetails}){
         <MyArrowUpIcon vote={vote} onClick={()=>votePut(1)}/>
         <p>{value.votesCount}</p>
         <MyArrowDownIcon vote={vote} onClick={()=>votePut(-1)}/>
-        {idPost?(
-          <Comments >
+        {setShowDetails?(
+          <Comments onClick={()=>setShowDetails(value.id)} click>
             <MyCommentIcon />
             <p>{value.commentsCount} Comentários</p>
           </Comments>
+
         ):(
-          <Comments onClick={()=>setShowDetails(value.id)}>
+          <Comments >
             <MyCommentIcon />
             <p>{value.commentsCount} Comentários</p>
           </Comments>
