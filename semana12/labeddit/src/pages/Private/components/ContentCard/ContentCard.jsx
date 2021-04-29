@@ -15,7 +15,7 @@ import {
   MyCommentIcon
 } from './styledMaterial'
 
-export default function ({value, idPost}){
+export default function ({value, idPost, setShowDetails}){
   const [hiddenShow, setHiddenShow] = useState('Ver mais...');
   const [vote, setVote] = useState(0)
 
@@ -46,19 +46,17 @@ export default function ({value, idPost}){
     if(!idPost){
       putApi(`/posts/${value.id}/vote`,{direction}, config(), (res)=>{
         setVote(direction)
-        console.log('votado')
       })
     }
     else{
       putApi(`/posts/${idPost}/comment/${value.id}/vote`, {direction}, config(),(res)=>{
         setVote(direction)
-        console.log('votado')
       })
     }
   }
 
   return(
-    <Container key={value.id}>
+    <Container key={value.id} >
       <User>
         <strong>{value.username}</strong>
       </User>
@@ -69,10 +67,18 @@ export default function ({value, idPost}){
         <MyArrowUpIcon vote={vote} onClick={()=>votePut(1)}/>
         <p>{value.votesCount}</p>
         <MyArrowDownIcon vote={vote} onClick={()=>votePut(-1)}/>
-        <Comments>
-          <MyCommentIcon />
-          <p>{value.commentsCount} Comentários</p>
-        </Comments>
+        {idPost?(
+          <Comments >
+            <MyCommentIcon />
+            <p>{value.commentsCount} Comentários</p>
+          </Comments>
+        ):(
+          <Comments onClick={()=>setShowDetails(value.id)}>
+            <MyCommentIcon />
+            <p>{value.commentsCount} Comentários</p>
+          </Comments>
+        )}
+
       </Footer>
     </Container>
   )

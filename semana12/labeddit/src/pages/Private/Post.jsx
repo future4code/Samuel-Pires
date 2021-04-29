@@ -13,7 +13,7 @@ export default function Post(props){
   const [idPost, setId] = useState('')
   const {id} = useParams()
   const history = useHistory()
-  const [post, getPostApi] = useGetApi({})
+  const [post, getPostApi] = useGetApi()
   const [loading, setLoading] = useState(true)
 
   useEffect(()=>{
@@ -42,15 +42,19 @@ export default function Post(props){
     }
   },[idPost])
 
-
+  useEffect(()=>{
+    console.log('post', post)
+  },[post])
 
   return(
     <All>
-      {loading? (
-        <Loading />
-      ):(
-        <ContentCard value={post} />
-      )}
+      <Container width={'30%'}>
+        {loading? (
+          <Loading />
+        ):(post? (
+          <ContentCard value={post} idPost={'a'}/> ): (<></>)
+        )}
+      </Container>
     </All>
   )
 }

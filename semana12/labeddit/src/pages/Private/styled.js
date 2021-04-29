@@ -9,13 +9,20 @@ export const All = styled.div`
   align-items: center;
 `
 
-export const Container = styled.section`
+export const ContainerAll = styled.main`
   margin-top: 60px;
-  max-width: 80%;
+  width: 90%;
   min-height: calc(100vh - 60px);
+  display: flex;
+  justify-content: ${props=>props.showDetails? 'space-around' : 'center'};
+  align-items: ${props=>props.showDetails? 'flex-start' : 'center'};
+`
+
+export const Container = styled.section`
+  width: ${props=>props.width? props.width : '60%'};
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  //align-items: center;
   overflow-y: auto;
 `

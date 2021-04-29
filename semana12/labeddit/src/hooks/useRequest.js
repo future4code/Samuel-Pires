@@ -9,7 +9,6 @@ export const useGetApi=(initialState)=>{
   const getApi = async(endpoint, config, callbackOk, callbackError)=>{
     try{
       const res = await axios.get(`${baseUrl}${endpoint}`, config)
-      if(res)setValue(res)
       if(typeof callbackOk==='function')callbackOk(res, setValue)
     }
     catch(err){
@@ -27,7 +26,6 @@ export const usePostApi=(initialState)=>{
   const postApi = async(endpoint, data, config, callbackOk, callbackError)=>{
     try{
       const res = await axios.post(`${baseUrl}${endpoint}`, data, config)
-      if(res)setValue(res)
       if(typeof callbackOk==='function')callbackOk(res, setValue)
       }
     catch(err){
@@ -55,7 +53,6 @@ export const usePutApi=(intialState)=>{
   const putApi = async(endpoint, data, config, callbackOk, callbackError)=>{
     try{
       const res = await axios.put(`${baseUrl}${endpoint}`, data, config)
-      if(res)setValue(res)
       if(typeof callbackOk==='function')callbackOk(res)
     }
     catch(err){
@@ -84,7 +81,6 @@ export const useDelApi=(initialState)=>{
   const delApi = async(endpoint, config, callbackOk, callbackError)=>{
     try{
       const res = await axios.delete(`${baseUrl}${endpoint}`, config)
-      if(res)setValue(res)
       if(typeof callbackOk==='function')callbackOk(res, setValue)
     }
     catch(err){

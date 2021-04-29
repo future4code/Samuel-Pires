@@ -8,15 +8,18 @@ import ContentCard from "./components/ContentCard/ContentCard";
 import PrivateContext from "../Context/PrivateContext";
 import {
   Container,
-  All
+  All,
+  ContainerAll
 } from "./styled";
+import Post from "./Post";
 
 export default function (){
   const token = validateLogin()
   const history = useHistory()
   const [posts, getApiPosts] = useGetApi([])
   const [loading, setLoading] = useState(true);
-  const [postsFiltered, setPostsFiltered] = useState([]);
+  const [postsFiltered, setPostsFiltered] = useState([])
+  const [showDetails, setShowDetails] = useState('')
 
   useEffect(()=>{
     const config = {
@@ -39,13 +42,12 @@ export default function (){
   },[])
 
   useEffect(()=>{
-    console.log('postsFiltered', postsFiltered)
   },[postsFiltered])
 
   const postsRendered = ()=>{
     return postsFiltered.map(post=>{
       return(
-        <ContentCard value={post} id={'posts'}/>
+        <ContentCard value={post} id={'posts'} setShowDetails={setShowDetails}/>
       )
     })
   }
@@ -56,14 +58,18 @@ export default function (){
     <PrivateContext.Provider value={{states, setters}}>
       <All>
         <Header value={'posts'} setValue={'setPostsFiltered'}/>
-        <Container>
+        <ContainerAll showDetails={showDetails}>
           {loading ? (
             <Loading />
           ):(
-            // <ContentCard value={posts[0]} id={'posts'}/>
-            postsRendered()
+            <Container>
+              {postsRendered()}
+            </Container>
           )}
-        </Container>
+          {showDetails &&
+            <Post id={showDetails} setShowDetails={setShowDetails}/>
+          }
+        </ContainerAll>
       </All>
     </PrivateContext.Provider>
   )

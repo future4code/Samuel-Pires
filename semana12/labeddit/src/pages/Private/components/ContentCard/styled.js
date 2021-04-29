@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.article`
   width: 100%;
   padding: 10px;
 `
@@ -15,6 +15,7 @@ export const User = styled.div`
 export const Text = styled.div`
   width: 100%;
   height: auto;
+  cursor: pointer;
   > a {
     color: #6c6a6a;
     cursor: pointer;
