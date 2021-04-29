@@ -13,6 +13,7 @@ import PrivateContext from "../Context/PrivateContext";
 import Search from "./components/Search/Search";
 import validateLogin from "../validateLogin";
 import WriteComment from "./components/Write/WriteComment";
+import ContentComment from "./components/ContentPost/ContentComment";
 
 export default function Post(props){
   validateLogin()
@@ -38,7 +39,7 @@ export default function Post(props){
   const commentsRendered=()=>{
     return commentsFiltered.map((comment)=>{
       return(
-        <div>{comment.text}</div>
+        <ContentComment comment={comment} idPost={post.id}/>
       )
     })
   }
