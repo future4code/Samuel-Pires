@@ -14,7 +14,7 @@ import {
 import Post from "./Post";
 import config from "../config";
 
-export default function (){
+export default function Feed(){
   validateLogin()
   const history = useHistory()
   const [posts, getApiPosts] = useGetApi([])
@@ -46,7 +46,7 @@ export default function (){
   const postsRendered = ()=>{
     return postsFiltered.map(post=>{
       return(
-        <ContentPost value={post} setShowDetails={setShowDetails} key={post.id}/>
+        <ContentPost post={post} setShowDetails={setShowDetails} key={post.id}/>
       )
     })
   }

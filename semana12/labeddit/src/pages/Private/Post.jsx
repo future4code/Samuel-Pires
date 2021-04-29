@@ -8,6 +8,9 @@ import {useGetApi} from "../../hooks/useRequest";
 import config from "../config";
 import Loading from "./components/Loading/Loading";
 import ContentPost from "./components/ContentPost/ContentPost";
+import Header from "./components/Header/Header";
+import PrivateContext from "../Context/PrivateContext";
+import Search from "./components/Search/Search";
 
 export default function Post(props){
   const [idPost, setId] = useState('')
@@ -15,14 +18,44 @@ export default function Post(props){
   const history = useHistory()
   const [post, getPostApi] = useGetApi()
   const [loading, setLoading] = useState(true)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [commentsFiltered, setCommentsFiltered] = useState([]);
+  const [comments, setComments] = useState([])
 
-  useEffect(()=>{
+  const tela = ()=>{
     if(id){
       setId(id)
+      console.log('id por param', id)
     }
     else if(props.id){
       setId(props.id)
     }
+  }
+
+  const commentsRendered=()=>{
+    return commentsFiltered.map((comment)=>{
+      return(
+        <div>{comment.text}</div>
+      )
+    })
+  }
+
+  useEffect(()=>{
+    if(!id){
+      const muda = ()=>{
+        setWindowWidth(window.innerWidth)
+      }
+      window.addEventListener('resize', function(){
+        muda()
+      })
+    }
+    if(windowWidth<1000 && !id){
+      history.push(`/post/${props.id}`)
+    }
+  },[windowWidth,id])
+
+  useEffect(()=>{
+    tela()
   },[id,props])
 
   useEffect(()=>{
@@ -31,6 +64,8 @@ export default function Post(props){
         if(res.data.post.text){
           setValue(res.data.post)
           setLoading(false)
+          setCommentsFiltered(res.data.post.comments)
+          setComments(res.data.post.comments)
         }
         else{
           //fiz q requisição e peguei o post, agora tenho que continuar
@@ -43,18 +78,33 @@ export default function Post(props){
   },[idPost])
 
   useEffect(()=>{
-    console.log('post', post)
-  },[post])
+    if(commentsFiltered.length) {
+      console.log('commentsFiltered', commentsFiltered)
+      setLoading(false)
+    }
+  },[commentsFiltered])
+
+  const states = {comments}
+  const setters = {setCommentsFiltered, setLoading}
 
   return(
-    <All>
-      <Container width={'30%'}>
-        {loading? (
-          <Loading />
-        ):(post? (
-          <ContentPost value={post}/> ): (<></>)
+    <PrivateContext.Provider value={{states,setters}}>
+      <All>
+        {id?(
+          <Header idValue={'comments'} idSetValue={'setCommentsFiltered'} />
+        ):(
+          <Search idValue={'comments'} idSetValue={'setCommentsFiltered'} />
         )}
-      </Container>
-    </All>
+        <Container width={'30%'}>
+          {loading? (
+            <Loading />
+          ):(post? (
+            <ContentPost post={post}/> ): (<></>)
+          )}
+          {commentsFiltered.length &&
+           commentsRendered()}
+        </Container>
+      </All>
+    </PrivateContext.Provider>
   )
 }
