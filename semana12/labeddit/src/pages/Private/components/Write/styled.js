@@ -1,14 +1,16 @@
 import styled from 'styled-components'
 
 export const Form = styled.form`
-  margin-top: 60px;
+  margin-top: 20px;
   width: 100%;
   height: 200px;
   border: 1px solid #878a8c;
   background-color: #F6F7F8;
   border-radius: 10px;
   overflow: hidden;
-  position: relative;
+  //position: relative;
+  display: flex;
+  flex-direction: column;
 `
 
 export const Title = styled.input`
@@ -24,7 +26,7 @@ export const Title = styled.input`
 
 export const Text = styled.textarea`
   width: 100%;
-  height: 140px;
+  flex-grow: 1;
   border: 0;
   outline: none;
   resize: none;
@@ -34,12 +36,10 @@ export const Text = styled.textarea`
 `
 
 export const Button = styled.button`
-  width: 30px;
+  width: 100%;
   height: 30px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   border: none;
-  position: absolute;
-  right: 10px;
 `

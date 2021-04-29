@@ -5,7 +5,7 @@ import {useHistory} from 'react-router-dom'
 import Header from "./components/Header/Header";
 import Loading from "./components/Loading/Loading";
 import ContentPost from "./components/ContentPost/ContentPost";
-import WritePost from "./components/WritePost/WritePost";
+import WritePost from "./components/Write/WritePost";
 import PrivateContext from "../Context/PrivateContext";
 import {
   Container,

@@ -12,6 +12,7 @@ import Header from "./components/Header/Header";
 import PrivateContext from "../Context/PrivateContext";
 import Search from "./components/Search/Search";
 import validateLogin from "../validateLogin";
+import WriteComment from "./components/Write/WriteComment";
 
 export default function Post(props){
   validateLogin()
@@ -99,8 +100,10 @@ export default function Post(props){
         <Container width={'30%'}>
           {loading? (
             <Loading />
-          ):(post? (
-            <ContentPost post={post}/> ): (<></>)
+          ):(post? (<>
+            <ContentPost post={post}/>
+              <WriteComment idPost={post.id}/>
+            </>): (<></>)
           )}
           {commentsFiltered.length &&
            commentsRendered()}
