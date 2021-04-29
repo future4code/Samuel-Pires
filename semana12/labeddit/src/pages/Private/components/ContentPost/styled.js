@@ -15,7 +15,6 @@ export const User = styled.div`
 export const Text = styled.div`
   width: 100%;
   height: auto;
-  cursor: pointer;
   > a {
     color: #6c6a6a;
     cursor: pointer;
