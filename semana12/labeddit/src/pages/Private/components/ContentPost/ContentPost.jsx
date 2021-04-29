@@ -46,7 +46,6 @@ export default function ({value, setShowDetails}){
     putApi(`/posts/${value.id}/vote`,{direction}, config(), (res)=>{
       setVote(direction)
     })
-
   }
 
   return(

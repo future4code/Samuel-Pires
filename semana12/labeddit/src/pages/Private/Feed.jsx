@@ -12,9 +12,10 @@ import {
   ContainerAll
 } from "./styled";
 import Post from "./Post";
+import config from "../config";
 
 export default function (){
-  const token = validateLogin()
+  validateLogin()
   const history = useHistory()
   const [posts, getApiPosts] = useGetApi([])
   const [loading, setLoading] = useState(true);
@@ -22,15 +23,9 @@ export default function (){
   const [showDetails, setShowDetails] = useState('')
 
   useEffect(()=>{
-    const config = {
-      headers:{
-        Authorization: token
-      }
-    }
-    getApiPosts('/posts', config, (res,setValue)=>{
+    getApiPosts('/posts', config(), (res,setValue)=>{
       setValue(res.data.posts)
       setPostsFiltered(res.data.posts)
-      console.log('posts', res.data.posts)
       setLoading(false)
     },(err)=>{
       if(err.response.data.message==='Não autorizado'){
@@ -45,7 +40,6 @@ export default function (){
   useEffect(()=>{
     if(postsFiltered.length){
       setLoading(false)
-      console.log('mudei post filtered')
     }
   },[postsFiltered])
 
