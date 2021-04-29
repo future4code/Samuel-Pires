@@ -11,8 +11,10 @@ import ContentPost from "./components/ContentPost/ContentPost";
 import Header from "./components/Header/Header";
 import PrivateContext from "../Context/PrivateContext";
 import Search from "./components/Search/Search";
+import validateLogin from "../validateLogin";
 
 export default function Post(props){
+  validateLogin()
   const [idPost, setId] = useState('')
   const {id} = useParams()
   const history = useHistory()
@@ -79,7 +81,6 @@ export default function Post(props){
 
   useEffect(()=>{
     if(commentsFiltered.length) {
-      console.log('commentsFiltered', commentsFiltered)
       setLoading(false)
     }
   },[commentsFiltered])

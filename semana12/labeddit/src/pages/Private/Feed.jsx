@@ -5,6 +5,7 @@ import {useHistory} from 'react-router-dom'
 import Header from "./components/Header/Header";
 import Loading from "./components/Loading/Loading";
 import ContentPost from "./components/ContentPost/ContentPost";
+import WritePost from "./components/WritePost/WritePost";
 import PrivateContext from "../Context/PrivateContext";
 import {
   Container,
@@ -19,7 +20,7 @@ export default function Feed(){
   const history = useHistory()
   const [posts, getApiPosts] = useGetApi([])
   const [loading, setLoading] = useState(true);
-  const [postsFiltered, setPostsFiltered] = useState([])
+  const [postsFiltered, setPostsFiltered] = useState()
   const [showDetails, setShowDetails] = useState('')
 
   useEffect(()=>{
@@ -38,12 +39,15 @@ export default function Feed(){
   },[])
 
   useEffect(()=>{
-    if(postsFiltered.length){
+    if(postsFiltered && postsFiltered.length){
       setLoading(false)
     }
   },[postsFiltered])
 
   const postsRendered = ()=>{
+    if(postsFiltered.length===0){
+      return <div>Não há publicações</div>
+    }
     return postsFiltered.map(post=>{
       return(
         <ContentPost post={post} setShowDetails={setShowDetails} key={post.id}/>
@@ -62,6 +66,7 @@ export default function Feed(){
             <Loading />
           ):(
             <Container>
+              <WritePost />
               {postsRendered()}
             </Container>
           )}
