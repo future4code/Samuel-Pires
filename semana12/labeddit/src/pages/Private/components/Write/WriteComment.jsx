@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Form, Text, Button
+  Form, Text, Button, DivButton
 } from "./styled";
 import {MySendIcon} from "./styledMaterial";
 import {postApi} from "../../../../hooks/useRequest";
@@ -26,7 +26,9 @@ export default function WriteComment({idPost}){
         name={'text'}
         value={form.text}
         onChange={setForm}/>
-      <Button><MySendIcon/></Button>
+      <DivButton>
+        <Button><MySendIcon/></Button>
+      </DivButton>
     </Form>
   )
 }

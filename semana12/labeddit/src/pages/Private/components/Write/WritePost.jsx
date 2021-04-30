@@ -1,6 +1,6 @@
 import React from 'react'
 import {
-  Form, Title, Text, Button
+  Form, Title, Text, Button, DivButton
 } from "./styled";
 import {MySendIcon} from "./styledMaterial";
 import useForm from "../../../../hooks/useForm";
@@ -21,7 +21,9 @@ export default function WritePost(){
     <Form onSubmit={onSubmitForm}>
       <Title placeholder={'Título...'} required min={'3'} name={'title'} value={form.title} onChange={setForm}/>
       <Text placeholder={'Escreva seu post...'} required min={'3'} name={'text'} value={form.text} onChange={setForm}/>
-      <Button><MySendIcon/></Button>
+      <DivButton>
+        <Button><MySendIcon/></Button>
+      </DivButton>
     </Form>
   )
 }

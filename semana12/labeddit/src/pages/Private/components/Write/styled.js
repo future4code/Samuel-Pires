@@ -35,11 +35,18 @@ export const Text = styled.textarea`
   padding: 5px 10px;
 `
 
-export const Button = styled.button`
+export const DivButton = styled.div`
   width: 100%;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   border: none;
+`
+
+export const Button = styled.button`
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
