@@ -14,6 +14,7 @@ import {
 } from "./styled";
 import Post from "./Post";
 import config from "../config";
+import OrderVotes from "./components/Order/OrderVotes";
 
 export default function Feed(){
   validateLogin()
@@ -67,6 +68,7 @@ export default function Feed(){
           ):(
             <Container>
               <WritePost />
+              <OrderVotes value={'postsFiltered'} setValue={'setPostsFiltered'}/>
               {postsRendered()}
             </Container>
           )}
