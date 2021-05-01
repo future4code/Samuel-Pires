@@ -14,6 +14,8 @@ import Search from "./components/Search/Search";
 import validateLogin from "../validateLogin";
 import WriteComment from "./components/Write/WriteComment";
 import ContentComment from "./components/ContentPost/ContentComment";
+import OrderComments from "./components/Order/OrderComments";
+import OrderVotes from "./components/Order/OrderVotes";
 
 export default function Post(props){
   validateLogin()
@@ -29,7 +31,6 @@ export default function Post(props){
   const tela = ()=>{
     if(id){
       setId(id)
-      console.log('id por param', id)
     }
     else if(props.id){
       setId(props.id)
@@ -87,8 +88,10 @@ export default function Post(props){
     }
   },[commentsFiltered])
 
-  const states = {comments}
+  const states = {comments, commentsFiltered}
   const setters = {setCommentsFiltered, setLoading}
+
+  console.log('comment', commentsFiltered[0])
 
   return(
     <PrivateContext.Provider value={{states,setters}}>
@@ -103,7 +106,8 @@ export default function Post(props){
             <Loading />
           ):(post? (<>
             <ContentPost post={post}/>
-              <WriteComment idPost={post.id}/>
+            <WriteComment idPost={post.id}/>
+              <OrderVotes value={'commentsFiltered'} setValue={'setCommentsFiltered'} />
             </>): (<></>)
           )}
           {commentsFiltered.length &&
