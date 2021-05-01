@@ -21,4 +21,5 @@ export const orderMin=(value,setValue, id)=>{
       return -1
     }
   })
+  setValue(newValue)
 }

@@ -15,6 +15,7 @@ import {
 import Post from "./Post";
 import config from "../config";
 import OrderVotes from "./components/Order/OrderVotes";
+import OrderComments from "./components/Order/OrderComments";
 
 export default function Feed(){
   validateLogin()
@@ -69,6 +70,7 @@ export default function Feed(){
             <Container>
               <WritePost />
               <OrderVotes value={'postsFiltered'} setValue={'setPostsFiltered'}/>
+              <OrderComments value={'postsFiltered'} setValue={'setPostsFiltered'}/>
               {postsRendered()}
             </Container>
           )}

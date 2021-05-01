@@ -4,15 +4,16 @@ import {
 } from "./styled";
 import PrivateContext from "../../../Context/PrivateContext";
 import {orderMax, orderMin} from "./orderFunctions";
-export default function OrderVotes(props){
+
+export default function OrderComments(props){
   const {states, setters} = useContext(PrivateContext)
   const value = states[props.value]
   const setValue = setters[props.setValue]
 
   return(
     <Container>
-      <button onClick={()=>orderMax(value,setValue, 'votesCount')}>Votes Max</button>
-      <button onClick={()=>orderMin(value,setValue, 'votesCount')}>Votes Min</button>
+      <button onClick={()=>orderMax(value,setValue, 'commentsCount')}>Comments Max</button>
+      <button onClick={()=>orderMin(value,setValue, 'commentsCount')}>Comments Min</button>
     </Container>
   )
 }
