@@ -18,6 +18,7 @@ import {
 export default function ({post, setShowDetails}){
   const [hiddenShow, setHiddenShow] = useState('Ver mais...');
   const [vote, setVote] = useState(post.userVoteDirection)
+
   const changeHiddenShow=()=>{
     if(hiddenShow==='Ver mais...'){
       setHiddenShow('Esconder...')
@@ -29,10 +30,10 @@ export default function ({post, setShowDetails}){
 
   const text = ()=>{
     if(hiddenShow==='Ver mais...'){
-      if (post.text.length < 400) {
+      if (post.text.length < 250) {
         return post.text
       } else {
-        return <>{post.text.slice(0,400)}... <a onClick={changeHiddenShow}>{hiddenShow}</a></>
+        return <>{post.text.slice(0,200)}... <a onClick={changeHiddenShow}>{hiddenShow}</a></>
       }
     }else{
       return <>{post.text} <a onClick={changeHiddenShow}>{hiddenShow}</a></>
@@ -40,8 +41,16 @@ export default function ({post, setShowDetails}){
   }
 
   const votePut = (direction)=>{
-    if(direction===vote) direction=0
-
+    if(direction===vote){
+      post.votesCount+= direction*(-1)
+      direction=0
+    }
+    else if(direction*(-1)===vote){
+      post.votesCount+=direction*2
+    }
+    else{
+      post.votesCount+=direction
+    }
     putApi(`/posts/${post.id}/vote`,{direction}, config(), (res)=>{
       setVote(direction)
     })

@@ -14,6 +14,7 @@ export const All = styled.div`
   align-items: center;
   overflow-y: auto;
   overflow-x: hidden;
+  background-color: #DAE0E6;
 `
 
 export const ContainerAll = styled.main`
@@ -30,4 +31,18 @@ export const Container = styled.section`
   flex-direction: column;
   justify-content: center;
   //align-items: center;
+`
+
+export const Votes = styled.div`
+  margin-top: 30px;
+  border: 1px solid #878A8C;
+  background-color: white;
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+
+  :hover {
+    border: 1px solid #6f6f6f;
+  }
 `

@@ -10,7 +10,7 @@ import PrivateContext from "../Context/PrivateContext";
 import {
   Container,
   All,
-  ContainerAll, CAll
+  ContainerAll, CAll, Votes
 } from "./styled";
 import Post from "./Post";
 import config from "../config";
@@ -24,6 +24,7 @@ export default function Feed(){
   const [loading, setLoading] = useState(true);
   const [postsFiltered, setPostsFiltered] = useState()
   const [showDetails, setShowDetails] = useState('')
+  const [order, setOrder] = useState('');
 
   useEffect(()=>{
     getApiPosts('/posts', config(), (res,setValue)=>{
@@ -71,8 +72,20 @@ export default function Feed(){
             ):(
               <Container>
                 <WritePost />
-                <OrderVotes value={'postsFiltered'} setValue={'setPostsFiltered'}/>
-                <OrderComments value={'postsFiltered'} setValue={'setPostsFiltered'}/>
+                <Votes>
+                  <OrderVotes
+                    value={'postsFiltered'}
+                    setValue={'setPostsFiltered'}
+                    order={order}
+                    setOrder={setOrder}
+                  />
+                  <OrderComments
+                    value={'postsFiltered'}
+                    setValue={'setPostsFiltered'}
+                    order={order}
+                    setOrder={setOrder}
+                  />
+                </Votes>
                 {postsRendered()}
               </Container>
             )}

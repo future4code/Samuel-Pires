@@ -6,14 +6,14 @@ import {styled} from '@material-ui/core/styles'
 export const MyArrowUpIcon = styled(ArrowDropUpIcon)({
   width: '40px',
   height: '40px',
-  color: props=>props.vote===1? '#454545' : '#878a8c',
+  color: props=>props.vote===1? '#FF4500' : '#878a8c',
   cursor: 'pointer'
 })
 
 export const MyArrowDownIcon = styled(ArrowDropDownIcon)({
   width: '40px',
   height: '40px',
-  color: props=>props.vote===-1? '#454545' : '#878a8c',
+  color: props=>props.vote===-1? '#FF4500' : '#878a8c',
   cursor: 'pointer'
 })
 
