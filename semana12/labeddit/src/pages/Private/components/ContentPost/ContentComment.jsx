@@ -35,7 +35,16 @@ export default function ContentComment({comment,idPost}){
   }
 
   const votePut = (direction)=>{
-    if(direction===vote) direction=0
+    if(direction===vote){
+      comment.votesCount+= direction*(-1)
+      direction=0
+    }
+    else if(direction*(-1)===vote){
+      comment.votesCount+=direction*2
+    }
+    else{
+      comment.votesCount+=direction
+    }
 
     putApi(`/posts/${idPost}/comment/${comment.id}/vote`,{direction}, config(), (res)=>{
       setVote(direction)

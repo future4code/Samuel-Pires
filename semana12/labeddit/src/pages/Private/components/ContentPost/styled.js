@@ -3,6 +3,12 @@ import styled from 'styled-components'
 export const Container = styled.article`
   width: 100%;
   padding: 10px;
+  border: 1px solid #878A8C;
+  margin-top: 10px;
+  background-color: white;
+  :hover {
+    border: 1px solid #6f6f6f;
+  }
 `
 
 export const User = styled.div`
