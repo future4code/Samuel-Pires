@@ -3,11 +3,12 @@ import styled from 'styled-components'
 export const CAll = styled.div`
   width: 100vw;
   height: 100vh;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 `
 
 export const All = styled.div`
-  width: 100%;
+  width: max(100%, 375px);
   display: flex;
   flex-direction: column;
   align-items: center;
