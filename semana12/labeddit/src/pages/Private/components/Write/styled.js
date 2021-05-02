@@ -6,9 +6,6 @@ export const Form = styled.form`
   height: 200px;
   border: 1px solid #878a8c;
   background-color: #F6F7F8;
-  border-radius: 10px;
-  overflow: hidden;
-  //position: relative;
   display: flex;
   flex-direction: column;
 `
