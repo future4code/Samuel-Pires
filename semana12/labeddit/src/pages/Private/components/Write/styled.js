@@ -19,7 +19,7 @@ export const Title = styled.input`
   border: 0;
   font-weight: bold;
   border-bottom: 1px solid #878a8c;
-  background-color: #F6F7F8;
+  background-color: #FFF;
   padding-left: 10px;
   outline: none;
 `
@@ -31,7 +31,7 @@ export const Text = styled.textarea`
   outline: none;
   resize: none;
   border-bottom: 1px solid #878a8c;
-  background-color: #F6F7F8;
+  background-color: #fff;
   padding: 5px 10px;
 `
 
@@ -42,6 +42,7 @@ export const DivButton = styled.div`
   align-items: center;
   justify-content: flex-end;
   border: none;
+  background-color: #fff;
 `
 
 export const Button = styled.button`
@@ -49,4 +50,5 @@ export const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #fff;
 `
