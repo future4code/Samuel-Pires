@@ -17,8 +17,7 @@ import {
 
 export default function ({post, setShowDetails}){
   const [hiddenShow, setHiddenShow] = useState('Ver mais...');
-  const [vote, setVote] = useState(0)
-
+  const [vote, setVote] = useState(post.userVoteDirection)
   const changeHiddenShow=()=>{
     if(hiddenShow==='Ver mais...'){
       setHiddenShow('Esconder...')
