@@ -1,16 +1,21 @@
 import styled from 'styled-components'
 
-export const All = styled.div`
+export const CAll = styled.div`
   width: 100vw;
-  max-width: 100vw;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: auto;
+`
+
+export const All = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
 `
 
 export const ContainerAll = styled.main`
-  margin-top: 60px;
   width: 90%;
   min-height: calc(100vh - 60px);
   display: flex;
@@ -24,5 +29,4 @@ export const Container = styled.section`
   flex-direction: column;
   justify-content: center;
   //align-items: center;
-  overflow-y: auto;
 `

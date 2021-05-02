@@ -10,7 +10,7 @@ import PrivateContext from "../Context/PrivateContext";
 import {
   Container,
   All,
-  ContainerAll
+  ContainerAll, CAll
 } from "./styled";
 import Post from "./Post";
 import config from "../config";
@@ -61,24 +61,27 @@ export default function Feed(){
   const setters={setPostsFiltered, setLoading}
   return(
     <PrivateContext.Provider value={{states, setters}}>
-      <All>
+      <CAll>
         <Header idValue={'posts'} idSetValue={'setPostsFiltered'}/>
-        <ContainerAll showDetails={showDetails}>
-          {loading ? (
-            <Loading />
-          ):(
-            <Container>
-              <WritePost />
-              <OrderVotes value={'postsFiltered'} setValue={'setPostsFiltered'}/>
-              <OrderComments value={'postsFiltered'} setValue={'setPostsFiltered'}/>
-              {postsRendered()}
-            </Container>
-          )}
-          {showDetails &&
-            <Post id={showDetails} setShowDetails={setShowDetails}/>
-          }
-        </ContainerAll>
-      </All>
+        <All>
+
+          <ContainerAll showDetails={showDetails}>
+            {loading ? (
+              <Loading />
+            ):(
+              <Container>
+                <WritePost />
+                <OrderVotes value={'postsFiltered'} setValue={'setPostsFiltered'}/>
+                <OrderComments value={'postsFiltered'} setValue={'setPostsFiltered'}/>
+                {postsRendered()}
+              </Container>
+            )}
+            {showDetails &&
+              <Post id={showDetails} setShowDetails={setShowDetails}/>
+            }
+          </ContainerAll>
+        </All>
+      </CAll>
     </PrivateContext.Provider>
   )
 }
