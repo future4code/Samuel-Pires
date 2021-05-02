@@ -5,11 +5,11 @@ export const Container = styled.div`
   height: 60px;
   display: flex;
   padding: 0px 15px;
-  position: fixed;
+  position: sticky;
+  top:0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: white;
   box-shadow: 1px 0 2px black;
 `
-

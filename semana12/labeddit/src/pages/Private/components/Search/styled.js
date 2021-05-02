@@ -18,7 +18,7 @@ export const Input = styled.input`
 `
 
 export const DivInput = styled.div`
-  width: ${props=>props.width? props.width : '40%'};
+  width: 60%;
   height: 35px;
   display: flex;
   align-items: center;
