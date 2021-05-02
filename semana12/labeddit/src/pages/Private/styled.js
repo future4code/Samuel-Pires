@@ -8,17 +8,16 @@ export const CAll = styled.div`
 `
 
 export const All = styled.div`
-  width: max(100%, 375px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: auto;
-  overflow-x: hidden;
+  padding: 10px;
   background-color: #DAE0E6;
 `
 
 export const ContainerAll = styled.main`
-  width: 90%;
+  min-width: 360px;
+  max-width: 800px;
   min-height: calc(100vh - 60px);
   display: flex;
   justify-content: ${props=>props.showDetails? 'space-around' : 'center'};
@@ -26,7 +25,7 @@ export const ContainerAll = styled.main`
 `
 
 export const Container = styled.section`
-  width: ${props=>props.width? props.width : '60%'};
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;

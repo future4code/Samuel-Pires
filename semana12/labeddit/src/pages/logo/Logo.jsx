@@ -8,6 +8,9 @@ const Container = styled.div`
   font-size: ${props => props.font ? props.font : '50px'};
   color: #ff4500;
   cursor: pointer;
+  @media(max-width: 500px){
+    display: none;
+  }
 `
 
 export default function (props){
