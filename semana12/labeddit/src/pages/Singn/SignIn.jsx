@@ -9,7 +9,7 @@ import {
   Form,
   Title,
   DivLock,
-  MyButton
+  MyButton, MyButtonOutline
 } from "./styled";
 import {
   MaterialInput,
@@ -107,6 +107,7 @@ export default function () {
         />
         <MyButton>SIGN IN</MyButton>
       </Form>
+      <MyButtonOutline onClick={()=>history.push('signup')}>SIGN UP</MyButtonOutline>
     </Container>
   );
 }

@@ -51,7 +51,7 @@ export default function (){
       <DivLock>
         <MaterialLock />
       </DivLock>
-      <Title>Sign In</Title>
+      <Title>Sign Up</Title>
       <Form onSubmit={signUp} >
         {errorMessage &&
         <MaterialAlert severity={'error'}>
@@ -89,7 +89,7 @@ export default function (){
           value={form.password}
           onChange={setForm}
         />
-        <MyButton>SIGN IN</MyButton>
+        <MyButton>SIGN UP</MyButton>
       </Form>
     </Container>
   )

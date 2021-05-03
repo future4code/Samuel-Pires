@@ -16,7 +16,7 @@ export const Title = styled.div`
 
 export const Form = styled.form`
   width: min(500px, 90%);
-  min-width: 300px;
+  min-width: 360px;
 `
 
 export const DivLock = styled.div`
@@ -43,5 +43,19 @@ export const MyButton = styled.button`
   }
   :active{
     background: linear-gradient(45deg,#FF6106,#FF2C02);
+  }
+`
+
+export const MyButtonOutline = styled.button`
+  color: #ff4500;
+  border: 1px solid #ff4500;
+  border-radius: 7px;
+  height: 40px;
+  width: min(500px, 90%);
+  margin-top: 10px;
+
+  transition: all 1s;
+  :active {
+    background: linear-gradient(45deg, #e3d4cb, #f3b2a4);
   }
 `

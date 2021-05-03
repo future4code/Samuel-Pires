@@ -33,7 +33,7 @@ export default function Feed(){
     },(err)=>{
       if(err.response.data.message==='Não autorizado'){
         window.alert('Estamos com problema na sua autenticação, por favor' +
-          ' faça login novamente')
+          ' faça login')
         window.localStorage.removeItem('token')
         history.push('/signin')
       }
