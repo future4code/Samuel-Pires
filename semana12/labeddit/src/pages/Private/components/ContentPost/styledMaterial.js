@@ -19,4 +19,6 @@ export const MyArrowDownIcon = styled(ArrowDropDownIcon)({
 
 export const MyCommentIcon = styled(ModeCommentIcon)({
   color:'#878a8c',
+  width: '20px',
+  height: '20px'
 })

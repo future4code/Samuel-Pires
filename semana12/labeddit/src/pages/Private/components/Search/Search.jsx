@@ -1,4 +1,4 @@
-import React,{useContext, useState} from 'react'
+import React,{useContext, useState, useEffect} from 'react'
 import PrivateContext from "../../../Context/PrivateContext";
 import {useInput} from "../../../../hooks/useInput";
 import {
@@ -14,9 +14,7 @@ export default function ({idValue, idSetValue, width}){
   const {states, setters} = useContext(PrivateContext)
   const value = states[idValue]
   const setValue = setters[idSetValue]
-  const [input, setInput] = useInput(()=>{
-    if(input==='')removeFilter()
-  })
+  const [input, setInput] = useInput()
   const [icon, setIcon] = useState(true);
 
   const filter=()=>{
@@ -32,15 +30,16 @@ export default function ({idValue, idSetValue, width}){
     setValue(newValue)
   }
 
-  function removeFilter(){
+  const removeFilter=()=>{
     setInput('')
     setIcon(true)
     setters.setLoading(true)
     setValue(value)
+    console.log('value', value)
   }
 
   const onKeyPress = (e)=>{
-    if(e.key === 'Enter'){
+    if(e.key === 'Enter' && input.length>0){
       filter()
     }
   }

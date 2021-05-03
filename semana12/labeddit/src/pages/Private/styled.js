@@ -36,14 +36,14 @@ export const Container = styled.section`
 
 export const Votes = styled.div`
   margin-top: 30px;
-  border: 1px solid #878A8C;
+  border: 1px solid #d7d7d7;
   background-color: white;
   padding: 10px;
   display: flex;
   width: 100%;
   justify-content: space-evenly;
   :hover {
-    border: 1px solid #6f6f6f;
+    border: 1px solid #bfbfbf;
   }
 `
 

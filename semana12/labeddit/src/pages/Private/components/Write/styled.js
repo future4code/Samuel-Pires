@@ -4,10 +4,15 @@ export const Form = styled.form`
   margin-top: 20px;
   width: 100%;
   height: 200px;
-  border: 1px solid #878a8c;
+  border: 1px solid #d7d7d7;
   background-color: #F6F7F8;
   display: flex;
   flex-direction: column;
+
+  :hover,:active{
+    border: 1px solid #bfbfbf;
+    box-shadow: 1px 1px 10px #d7d7d7;
+  }
 `
 
 export const Title = styled.input`
@@ -15,7 +20,7 @@ export const Title = styled.input`
   height: 30px;
   border: 0;
   font-weight: bold;
-  border-bottom: 1px solid #878a8c;
+  border-bottom: 1px solid #d7d7d7;
   background-color: #FFF;
   padding-left: 10px;
   outline: none;
@@ -27,7 +32,6 @@ export const Text = styled.textarea`
   border: 0;
   outline: none;
   resize: none;
-  border-bottom: 1px solid #878a8c;
   background-color: #fff;
   padding: 5px 10px;
 `
@@ -48,4 +52,5 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
   background-color: #fff;
+  border-radius: 10px;
 `

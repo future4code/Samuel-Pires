@@ -30,7 +30,6 @@ export default function Feed(){
     getApiPosts('/posts', config(), (res,setValue)=>{
       setValue(res.data.posts)
       setPostsFiltered(res.data.posts)
-      setLoading(false)
     },(err)=>{
       if(err.response.data.message==='Não autorizado'){
         window.alert('Estamos com problema na sua autenticação, por favor' +
@@ -42,10 +41,12 @@ export default function Feed(){
   },[])
 
   useEffect(()=>{
-    if(postsFiltered && postsFiltered.length){
+    if(postsFiltered && postsFiltered.length>=0){
       setLoading(false)
     }
   },[postsFiltered])
+
+  console.log('loading', loading)
 
   const postsRendered = ()=>{
     if(postsFiltered.length===0){
