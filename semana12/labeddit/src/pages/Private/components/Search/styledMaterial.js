@@ -13,5 +13,6 @@ export const MyCloseIcon = styled(CloseIcon)({
   cursor: 'pointer',
   color: '#878A8C',
   position: 'absolute',
-  right: '5px'
+  right: '5px',
+  top: '5px',
 })

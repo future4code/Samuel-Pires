@@ -2,7 +2,7 @@ import React,{useState, useEffect} from 'react'
 import {useParams, useHistory} from 'react-router-dom'
 import {
   All, CAll,
-  Container, ContainerAll, DivSearch, Modal
+  Container, ContainerAll, DivSearch, Lateral, Modal, ModalContent
 } from './styled'
 import {useGetApi} from "../../hooks/useRequest";
 import config from "../config";
@@ -36,7 +36,7 @@ export default function Post({id, setShowDetails}){
     })
   }
 
-  useEffect(()=>{
+  const getPost=()=>{
     if(id){
       getPostApi(`/posts/${id}`, config(), (res, setValue)=>{
         if(res.data.post.text){
@@ -53,6 +53,10 @@ export default function Post({id, setShowDetails}){
         alert('erro aqui', err)
       })
     }
+  }
+
+  useEffect(()=>{
+    getPost()
   },[id])
 
   useEffect(()=>{
@@ -61,31 +65,33 @@ export default function Post({id, setShowDetails}){
     }
   },[commentsFiltered])
 
+  useEffect(()=>{
+    getPost()
+  },[comments])
+
   const states = {comments, commentsFiltered}
   const setters = {setCommentsFiltered, setLoading}
-
-  console.log('comment', commentsFiltered[0])
 
   return(
     <PrivateContext.Provider value={{states,setters}}>
       <Modal onClick={()=>console.log('cliquei no modal')}>
-        <DivSearch>
-          <MyCloseIcon onClick={()=>setShowDetails(false)}/>
-          <Search idValue={'comments'} idSetValue={'setCommentsFiltered'} />
-        </DivSearch>
+          <DivSearch>
+            <MyCloseIcon onClick={()=>setShowDetails(false)}/>
+            <Search idValue={'comments'} idSetValue={'setCommentsFiltered'} />
+          </DivSearch>
           <All>
-          <ContainerAll>
-            {loading?(
-              <Loading />
-            ):(
-              <Container>
-                <ContentPost post={post} key={post.id} />
-                <WriteComment idPost={post.id} />
-                {commentsRendered()}
-              </Container>
-            )}
-          </ContainerAll>
-        </All>
+            <ContainerAll>
+              {loading?(
+                <Loading />
+              ):(
+                <Container>
+                  <ContentPost post={post} key={post.id} />
+                  <WriteComment idPost={post.id} comments={comments} setComments={setComments}/>
+                  {commentsRendered()}
+                </Container>
+              )}
+            </ContainerAll>
+          </All>
       </Modal>
     </PrivateContext.Provider>
   )

@@ -58,10 +58,11 @@ export const Modal = styled(CAll)`
 `
 
 export const DivSearch = styled.div`
-  padding-top: 5px;
+  top: 5px;
   width: 80%;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  position: sticky;
 `

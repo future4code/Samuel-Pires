@@ -71,7 +71,10 @@ export default function ({post, setShowDetails}){
         {setShowDetails?(
           <Comments onClick={()=>setShowDetails(post.id)} click>
             <MyCommentIcon />
-            <p>{post.commentsCount} Comentários</p>
+            <p>{post.commentsCount} Comentário</p>
+            {post.commentsCount>1 &&
+              <p>s</p>
+            }
           </Comments>
 
         ):(

@@ -7,13 +7,17 @@ import {postApi} from "../../../../hooks/useRequest";
 import config from "../../../config";
 import useForm from "../../../../hooks/useForm";
 
-export default function WriteComment({idPost}){
-  const [form, setForm] = useForm({text:''})
+export default function WriteComment({idPost, comments, setComments}){
+  const [form, setForm, clearForm] = useForm({text:''})
 
   const onSubmitForm=(e)=>{
     e.preventDefault()
     postApi(`/posts/${idPost}/comment`,form, config(),(res)=>{
-      window.alert('Seu comentário foi enviado com sucesso')
+      window.alert('Seu comentário foi enviado.')
+      clearForm()
+      const newComments = [...comments]
+      newComments.push(form)
+      setComments(newComments)
     })
   }
 
