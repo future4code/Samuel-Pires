@@ -6,7 +6,6 @@ export const Input = styled.input`
   height: 100%;
   background-color: #F6F7F8;
   border: 0;
-  border-radius: 5px;
   padding-left: 10px;
   font-size: 14px;
   :hover,:active,:focus{
@@ -18,7 +17,8 @@ export const Input = styled.input`
 `
 
 export const DivInput = styled.div`
-  width: 60%;
+  width: 100%;
+  max-width: 800px;
   height: 35px;
   display: flex;
   align-items: center;

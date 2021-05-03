@@ -1,8 +1,8 @@
 import React,{useState, useEffect} from 'react'
 import {useParams, useHistory} from 'react-router-dom'
 import {
-  All,
-  Container
+  All, CAll,
+  Container, ContainerAll, DivSearch, Modal
 } from './styled'
 import {useGetApi} from "../../hooks/useRequest";
 import config from "../config";
@@ -16,26 +16,17 @@ import WriteComment from "./components/Write/WriteComment";
 import ContentComment from "./components/ContentPost/ContentComment";
 import OrderComments from "./components/Order/OrderComments";
 import OrderVotes from "./components/Order/OrderVotes";
+import WritePost from "./components/Write/WritePost";
+import {MyCloseIcon} from "./components/styledMaterial";
 
-export default function Post(props){
+export default function Post({id, setShowDetails}){
   validateLogin()
-  const [idPost, setId] = useState('')
-  const {id} = useParams()
   const history = useHistory()
   const [post, getPostApi] = useGetApi()
   const [loading, setLoading] = useState(true)
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [commentsFiltered, setCommentsFiltered] = useState([]);
   const [comments, setComments] = useState([])
-
-  const tela = ()=>{
-    if(id){
-      setId(id)
-    }
-    else if(props.id){
-      setId(props.id)
-    }
-  }
 
   const commentsRendered=()=>{
     return commentsFiltered.map((comment)=>{
@@ -46,26 +37,8 @@ export default function Post(props){
   }
 
   useEffect(()=>{
-    if(!id){
-      const muda = ()=>{
-        setWindowWidth(window.innerWidth)
-      }
-      window.addEventListener('resize', function(){
-        muda()
-      })
-    }
-    if(windowWidth<1000 && !id){
-      history.push(`/post/${props.id}`)
-    }
-  },[windowWidth,id])
-
-  useEffect(()=>{
-    tela()
-  },[id,props])
-
-  useEffect(()=>{
-    if(idPost){
-      getPostApi(`/posts/${idPost}`, config(), (res, setValue)=>{
+    if(id){
+      getPostApi(`/posts/${id}`, config(), (res, setValue)=>{
         if(res.data.post.text){
           setValue(res.data.post)
           setLoading(false)
@@ -80,7 +53,7 @@ export default function Post(props){
         alert('erro aqui', err)
       })
     }
-  },[idPost])
+  },[id])
 
   useEffect(()=>{
     if(commentsFiltered.length) {
@@ -95,25 +68,25 @@ export default function Post(props){
 
   return(
     <PrivateContext.Provider value={{states,setters}}>
-      <All>
-        {id?(
-          <Header idValue={'comments'} idSetValue={'setCommentsFiltered'} />
-        ):(
+      <Modal onClick={()=>console.log('cliquei no modal')}>
+        <DivSearch>
+          <MyCloseIcon onClick={()=>setShowDetails(false)}/>
           <Search idValue={'comments'} idSetValue={'setCommentsFiltered'} />
-        )}
-        <Container width={'30%'}>
-          {loading? (
-            <Loading />
-          ):(post? (<>
-            <ContentPost post={post}/>
-            <WriteComment idPost={post.id}/>
-              <OrderVotes value={'commentsFiltered'} setValue={'setCommentsFiltered'} />
-            </>): (<></>)
-          )}
-          {commentsFiltered.length &&
-           commentsRendered()}
-        </Container>
-      </All>
+        </DivSearch>
+          <All>
+          <ContainerAll>
+            {loading?(
+              <Loading />
+            ):(
+              <Container>
+                <ContentPost post={post} key={post.id} />
+                <WriteComment idPost={post.id} />
+                {commentsRendered()}
+              </Container>
+            )}
+          </ContainerAll>
+        </All>
+      </Modal>
     </PrivateContext.Provider>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Container} from "./styled";
+import {Container, DivButton} from "./styled";
 import {MyButton} from "./styledMaterial";
 import Logo from "../../../logo/Logo";
 import Search from "../Search/Search";
@@ -16,7 +16,9 @@ export default function ({idValue, idSetValue}){
     <Container>
       <Logo small/>
       <Search idValue={idValue} idSetValue={idSetValue}/>
-      <MyButton variant="outlined" onClick={logout}>Logout</MyButton>
+      <DivButton>
+        <MyButton variant="outlined" onClick={logout}>Logout</MyButton>
+      </DivButton>
     </Container>
   )
 }

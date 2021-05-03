@@ -9,7 +9,6 @@ import {putApi} from "../../../../hooks/useRequest";
 import config from "../../../config";
 
 export default function ContentComment({comment,idPost}){
-  console.log('comment',comment)
 
   const [hiddenShow, setHiddenShow] = useState('Ver mais...');
   const [vote, setVote] = useState(0)

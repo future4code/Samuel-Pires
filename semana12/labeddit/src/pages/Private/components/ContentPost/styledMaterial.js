@@ -14,7 +14,7 @@ export const MyArrowDownIcon = styled(ArrowDropDownIcon)({
   width: '40px',
   height: '40px',
   color: props=>props.vote===-1? '#FF4500' : '#878a8c',
-  cursor: 'pointer'
+  cursor: 'pointer',
 })
 
 export const MyCommentIcon = styled(ModeCommentIcon)({

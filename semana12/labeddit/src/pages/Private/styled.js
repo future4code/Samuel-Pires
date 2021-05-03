@@ -5,6 +5,7 @@ export const CAll = styled.div`
   height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
+  background-color: #DAE0E6;
 `
 
 export const All = styled.div`
@@ -12,10 +13,11 @@ export const All = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  background-color: #DAE0E6;
+  width: 100%;
 `
 
 export const ContainerAll = styled.main`
+  width: 90%;
   min-width: 360px;
   max-width: 800px;
   min-height: calc(100vh - 60px);
@@ -40,8 +42,26 @@ export const Votes = styled.div`
   display: flex;
   width: 100%;
   justify-content: space-evenly;
-
   :hover {
     border: 1px solid #6f6f6f;
   }
+`
+
+export const Modal = styled(CAll)`
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`
+
+export const DivSearch = styled.div`
+  padding-top: 5px;
+  width: 80%;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `

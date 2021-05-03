@@ -11,6 +11,8 @@ const Container = styled.div`
   @media(max-width: 500px){
     display: none;
   }
+  height: 50px;
+  width: 110px;
 `
 
 export default function (props){

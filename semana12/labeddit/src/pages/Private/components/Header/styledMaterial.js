@@ -5,5 +5,6 @@ export const MyButton = styled(Button)({
   color: '#ff4500',
   border: '2px solid #ff4500',
   height: '40px',
+  width: '80px',
   position: 'relative'
 })
