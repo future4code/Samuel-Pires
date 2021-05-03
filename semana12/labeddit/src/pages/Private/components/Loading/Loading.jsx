@@ -3,7 +3,7 @@ import{
   MyCircularProgress
 } from "./styledMaterial";
 
-export default function(){
+export default function Loading(){
   return(
     <MyCircularProgress />
   )

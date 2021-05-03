@@ -4,7 +4,7 @@ import SignIn from '../pages/Singn/SignIn'
 import SignUp from '../pages/Singn/SignUp'
 import Feed from "../pages/Private/Feed";
 import Post from "../pages/Private/Post";
-export default function (){
+export default function Routes(){
   return(
     <BrowserRouter>
       <Switch>

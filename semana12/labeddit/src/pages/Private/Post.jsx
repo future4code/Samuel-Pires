@@ -1,8 +1,8 @@
 import React,{useState, useEffect} from 'react'
-import {useParams, useHistory} from 'react-router-dom'
+import { useHistory} from 'react-router-dom'
 import {
-  All, CAll,
-  Container, ContainerAll, DivSearch, Lateral, Modal, ModalContent
+  All,
+  Container, ContainerAll, DivSearch, Modal,
 } from './styled'
 import {useGetApi} from "../../hooks/useRequest";
 import config from "../config";
