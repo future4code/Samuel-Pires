@@ -5,7 +5,7 @@ import Logo from "../../../logo/Logo";
 import Search from "../Search/Search";
 import {useHistory} from 'react-router-dom'
 
-export default function ({idValue, idSetValue}){
+export default function Header({idValue, idSetValue}){
   const history = useHistory()
 
   const logout=()=>{

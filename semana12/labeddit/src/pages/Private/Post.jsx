@@ -74,7 +74,7 @@ export default function Post({id, setShowDetails}){
 
   return(
     <PrivateContext.Provider value={{states,setters}}>
-      <Modal onClick={()=>console.log('cliquei no modal')}>
+      <Modal>
           <DivSearch>
             <MyCloseIcon onClick={()=>setShowDetails(false)}/>
             <Search idValue={'comments'} idSetValue={'setCommentsFiltered'} />

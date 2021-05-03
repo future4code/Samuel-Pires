@@ -21,7 +21,7 @@ import {validateEmail} from "./functions";
 const initialForm = {
   email:'', password:'', username:''
 }
-export default function (){
+export default function SignUp(){
   const [form, setForm, clearForm] = useForm(initialForm)
   const [errorMessage, setErrorMessage] = useState('')
   const [errorEmail, setErrorEmail] = useState(false)

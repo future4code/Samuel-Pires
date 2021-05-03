@@ -35,7 +35,6 @@ export default function ({idValue, idSetValue, width}){
     setIcon(true)
     setters.setLoading(true)
     setValue(value)
-    console.log('value', value)
   }
 
   const onKeyPress = (e)=>{

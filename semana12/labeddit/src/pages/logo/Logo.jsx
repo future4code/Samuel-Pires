@@ -15,7 +15,7 @@ const Container = styled.div`
   width: 110px;
 `
 
-export default function (props){
+export default function Logo(props){
   const history = useHistory()
   return(
     <Container font={props.font} onClick={()=>{history.push('/')}}>

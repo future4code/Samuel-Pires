@@ -46,8 +46,6 @@ export default function Feed(){
     }
   },[postsFiltered])
 
-  console.log('loading', loading)
-
   const postsRendered = ()=>{
     if(postsFiltered.length===0){
       return <div>Não há publicações</div>

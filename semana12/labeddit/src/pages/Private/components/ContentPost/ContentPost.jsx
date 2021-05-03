@@ -15,7 +15,7 @@ import {
   MyCommentIcon
 } from './styledMaterial'
 
-export default function ({post, setShowDetails}){
+export default function ContentPost({post, setShowDetails}){
   const [hiddenShow, setHiddenShow] = useState('Ver mais...');
   const [vote, setVote] = useState(post.userVoteDirection)
 
