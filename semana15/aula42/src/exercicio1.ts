@@ -3,24 +3,36 @@
 let meuNumero : number | string
 
 //c
+enum COR_FAVORITA {
+  VERMELHO = 'Vermelho',
+  LARANJA = 'Laranja',
+  AMARELO = 'Amarelo',
+  VERDE = 'Verde',
+  AZUL = 'Azul',
+  ANIL = 'Anil',
+  VIOLETA = 'Violeta'
+}
+
 type pessoa = {
   nome : string,
   idade : number,
-  corFavorita: string
+  corFavorita: COR_FAVORITA
 }
 
 const astrodev : pessoa={
   nome : 'Astrodev',
   idade : 30,
-  corFavorita: 'Laranja'
+  corFavorita: COR_FAVORITA.LARANJA
 }
 const pessoaA : pessoa={
   nome : 'pessoaA',
   idade : 20,
-  corFavorita: 'Azul'
+  corFavorita: COR_FAVORITA.AZUL
 }
 const pessoaB : pessoa={
   nome : 'pessoaB',
   idade : 40,
-  corFavorita: 'Verde'
+  corFavorita: COR_FAVORITA.VERDE
 }
+
+console.table(pessoaA)
