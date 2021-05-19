@@ -65,6 +65,34 @@ app.get('/countries/:id',(req: Request, res: Response)=>{
  }
 })
 
+app.put('/countries/edit/:id',(req:Request, res:Response)=>{
+  try{
+    const {id} = req.params
+    const name = req.body.name as string
+    const capital = req.body.capital as string
+
+    if(isNaN(Number(id))){
+      throw new Error('Id precisa ser um número')
+    }
+
+    const index = countries.findIndex(c=>c.id===Number(id))
+    if(index<0){
+      throw new Error('País não encontrado')
+    }
+    console.table(countries[index])
+    if(name){
+      countries[index].name = name
+    }
+    if(capital){
+      countries[index].capital = capital
+    }
+
+    res.status(200).send(countries[index])
+
+  }catch (err){
+    res.status(400).send({message: err.message})
+  }
+})
 
 app.listen(3003, ()=>{
   console.log('Is running in http://localhost/3003')
