@@ -76,20 +76,44 @@ app.get('/users', (req: Request, res: Response) => {
   }
 })
 
+//-----------------------EXERCÍCIO 2 E 3
 app.get('/users/search', (req: Request, res: Response) => {
+  const includes = (str1: string, str2: string): boolean => {
+    return str1.toLowerCase().includes(str2.toLowerCase())
+  }
   try {
     const type = req.query.type as string
-    if(!Object.values(userType).includes(type.toLowerCase() as userType)){
+    const name = req.query.name as string
+
+    if(!name && !type){
+      throw new Error('Por favor, indique pelo menos um query parâmetro')
+    }
+    if(type && !Object.values(userType).includes(type.toLowerCase() as userType)){
       throw new Error('Por favor, indique um tipo correto')
     }
 
-    const result = users.filter(user=>user.type===type.toLowerCase())
+    const result = users.filter((user)=>{
+      if(name){
+        if(!includes(user.name, name))return false
+      }
+      if(type){
+        if(!includes(user.type, type))return false
+      }
+      return true
+    })
 
+    if(!result.length){
+      throw new Error('Nenhum usuário foi encontrado')
+    }
+    
     res.status(200).send(result)
   } catch (err) {
     res.status(400).send({message: err.message})
   }
 })
+
+
+
 
 app.listen(3003, () => {
   console.log('Server is running at port 3003')
