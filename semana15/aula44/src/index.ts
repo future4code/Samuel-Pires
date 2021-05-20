@@ -105,15 +105,38 @@ app.get('/users/search', (req: Request, res: Response) => {
     if(!result.length){
       throw new Error('Nenhum usuário foi encontrado')
     }
-    
+
     res.status(200).send(result)
   } catch (err) {
     res.status(400).send({message: err.message})
   }
 })
 
+//-----------------------EXERCÍCIO 4
+app.post('/users', (req: Request, res: Response) => {
+  try {
+    const {name, email, type, age} = req.body
+    if(!name || !email || !type || !age){
+      throw new Error('Por favor, enviar body com name, email, type e age')
+    }
+    if(!Object.values(userType).includes(type.toLowerCase() as userType)){
+      throw new Error('Por favor, indique um tipo correto')
+    }
+    if(users.findIndex(user=>user.email===email)>=0){
+      throw new Error('E-mail já existente')
+    }
+    const id = Number(new Date())
+    const newUser : User = {
+      id, name, email, type, age
+    }
 
+    users.push(newUser)
+    res.status(200).send(newUser)
 
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
 
 app.listen(3003, () => {
   console.log('Server is running at port 3003')

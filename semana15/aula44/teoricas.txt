@@ -1,0 +1,14 @@
+1.
+  a) GET
+  b) Indicaria a entidade observando o que proponho realizar com tal endpoint
+
+2.
+  a) Utilizei query params pois assim consigo deixar a aplicação mais dinâmica, podendo receber tanto o type como name para realizar a consulta.
+  b) Sim, posso criar um enum e conferir se o type passado existem no enum que criei
+
+3.
+  a) Query params
+
+4.
+  a) Nada, tudo depende do código que está dentro do endpoint.
+  b) Não, por uma questão de que se vejo um método post já sei que está fazendo operação de inserção.
