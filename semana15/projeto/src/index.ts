@@ -15,6 +15,31 @@ app.get("/ping", (req: Request, res: Response) => {
   res.status(200).send("pong!")
 })
 
+app.get('/users/balance?', (req: Request, res: Response) => {
+  try {
+    const {name, cpf} = req.query
+    if(!name || !cpf){
+      throw new Error('Informe: name e cpf.')
+    }
+
+    const clients : Client[] = open_file()
+
+    if(clients.length===0){
+      throw new Error('Não há clientes')
+    }
+
+    const client : Client | undefined = clients.find(c=>c.name===name)
+
+    if(!client){
+      throw new Error('Cliente não encontrado.')
+    }
+
+    res.status(200).send({balance: client.balance})
+
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
 
 app.post('/users', (req: Request, res: Response) => {
   try {
@@ -31,22 +56,27 @@ app.post('/users', (req: Request, res: Response) => {
     if(!validate_cpf(cpf)){
       throw new Error('Cpf inválido. Formato: 000.000.000-00')
     }
+
+    const clients : Client[] = open_file()
+
+    if(clients.findIndex(c=>c.cpf===cpf)>=0){
+      throw new Error('Cpf já cadastrado.')
+    }
+
     const client : Client = {
       name, cpf, birth_date,
       balance : 0,
       statement : []
     }
-    const clients : Client[] = open_file()
+
     clients.push(client)
-    console.table(clients)
     save_file(clients)
+
     res.status(200).send(client)
   } catch (err) {
     res.status(400).send({message: err.message})
   }
 })
-
-
 
 app.listen(3003, () => {
   console.log('Server is running at port 3003')
@@ -57,7 +87,10 @@ app.listen(3003, () => {
   catch (err){
     let fs = require('fs')
     fs.writeFile(endereco_banco, JSON.stringify('{}'), (err: Error)=>{
-      if(err) throw new Error('Erro ao criar banco.txt')
+      if(err) {
+        console.log('Erro ao criar banco.txt')
+        throw new Error('Erro ao criar banco.txt')
+      }
     })
   }
 })
