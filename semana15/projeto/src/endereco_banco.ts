@@ -1,0 +1,1 @@
+export const endereco_banco : string = 'banco.txt'
