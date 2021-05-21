@@ -3,7 +3,7 @@ import cors from 'cors'
 import {Statement, Client} from "./types";
 import {clear_file, open_file, save_file} from "./file";
 import {endereco_banco} from "./endereco_banco";
-import {analise_18, analise_date} from "./data";
+import {analise_18, analise_date, analise_Today} from "./data";
 import {validate_cpf} from "./cpf";
 
 const app = express()
@@ -17,7 +17,7 @@ app.get("/ping", (req: Request, res: Response) => {
 
 app.get('/users', (req: Request, res: Response) => {
   try {
-    const clients : Client[] = open_file()
+    const clients = open_file()
     res.status(200).send(clients)
   } catch (err) {
     res.status(400).send({message: err.message})
@@ -31,13 +31,13 @@ app.get('/users/balance?', (req: Request, res: Response) => {
       throw new Error('Informe: name e cpf.')
     }
 
-    const clients : Client[] = open_file()
+    const clients = open_file()
 
     if(clients.length===0){
       throw new Error('Não há clientes')
     }
 
-    const client : Client | undefined = clients.find(c=>c.name===name && c.cpf===cpf)
+    const client = clients.find(c=>c.name===name && c.cpf===cpf)
 
     if(!client){
       throw new Error('Cliente não encontrado.')
@@ -67,7 +67,7 @@ app.post('/users', (req: Request, res: Response) => {
       throw new Error('Cpf inválido. Formato: 000.000.000-00')
     }
 
-    const clients : Client[] = open_file()
+    const clients = open_file()
 
     if(clients.findIndex(c=>c.cpf===cpf)>=0){
       throw new Error('Cpf já cadastrado.')
@@ -89,9 +89,45 @@ app.post('/users', (req: Request, res: Response) => {
   }
 })
 
-app.put('/users', (req: Request, res: Response) => {
+app.post('/users/pay', (req: Request, res: Response) => {
   try {
+    const {cpf, description, value, date} = req.body
+    if(!cpf || !value || isNaN(value) || !description){
+      throw new Error('Informe: cpf, value e description.')
+    }
 
+    let dateT
+    if(date)dateT = analise_date(date)
+    else dateT = new Date()
+
+    console.log('dateT', dateT)
+
+    if(!dateT){
+      throw new Error('Data informada inválida')
+    }
+
+    if(!analise_Today(dateT)){
+      throw new Error('Você não pode informar uma data passada.')
+    }
+
+    const clients = open_file()
+
+    const index = clients.findIndex(c=>c.cpf===cpf)
+
+    if(index<0){
+      throw new Error('Cliente não encontrado.')
+    }
+
+    const statement : Statement={
+      value,
+      date: dateT,
+      description
+    }
+
+    clients[index].statement.push(statement)
+    save_file(clients)
+
+    res.status(200).send(statement)
   } catch (err) {
     res.status(400).send({message: err.message})
   }

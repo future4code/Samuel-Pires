@@ -18,3 +18,16 @@ export function analise_18(date: Date):boolean{
 
   return true
 }
+
+export function analise_Today(date:Date):boolean{
+  const dateNow = new Date()
+
+  if(dateNow.getFullYear()<date.getFullYear())return true
+  else if(dateNow.getFullYear()>date.getFullYear())return false
+
+  if(dateNow.getMonth()<date.getMonth())return true
+  else if(dateNow.getMonth()>date.getMonth())return false
+
+  if(dateNow.getDate()<=date.getDate())return true
+  else return false
+}
