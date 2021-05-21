@@ -17,3 +17,10 @@ export function save_file(clients : Client[]){
     if(err) throw new Error('Erro ao salvar no banco.txt')
   })
 }
+
+export function clear_file(){
+  let fs = require('fs')
+  fs.writeFile(endereco_banco, JSON.stringify('{}'), (err: Error)=>{
+    if(err) throw new Error('Erro ao limpa o banco.txt')
+  })
+}
