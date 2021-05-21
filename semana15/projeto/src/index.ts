@@ -15,6 +15,15 @@ app.get("/ping", (req: Request, res: Response) => {
   res.status(200).send("pong!")
 })
 
+app.get('/users', (req: Request, res: Response) => {
+  try {
+    const clients : Client[] = open_file()
+    res.status(200).send(clients)
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
+
 app.get('/users/balance?', (req: Request, res: Response) => {
   try {
     const {name, cpf} = req.query
@@ -28,7 +37,7 @@ app.get('/users/balance?', (req: Request, res: Response) => {
       throw new Error('Não há clientes')
     }
 
-    const client : Client | undefined = clients.find(c=>c.name===name)
+    const client : Client | undefined = clients.find(c=>c.name===name && c.cpf===cpf)
 
     if(!client){
       throw new Error('Cliente não encontrado.')
@@ -73,6 +82,35 @@ app.post('/users', (req: Request, res: Response) => {
     save_file(clients)
 
     res.status(200).send(client)
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
+
+app.patch('/users/add', (req: Request, res: Response) => {
+  try {
+    const {name, cpf, value} = req.body
+    if(!name || !cpf || isNaN(value)){
+      throw new Error('Informe name, cpf e value.')
+    }
+    if(value<0){
+      throw new Error('Você informou um valor negativo.')
+    }
+    const clients : Client[] = open_file()
+    if(clients.length===0){
+      throw new Error('Não há clientes no banco.')
+    }
+
+    const index : number = clients.findIndex(c=>c.name===name && c.cpf===cpf)
+
+    if(index < 0){
+      throw new Error('Cliente não encontrado.')
+    }
+
+    clients[index].balance+=value
+    save_file(clients)
+
+    res.status(200).send('Saldo adicionado.')
   } catch (err) {
     res.status(400).send({message: err.message})
   }
