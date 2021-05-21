@@ -53,13 +53,14 @@ app.get('/users/balance?', (req: Request, res: Response) => {
 app.post('/users', (req: Request, res: Response) => {
   try {
     const {name,cpf, birth_date} = req.body
+    const date = analise_date(birth_date)
     if(!name || !cpf || !birth_date){
       throw new Error('Informe: name, cpf e birth_date.')
     }
-    if(!analise_date(birth_date)){
+    if(!date){
       throw new Error('Data inválida. Formato: aaaa-mm-dd')
     }
-    if(!analise_18(birth_date)){
+    if(!analise_18(date as Date)){
       throw new Error('Você precisa ter ao menos 18 anos.')
     }
     if(!validate_cpf(cpf)){
@@ -73,7 +74,8 @@ app.post('/users', (req: Request, res: Response) => {
     }
 
     const client : Client = {
-      name, cpf, birth_date,
+      name, cpf,
+      birth_date: date,
       balance : 0,
       statement : []
     }
@@ -87,7 +89,15 @@ app.post('/users', (req: Request, res: Response) => {
   }
 })
 
-app.patch('/users/add', (req: Request, res: Response) => {
+app.put('/users', (req: Request, res: Response) => {
+  try {
+
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
+
+app.put('/users/add', (req: Request, res: Response) => {
   try {
     const {name, cpf, value} = req.body
     if(!name || !cpf || isNaN(value)){
@@ -107,7 +117,13 @@ app.patch('/users/add', (req: Request, res: Response) => {
       throw new Error('Cliente não encontrado.')
     }
 
+    const statement : Statement = {
+      date : new Date(),
+      value,
+      description: 'Depósito de dinheiro'
+    }
     clients[index].balance+=value
+    clients[index].statement.push(statement)
     save_file(clients)
 
     res.status(200).send('Saldo adicionado.')

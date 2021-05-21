@@ -1,13 +1,12 @@
-export function analise_date(birth_date:string):boolean{
+export function analise_date(birth_date:string): Date | undefined{
   const date = new Date(birth_date+'T00:00:00')
   if(isNaN(date.getFullYear())){
-    return false
+    return undefined
   }
-  return true
+  return date
 }
 
-export function analise_18(birth_date:string):boolean{
-  const date = new Date(birth_date+'T00:00:00')
+export function analise_18(date: Date):boolean{
   const dateNow = new Date()
 
   const idade = dateNow.getFullYear()-date.getFullYear()
