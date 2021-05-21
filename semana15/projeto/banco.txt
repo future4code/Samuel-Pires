@@ -1,1 +1,1 @@
-"{}"
+{"clients":[{"name":"Samuel","cpf":"023","birth_date":"2003-05-21","balance":0,"statement":[]},{"name":"Samuel","cpf":"0232134","birth_date":"2003-05-21","balance":0,"statement":[]},{"name":"Samuel","cpf":"023.124.458-65","birth_date":"2003-05-21","balance":0,"statement":[]}]}
