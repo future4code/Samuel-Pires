@@ -1,7 +1,8 @@
 export type Statement = {
   value : number,
   date : Date,
-  description : string
+  description : string,
+  refresh : boolean
 }
 
 export type Client = {

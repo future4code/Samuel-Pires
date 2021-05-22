@@ -6,6 +6,7 @@ import {endereco_banco} from "./endereco_banco";
 import {analise_18, analise_date, analise_Today} from "./data";
 import {validate_cpf} from "./cpf";
 import {refresh} from "./refresh";
+import {transfer} from "./transfer";
 
 const app = express()
 app.use(express.json())
@@ -96,7 +97,9 @@ app.post('/users/pay', (req: Request, res: Response) => {
     if(!cpf || !value || isNaN(value) || !description){
       throw new Error('Informe: cpf, value e description.')
     }
-
+    if(value<=0){
+      throw new Error('Informe um valor positivo.')
+    }
     let dateT
     if(date)dateT = analise_date(date)
     else dateT = new Date()
@@ -122,9 +125,10 @@ app.post('/users/pay', (req: Request, res: Response) => {
     }
 
     const statement : Statement={
-      value,
+      value: value*-1,
       date: dateT,
-      description
+      description,
+      refresh : false
     }
 
     clients[index].statement.push(statement)
@@ -142,8 +146,8 @@ app.put('/users/add', (req: Request, res: Response) => {
     if(!name || !cpf || isNaN(value)){
       throw new Error('Informe name, cpf e value.')
     }
-    if(value<0){
-      throw new Error('Você informou um valor negativo.')
+    if(value<=0){
+      throw new Error('Informe um valor positivo.')
     }
     const clients : Client[] = open_file()
     if(clients.length===0){
@@ -159,7 +163,8 @@ app.put('/users/add', (req: Request, res: Response) => {
     const statement : Statement = {
       date : new Date(),
       value,
-      description: 'Depósito de dinheiro'
+      description: 'Depósito de dinheiro',
+      refresh: true
     }
     clients[index].balance+=value
     clients[index].statement.push(statement)
@@ -186,8 +191,51 @@ app.put('/users/refresh?', (req: Request, res: Response) => {
     }
 
     const client = refresh(clients[index])
-    console.table(client.balance)
-    res.status(200).send()
+    clients[index] = client
+    save_file(clients)
+    res.status(200).send(client)
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
+
+app.put('/users/transfer', (req: Request, res: Response) => {
+  try {
+    const {user,beneficiary, value} = req.body
+    if(!user.name || !user.cpf || !beneficiary.name || !beneficiary.cpf || isNaN(value)){
+      throw new Error('Informe: user{name,cpf}, beneficiary{name,cpf}, value')
+    }
+    if(!validate_cpf(user.cpf) || !validate_cpf(beneficiary.cpf)){
+      throw new Error('Cpf no formato: 000.000.000-00')
+    }
+    if(value<0){
+      throw new Error('Informe um valor positivo.')
+    }
+
+    let clients = open_file()
+    const indexUser = clients.findIndex(c=>{
+      return c.name===user.name && c.cpf===user.cpf
+    })
+    if(indexUser<0){
+      throw new Error('Cliente usuário não encontrado.')
+    }
+    const indexBenef = clients.findIndex(c=>c.name===beneficiary.name && c.cpf===beneficiary.cpf)
+    if(indexBenef<0){
+      throw new Error('Cliente beneficiário não encontrado.')
+    }
+
+    clients = transfer(clients, indexUser, indexBenef, value)
+    save_file(clients)
+    res.status(200).send('Transferência realizada.')
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
+
+app.delete('/users', (req: Request, res: Response) => {
+  try {
+    clear_file()
+    res.status(200).send('Banco limpo')
   } catch (err) {
     res.status(400).send({message: err.message})
   }
@@ -203,8 +251,8 @@ app.listen(3003, () => {
     let fs = require('fs')
     fs.writeFile(endereco_banco, JSON.stringify('{}'), (err: Error)=>{
       if(err) {
-        console.log('Erro ao criar banco.txt')
-        throw new Error('Erro ao criar banco.txt')
+        console.log('Erro ao criar banco.json')
+        throw new Error('Erro ao criar banco.json')
       }
     })
   }

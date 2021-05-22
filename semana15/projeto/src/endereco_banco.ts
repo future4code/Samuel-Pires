@@ -1,1 +1,1 @@
-export const endereco_banco : string = 'banco.txt'
+export const endereco_banco : string = 'banco.json'
