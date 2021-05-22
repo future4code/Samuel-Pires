@@ -5,6 +5,7 @@ import {clear_file, open_file, save_file} from "./file";
 import {endereco_banco} from "./endereco_banco";
 import {analise_18, analise_date, analise_Today} from "./data";
 import {validate_cpf} from "./cpf";
+import {refresh} from "./refresh";
 
 const app = express()
 app.use(express.json())
@@ -100,8 +101,6 @@ app.post('/users/pay', (req: Request, res: Response) => {
     if(date)dateT = analise_date(date)
     else dateT = new Date()
 
-    console.log('dateT', dateT)
-
     if(!dateT){
       throw new Error('Data informada inválida')
     }
@@ -116,6 +115,10 @@ app.post('/users/pay', (req: Request, res: Response) => {
 
     if(index<0){
       throw new Error('Cliente não encontrado.')
+    }
+
+    if(value>clients[index].balance){
+      throw new Error('Saldo insuficiente.')
     }
 
     const statement : Statement={
@@ -163,6 +166,28 @@ app.put('/users/add', (req: Request, res: Response) => {
     save_file(clients)
 
     res.status(200).send('Saldo adicionado.')
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
+
+app.put('/users/refresh?', (req: Request, res: Response) => {
+  try {
+    const {cpf} = req.query
+    if(!validate_cpf(cpf as string)){
+      throw new Error('Informe: cpf.')
+    }
+
+    const clients = open_file()
+    const index = clients.findIndex(c=>c.cpf===cpf)
+
+    if(index<0){
+      throw new Error('Cliente não encontrado.')
+    }
+
+    const client = refresh(clients[index])
+    console.table(client.balance)
+    res.status(200).send()
   } catch (err) {
     res.status(400).send({message: err.message})
   }
