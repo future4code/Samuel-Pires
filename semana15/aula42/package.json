@@ -1,0 +1,9 @@
+{
+  "name": "aula42",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "ISC",
+  "scripts": {
+    "start": "clear && tsc"
+  }
+}
