@@ -1,0 +1,10 @@
+{
+  "name": "exercicio1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Samuel Mateus",
+  "license": "ISC",
+  "scripts": {
+    "start": "node index.js"
+  }
+}
