@@ -51,6 +51,16 @@ app.get('/actors/:id', async(req: Request, res: Response) => {
   }
 })
 
+app.post('/actors', async(req: Request, res: Response) => {
+  try {
+    const {id, salary} = req.body
+    await connection('Actor_aula45').update('salary',salary).where('id',id)
+    res.status(200).send('ok')
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
+
 app.put('/actors/:id/edit', async (req: Request, res: Response) => {
   try {
     const salary = Number(req.body.salary)

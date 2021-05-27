@@ -28,3 +28,13 @@ GET http://localhost:3003/actors/salary?gender=male
 ###
 
 GET http://localhost:3003/actors/3
+
+###
+
+POST http://localhost:3003/actors
+Content-Type: application/json
+
+{
+"id": 3,
+  "salary": 30000
+}

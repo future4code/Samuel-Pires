@@ -26,3 +26,25 @@ const [result] = await connection.raw(`
     res.status(400).send({message: err.message})
   }<br>
 })</p>
+
+<p>b.<br>app.get('/actors/search?', async (req: Request, res: Response) => {<br>
+  try {<br>
+    const {name,gender} = req.query
+    let result
+    if(name){
+      result = await connection.raw(`
+        select * from Actor_aula45 where name='${name}'
+      `)
+    }
+    else{
+      result = await connection.raw(`
+        select count(*) as qtd,gender from Actor_aula45 as genero where gender='${gender}'
+      `)
+    }
+<br>
+    res.status(200).send(result[0])
+} catch (err) {
+res.status(400).send({message: err.message})
+}
+})</p>
+
