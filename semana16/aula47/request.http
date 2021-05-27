@@ -1,0 +1,18 @@
+GET http://localhost:3003/ping
+
+###
+
+GET http://localhost:3003/actors/search?name=Moacyr+Franco
+
+###
+
+GET http://localhost:3003/actors/search?gender=male
+
+###
+
+PUT http://localhost:3003/actors/2/edit
+Content-Type: application/json
+
+{
+  "salary": 10
+}
