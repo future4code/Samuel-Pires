@@ -1,3 +1,5 @@
+#AULA 47
+
 #EXERCÍCIO 1
 
 <p>a. A resposta vem como um array contendo dois arrays, no primeiro, os nossos dados, no segundo algumas outras informações que o sql nos dá.</p>
@@ -43,8 +45,33 @@ const [result] = await connection.raw(`
     }
 <br>
     res.status(200).send(result[0])
-} catch (err) {
+} catch (err) {<br>
 res.status(400).send({message: err.message})
 }
 })</p>
 
+#EXERCÍCIO 4
+
+<p>a.<br>
+	app.post('/actors', async(req: Request, res: Response) => {<br>
+  try {<br>
+    const {id, salary} = req.body
+    await connection('Actor_aula45').update('salary',salary).where('id',id)
+    res.status(200).send('ok')
+  } catch (err) {<br>
+    res.status(400).send({message: err.message})
+  }
+})
+</p>
+
+<p>b.<br>
+	app.delete('/actors/:id', async(req: Request, res: Response) => {<br>
+  try { <br>
+    const id = req.params.id
+    await connection('Actor_aula45').delete().where('id', id)
+    res.send('Deletado')
+  } catch (err) { <br>
+    res.status(400).send({message: err.message})
+  }
+})
+ </p>
