@@ -10,6 +10,16 @@ app.get('/ping', (req: Request, res: Response) => {
   }
 })
 
+app.get('/actors/salary?', async(req: Request, res: Response) => {
+  try {
+    const gender = req.query.gender
+    const result = await connection('Actor_aula45').avg('salary as media').where({gender})
+    res.status(201).send(result)
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
+
 app.get('/actors/search?', async (req: Request, res: Response) => {
   try {
     const {name,gender} = req.query
@@ -31,12 +41,32 @@ app.get('/actors/search?', async (req: Request, res: Response) => {
   }
 })
 
+app.get('/actors/:id', async(req: Request, res: Response) => {
+  try {
+    const id = req.params.id
+    const result = await connection('Actor_aula45').where('id',id)
+    res.status(200).send(result[0])
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
+
 app.put('/actors/:id/edit', async (req: Request, res: Response) => {
   try {
     const salary = Number(req.body.salary)
     const id = req.params.id
-    await connection.update({salary}).where('id', id)
+    await connection('Actor_aula45').update({salary}).where('id', id)
     res.send('Update!')
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
+
+app.delete('/actors/:id', async(req: Request, res: Response) => {
+  try {
+    const id = req.params.id
+    await connection('Actor_aula45').delete().where('id', id)
+    res.send('Deletado')
   } catch (err) {
     res.status(400).send({message: err.message})
   }
