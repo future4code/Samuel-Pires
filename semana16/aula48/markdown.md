@@ -10,3 +10,11 @@ Esse erro aconteceu pois não conseguiu encontrar na tabela de filmes id informa
 Esse erro aconteceu pois este filme está referenciado em outra tabela.
 </p>
 
+#EXERCÍCIO 2
+
+<p>a. Essa tabela é responsável por fazer referência a outras duas tabelas, criando assim a possibilidade de relação N:M.</p>
+<p>b. insert into Elenco_Filme_aula48(filme_id,actor_id) values</p>
+<p>c. Error Code: 1452. Não é possível pois é uma referência inválida.</p>
+<p>d. Error Code: 1451. Não é possível pois este ator está referenciado em outra tabela.</p>
+
+#EXERCÍCIO 3
