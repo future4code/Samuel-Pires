@@ -18,3 +18,8 @@ Esse erro aconteceu pois este filme está referenciado em outra tabela.
 <p>d. Error Code: 1451. Não é possível pois este ator está referenciado em outra tabela.</p>
 
 #EXERCÍCIO 3
+
+<p>a. A query é responsável trazer como resposta a união de duas tabelas. O uso do on é para estabelecer uma condição para que a união das linhas da tabela
+se deem apenas com os 'ids' que forem iguais.</p>
+<p>b. select Filmes_aula45.nome, Filmes_aula45.id, Rating_aula48.rate from Rating_aula48
+join Filmes_aula45 on Filmes_aula45.id = Rating_aula48.filme_id;</p>
