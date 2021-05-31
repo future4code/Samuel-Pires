@@ -1,0 +1,12 @@
+GET http://localhost:3003/ping
+
+###
+
+PUT http://localhost:3003/user
+Content-Type: application/json
+
+{
+"name" : "Samuel",
+  "nickname" : "sam99",
+  "email" : "sam@gmail.com"
+}
