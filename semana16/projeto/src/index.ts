@@ -14,6 +14,23 @@ app.get('/ping', (req: Request, res: Response) => {
   }
 })
 
+app.get('/user/:id', async(req: Request, res: Response) => {
+  try {
+    const {id} = req.params
+    if(!id){
+      throw new Error('Por favor preencha o id.')
+    }
+
+    const result = await connection('Users_projeto16').select('id','nickname').where('id', id)
+    if(result.length===0){
+      throw new Error('Não existe usuário com este id.')
+    }
+    res.status(200).send(result[0])
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
+
 app.put('/user', async (req: Request, res: Response) => {
   try {
     const {name, nickname, email} = req.body
@@ -40,3 +57,4 @@ app.put('/user', async (req: Request, res: Response) => {
     res.status(400).send({message: err.message})
   }
 })
+

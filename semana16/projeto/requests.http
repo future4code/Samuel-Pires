@@ -10,3 +10,7 @@ Content-Type: application/json
   "nickname" : "sam99",
   "email" : "sam@gmail.com"
 }
+
+###
+
+GET http://localhost:3003/user/162246778234
