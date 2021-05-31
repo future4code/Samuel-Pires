@@ -5,7 +5,8 @@ export const validate_email = (email:string) : boolean=>{
     email.indexOf(' ')!==-1 ||
     email[0]==='.' || email[0]==='@' ||
     email[email.length-1]==='.' ||
-    email[email.length-1]==='@'){
+    email[email.length-1]==='@'
+  ){
     return false
   }
   else{

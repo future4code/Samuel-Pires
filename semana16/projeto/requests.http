@@ -23,3 +23,15 @@ Content-Type: application/json
 {
   "nickname" : "sam99"
 }
+
+###
+
+PUT http://localhost:3003/task
+Content-Type: application/json
+
+{
+"title" : "Segunda tarefa",
+  "description" : "Criando a segunda tarefa no banco",
+  "limitDate" : "05/05/2021",
+  "creatorUserId" : "1622467782347"
+}

@@ -1,9 +1,9 @@
 import {Request, Response} from "express";
 import app from "./app";
-import {validate_email} from "./validate_email";
-import {User} from "./enum_type";
-import knex from "knex";
+import {validate_email} from "./functions/validate_email";
+import {Status, Task, User} from "./enum_type";
 import {connection} from "./connection";
+import {convert_date} from "./functions/date";
 
 
 app.get('/ping', (req: Request, res: Response) => {
@@ -79,3 +79,37 @@ app.post('/user/edit/:id', async(req: Request, res: Response) => {
     res.status(400).send({message: err.message})
   }
 })
+
+app.put('/task', async(req: Request, res: Response) => {
+  try {
+    const {title, description, limitDate, creatorUserId} = req.body
+    console.table(req.body)
+    if(!title || !description || !limitDate || !creatorUserId){
+      throw new Error('Por favor preencha todos os campos.')
+    }
+
+    const newDate = convert_date(limitDate)
+    if(!newDate){
+      throw new Error('Data inválida. Formato aceito: dd/mm/aaaa - Apenas data presente ou futura.')
+    }
+
+    const task : Task = {
+      id : Date.now().toString(),
+      creator_id : creatorUserId,
+      description,
+      title,
+      status : Status.TO_DO,
+      date_limit : newDate as string
+    }
+
+    await connection('Tasks_projeto16').insert(task)
+
+    res.status(201).send('Task created!')
+  } catch (err) {
+    if(err.message.includes('a foreign key constraint fails')){
+      err.message = 'Usuário não encontrado.'
+    }
+    res.status(400).send({message: err.message})
+  }
+})
+

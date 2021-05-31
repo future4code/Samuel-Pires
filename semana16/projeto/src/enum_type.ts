@@ -11,3 +11,11 @@ export type User = {
   email : string
 }
 
+export type Task = {
+  id : string,
+  description : string,
+  date_limit : string,
+  creator_id : string,
+  status : Status,
+  title : string
+}
