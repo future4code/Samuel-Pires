@@ -90,6 +90,26 @@ app.post('/user/edit/:id', async(req: Request, res: Response) => {
 })
 
 
+app.get('/task?', async(req: Request, res: Response) => {
+  try {
+    const {creatorUserId : creator_id} = req.query
+    
+    const tasks = await connection('Tasks_projeto16').select(
+      'Tasks_projeto16.id as taskId',
+      'title',
+      'description',
+      'date_limit as limitDate',
+      'creator_id as creatorUserId',
+      'status',
+      'Users_projeto16.nickname as creatorUserNickname'
+    ).join('Users_projeto16', 'creator_id', 'Users_projeto16.id')
+
+    res.status(200).send({tasks})
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
+
 app.get('/task/:id', async(req: Request, res: Response) => {
   try {
     const {id} = req.params
