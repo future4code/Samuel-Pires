@@ -14,6 +14,25 @@ app.get('/ping', (req: Request, res: Response) => {
   }
 })
 
+app.get('/user?', async(req: Request, res: Response) => {
+  try {
+    const {query} = req.query
+    if(!query){
+      throw new Error('Necessário query.')
+    }
+
+    const users = await connection('Users_projeto16')
+      .select('id', 'nickname')
+      .where('nickname','like',`%${query}%`)
+      .orWhere('email', 'like', `%${query}%`)
+
+    res.status(200).send({users})
+
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
+
 app.get('/user/all', async(req: Request, res: Response) => {
   try {
     const users = await connection('Users_projeto16').select('id','nickname')
@@ -93,7 +112,9 @@ app.post('/user/edit/:id', async(req: Request, res: Response) => {
 app.get('/task?', async(req: Request, res: Response) => {
   try {
     const {creatorUserId : creator_id} = req.query
-    
+    if(!creator_id){
+      throw new Error('Necessário creatorUserId.')
+    }
     const tasks = await connection('Tasks_projeto16').select(
       'Tasks_projeto16.id as taskId',
       'title',

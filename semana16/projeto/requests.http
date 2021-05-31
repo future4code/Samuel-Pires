@@ -6,9 +6,9 @@ PUT http://localhost:3003/user
 Content-Type: application/json
 
 {
-"name" : "Samuel",
-  "nickname" : "sam99",
-  "email" : "sam@gmail.com"
+"name" : "Teste",
+  "nickname" : "teste",
+  "email" : "teste_sam@gmail.com"
 }
 
 ###
@@ -47,3 +47,7 @@ GET http://localhost:3003/user/all
 ###
 
 GET http://localhost:3003/task?creatorUserId=1622467782347
+
+###
+
+GET http://localhost:3003/user?query=sam
