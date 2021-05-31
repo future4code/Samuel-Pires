@@ -58,3 +58,24 @@ app.put('/user', async (req: Request, res: Response) => {
   }
 })
 
+app.post('/user/edit/:id', async(req: Request, res: Response) => {
+  try {
+    const {name, nickname} = req.body
+    const {id} = req.params
+    if(!name && !nickname) {
+      throw new Error('Pelo menos um dos campos preenchidos: name ou nickname')
+    }
+    if(typeof name==='string' && !name){
+      throw new Error('Você enviou o campo "name" mas não o preencheu.')
+    }
+    if(typeof nickname==='string' && !nickname){
+      throw new Error('Você enviou o campo "nickname" mas não o preencheu.')
+    }
+
+    await connection('Users_projeto16').update({name,nickname}).where('id', id)
+
+    res.status(200).send('Usuário alterado.')
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})

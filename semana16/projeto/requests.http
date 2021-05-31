@@ -13,4 +13,13 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:3003/user/162246778234
+GET http://localhost:3003/user/1622467782347
+
+###
+
+POST http://localhost:3003/user/edit/1622467782347
+Content-Type: application/json
+
+{
+  "nickname" : "sam99"
+}
