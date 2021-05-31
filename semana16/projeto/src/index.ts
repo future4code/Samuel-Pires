@@ -14,6 +14,15 @@ app.get('/ping', (req: Request, res: Response) => {
   }
 })
 
+app.get('/user/all', async(req: Request, res: Response) => {
+  try {
+    const users = await connection('Users_projeto16').select('id','nickname')
+    res.status(200).send({users})
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
+
 app.get('/user/:id', async(req: Request, res: Response) => {
   try {
     const {id} = req.params

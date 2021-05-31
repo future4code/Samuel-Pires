@@ -39,3 +39,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3003/task/1622473101388
+
+###
+
+GET http://localhost:3003/user/all
