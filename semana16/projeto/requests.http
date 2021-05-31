@@ -35,3 +35,7 @@ Content-Type: application/json
   "limitDate" : "05/05/2021",
   "creatorUserId" : "1622467782347"
 }
+
+###
+
+GET http://localhost:3003/task/1622473101388

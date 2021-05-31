@@ -80,6 +80,30 @@ app.post('/user/edit/:id', async(req: Request, res: Response) => {
   }
 })
 
+
+app.get('/task/:id', async(req: Request, res: Response) => {
+  try {
+    const {id} = req.params
+    if(!id){
+      throw new Error('Informe id.')
+    }
+
+    const result = await connection('Tasks_projeto16')
+      .select('Tasks_projeto16.id as taskId',
+        'title',
+        'description',
+        'date_limit as limitDate',
+        'status',
+        'creator_id as creatorUserId',
+        'Users_projeto16.nickname as creatorUserNickname')
+      .join('Users_projeto16', 'Users_projeto16.id', 'Tasks_projeto16.creator_id')
+
+    res.status(200).send(result)
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
+
 app.put('/task', async(req: Request, res: Response) => {
   try {
     const {title, description, limitDate, creatorUserId} = req.body
