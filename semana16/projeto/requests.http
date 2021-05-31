@@ -51,3 +51,13 @@ GET http://localhost:3003/task?creatorUserId=1622467782347
 ###
 
 GET http://localhost:3003/user?query=sam
+
+###
+
+POST http://localhost:3003/task/responsible
+Content-Type: application/json
+
+{
+"task_id" : "1622475686903",
+  "responsible_user_id": "1622490156979"
+}

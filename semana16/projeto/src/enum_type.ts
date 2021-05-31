@@ -19,3 +19,8 @@ export type Task = {
   status : Status,
   title : string
 }
+
+export type Task_responsible = {
+  task_id : string,
+  responsible_id : string
+}

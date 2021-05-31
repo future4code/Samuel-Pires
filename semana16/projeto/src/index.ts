@@ -1,7 +1,7 @@
 import {Request, Response} from "express";
 import app from "./app";
 import {validate_email} from "./functions/validate_email";
-import {Status, Task, User} from "./enum_type";
+import {Status, Task, Task_responsible, User} from "./enum_type";
 import {connection} from "./connection";
 import {convert_date} from "./functions/date";
 
@@ -183,6 +183,25 @@ app.put('/task', async(req: Request, res: Response) => {
     if(err.message.includes('a foreign key constraint fails')){
       err.message = 'Usuário não encontrado.'
     }
+    res.status(400).send({message: err.message})
+  }
+})
+
+app.post('/task/responsible', async(req: Request, res: Response) => {
+  try {
+    const {task_id, responsible_user_id: responsible_id} = req.body
+    if(!task_id || !responsible_id){
+      throw new Error('Preencher todos os campos.')
+    }
+
+    const task_responsible : Task_responsible = {
+      task_id, responsible_id
+    }
+    
+    await connection('Tasks_responsible_projeto16').insert(task_responsible)
+
+    res.status(201).send('Created!')
+  } catch (err) {
     res.status(400).send({message: err.message})
   }
 })
