@@ -7,3 +7,7 @@ GET http://localhost:3003/users/order?order=name&orderType=desc
 ###
 
 GET http://localhost:3003/users?page=3&type=te
+
+###
+
+GET http://localhost:3003/users/all?name=te
