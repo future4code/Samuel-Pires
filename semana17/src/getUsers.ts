@@ -28,3 +28,23 @@ export async function getUsersOrder(order_param : string, order_type : string) :
   return result
 
 }
+
+export async function getUsersOffset(page : number, param? : string, filter? : string) : Promise<any> {
+  if(!filter) {
+    const [result] = await connection.raw(`
+      SELECT id, name, email, type
+      FROM Aula49_exercicio
+      limit 5 offset ${5 * (page - 1)}
+    `)
+    return result
+  }
+  else{
+    const [result] = await connection.raw(`
+      select id, name, email, type
+      from Aula49_exercicio
+      where ${param} like "%${filter}%"
+      limit 5 offset ${5*(page-1)}
+    `)
+    return result
+  }
+}

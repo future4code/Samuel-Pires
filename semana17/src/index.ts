@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import app from "./app";
 import { connection } from "./connection";
-import getUsers, {getUsersOrder} from "./getUsers";
+import getUsers, {getUsersOffset, getUsersOrder} from "./getUsers";
 
 app.get("/", (req : Request, res: Response) => { res.send("Hello, world!") })
 
@@ -10,9 +10,21 @@ app.get('/users?', async(req: Request, res: Response) => {
 
     const name = req.query.name as string
     const type = req.query.type as string
+    const page = Number(req.query.page)
 
     let users
-    if(name){
+    if(page){
+      if(name){
+        users = await getUsersOffset(page, 'name', name)
+      }
+      else if(type){
+        users = await getUsersOffset(page, 'type', type)
+      }
+      else{
+        users = await getUsersOffset(page)
+      }
+    }
+    else if(name){
       users = await getUsers('name', name)
     }
     else if(type){
