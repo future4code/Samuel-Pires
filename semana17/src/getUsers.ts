@@ -17,3 +17,14 @@ export default async function getUsers( param? : string, filter? : string) : Pro
     return result
   }
 }
+
+export async function getUsersOrder(order_param : string, order_type : string) : Promise<any> {
+
+  const [result] = await connection.raw(`
+    select id, name, email, type
+    from Aula49_exercicio
+    order by ${order_param} ${order_type}
+  `)
+  return result
+
+}
