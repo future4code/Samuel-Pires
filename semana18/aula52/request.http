@@ -1,0 +1,17 @@
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+  "email": "hash@hash.com",
+  "password": "umhash"
+}
+
+###
+
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+  "email": "hash@hash.com",
+  "password": "umhash"
+}

@@ -10,3 +10,7 @@ c.  Criado na pasta /src/services/hash.ts
 ###EXERCÍCIO 2
 
 a.  O cadastro, pois não faria sentido comparar uma senha criptografada com uma senha em texto.
+
+b.  Alterado na pasta /src/endpoints/signup linha 27
+
+c.  Alterado na pasta /src/endpoints/login linha 19
