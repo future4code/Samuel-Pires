@@ -1,0 +1,26 @@
+POST http://localhost:3003/user/signup
+Content-Type: application/json
+
+{
+   "email": "sf@name.com" ,
+   "password": "namesf"
+}
+
+###
+
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+  "email": "fsafs@name.com" ,
+  "password": "namesf"
+}
+
+###
+
+GET http://localhost:3003/user/profile
+Content-Type: application/json
+
+{
+  "headers": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcxY2ZmMDNjLTllNTktNDc3ZC05ZmYxLTZlNGY2OGNlZmU4YSIsImlhdCI6MTYyMzEyMjMxNiwiZXhwIjoxNjIzMjA4NzE2fQ.1X8OBeqZpmlzNCw2PN_I_5lLetFdzDnQyOnkorjCD-Y"
+}
