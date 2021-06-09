@@ -1,10 +1,11 @@
 import {generate_id} from "../services/generate_id";
 import connection from "../services/connection";
-import {generate_token} from "../services/token";
+import {generate_token, Role} from "../services/token";
 
 type Data = {
   email:string,
-  password:string
+  password:string,
+  role:Role
 }
 
 export async function create_user(data : Data){
@@ -14,6 +15,5 @@ export async function create_user(data : Data){
       ...data,
       id
     })
-
-  return generate_token({id})
+  return generate_token({id, role:data.role})
 }

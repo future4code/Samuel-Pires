@@ -1,7 +1,13 @@
 import * as jwt from 'jsonwebtoken'
 
+export enum Role{
+  NORMAL='normal',
+  ADMIN='admin'
+}
+
 export type Authentication_data={
-  id : string
+  id : string,
+  role : Role
 }
 
 const expiresIn = {expiresIn:'1d'}

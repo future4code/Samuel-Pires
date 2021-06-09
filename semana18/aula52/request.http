@@ -2,8 +2,9 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-  "email": "hash@hash.com",
-  "password": "umhash"
+  "email": "oyo@hash.com",
+  "password": "umhash",
+  "role": "NORMAL"
 }
 
 ###
@@ -12,6 +13,11 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-  "email": "hash@hash.com",
+  "email": "normal@hash.com",
   "password": "umhash"
 }
+
+###
+
+PUT http://localhost:3003/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRhYzE5ODdmLTI1MzItNGVlYi05MDlmLTU5MTVlODE0ZmY4MiIsInJvbGUiOiJOT1JNQUwiLCJpYXQiOjE2MjMxOTkxNTEsImV4cCI6MTYyMzI4NTU1MX0.mtvEr3plkmjXdl4Q6LIDFxryEHse8m5HFNKodkc4VaQ

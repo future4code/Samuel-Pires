@@ -8,7 +8,7 @@ export async function login(req: Request, res: Response): Promise<any> {
   try {
     const {email, password} = req.body
     if(!email || !password){
-      throw new Error('Informe "email" e "password".')
+      throw new Error('Informe "email", "password".')
     }
     if(!validate_email(email)){
       throw new Error('Formato de email inválido. Aceito: email@email.email')
@@ -20,7 +20,7 @@ export async function login(req: Request, res: Response): Promise<any> {
       throw new Error('Email ou senha inválidos.')
     }
 
-    const token = generate_token({id: user.id})
+    const token = generate_token({id: user.id, role:user.role})
 
     res.status(200).send({token})
 
