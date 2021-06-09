@@ -10,11 +10,11 @@ export default async function signup(
 ): Promise<void> {
   try {
 
-    const {email, password, role} = req.body
+    const {email, password, role, cep, complemento, numero} = req.body
 
-    if (!email || !password || !(role in Role)) {
+    if (!email || !password || !(role in Role) || !cep || isNaN(numero)) {
       res.statusCode = 422
-      throw new Error("Preencha os campos 'password', 'email' e 'role' corretamente.")
+      throw new Error("Preencha todos os campos corretamente.")
     }
 
     if (!validate_email(email)) {
@@ -25,7 +25,7 @@ export default async function signup(
       throw new Error('Password precisa de 6 caracteres ou mais')
     }
 
-    const token = await create_user({email, password:generate_hash(password), role})
+    const token = await create_user({email, password:generate_hash(password), role,cep,numero,complemento})
 
     res.status(201).send({token})
 

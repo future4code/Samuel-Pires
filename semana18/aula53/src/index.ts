@@ -5,6 +5,7 @@ import { login } from "./endpoints/login";
 import signup from "./endpoints/signup";
 import { profile } from "./endpoints/profile";
 import get_address from "./data/get_address";
+import connection from "./services/connection";
 
 dotenv.config();
 
@@ -16,6 +17,16 @@ app.post('/login', login)
 app.post('/signup', signup)
 app.put('/profile', profile)
 
+app.get('/get',async (req: Request, res: Response) => {
+  try {
+    const result = await connection('Users_51')
+      .select('*')
+    res.status(200).send(result)
+  } catch (err) {
+    res.status(400).send({message: err.message})
+  }
+})
+
 
 const server = app.listen(process.env.PORT || 3003, () => {
   if (server) {
@@ -25,3 +36,4 @@ const server = app.listen(process.env.PORT || 3003, () => {
     console.error(`Failure upon starting server.`);
   }
 });
+
