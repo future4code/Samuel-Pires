@@ -4,14 +4,16 @@ export type User = {
   name : string,
   email : string,
   password : string,
-  role : ROLE
+  role : ROLE,
+  id : string
 }
 
 export type Recipe = {
   title : string,
   description : string,
   create_at : number,
-  user_id : string
+  user_id : string,
+  id : string
 }
 
 export type Follow = {

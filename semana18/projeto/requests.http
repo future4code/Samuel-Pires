@@ -11,3 +11,13 @@ Content-Type: application/json
   "password": "123456",
   "role": "ADMIN"
 }
+
+###
+
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+  "email": "usuario@usuario.com",
+  "password": "123456"
+}

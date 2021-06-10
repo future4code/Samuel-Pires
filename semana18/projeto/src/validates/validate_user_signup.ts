@@ -20,6 +20,5 @@ export default function validate_user_signup(user : User): boolean | string{
     message+="'role: ADMIN ou NORMAL'"
   if(message.length>21)
     return message
-
-  return true
+  else return true
 }
