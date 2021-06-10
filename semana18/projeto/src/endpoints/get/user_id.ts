@@ -6,17 +6,13 @@ export default async function user_id(req: Request, res: Response): Promise<any>
   try {
     const id = req.params.id
     const token = req.headers.authorization
-    if(!token){
-      throw new Error('Token is required.')
+    if(!token || !id){
+      throw new Error('Token and id is required.')
     }
 
     get_data_token(token)
 
     const user = await get_user_database('id', id)
-
-    if(!user){
-      throw new Error("User doesn't exist.")
-    }
 
     res.status(200).send({id:user.id, name:user.name, email:user.email})
   } catch (err) {

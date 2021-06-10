@@ -4,7 +4,7 @@ import {get_data_token} from "../../services/token";
 import validate_recipe from "../../validates/validate_recipe";
 import create_recipe_database from "../../data/create_recipe_database";
 
-export default async function (req: Request, res: Response): Promise<any> {
+export default async function post_recipe(req: Request, res: Response): Promise<any> {
   try {
     const token = req.headers.authorization
     const recipe = req.body as Recipe

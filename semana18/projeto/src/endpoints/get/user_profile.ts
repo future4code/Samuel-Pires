@@ -14,10 +14,6 @@ export default async function user_profile(req: Request, res: Response): Promise
     const payload = get_data_token(token)
 
     const user = await get_user_database('id', payload.id)
-    if(!user){
-      res.statusCode = 401
-      throw new Error("User doesn't exist.")
-    }
 
     res.status(200).send({id:user.id, name:user.name, email:user.name})
   } catch (err) {

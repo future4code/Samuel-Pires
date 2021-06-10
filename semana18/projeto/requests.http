@@ -42,3 +42,18 @@ Content-Type: application/json
   "title": "primeira receira",
   "description": "uma nova receita"
 }
+
+###
+PUT http://localhost:3003/recipe
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMtNGIzNS04OGRhLTY4Y2EwYjJiM2JhYyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzM1MDQzMCwiZXhwIjoxNjIzNDM2ODMwfQ.iSdac-2Mx5bZbcyv6B6mSETsuzQyThxm3Dxylhtvgfk
+Content-Type: application/json
+
+{
+  "title": "primeira receita",
+  "description": "uma nova receita"
+}
+
+###
+
+GET http://localhost:3003/recipe/496fbd0c-9eb3-4bc9-87e2-e3a660b8f0bb
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMtNGIzNS04OGRhLTY4Y2EwYjJiM2JhYyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzM1MDQzMCwiZXhwIjoxNjIzNDM2ODMwfQ.iSdac-2Mx5bZbcyv6B6mSETsuzQyThxm3Dxylhtvgfk

@@ -6,7 +6,7 @@ export default function validate_recipe(recipe : Recipe) :boolean | string{
     message+="'title' "
   if(!recipe.description)
     message+="'description' "
-  if(message.length>21)
+  if(message.length>19)
     return message
   else return true
 }

@@ -5,6 +5,7 @@ import login from "./endpoints/post/login";
 import user_profile from "./endpoints/get/user_profile";
 import user_id from "./endpoints/get/user_id";
 import post_recipe from "./endpoints/post/post_recipe";
+import get_recipe from "./endpoints/get/get_recipe";
 
 app.get('/ping', (req: Request, res: Response) => {
   try {
@@ -22,3 +23,6 @@ app.get('/user/profile', user_profile)
 app.get('/user/:id', user_id)
 
 app.post('/recipe', post_recipe)
+
+app.get('/recipe/:id', get_recipe)
+app.put('/recipe')
