@@ -1,9 +1,9 @@
 import {Request, Response} from "express";
-import {User} from "../types/types";
-import validate_user_login from "../validates/validate_user_login";
-import get_user_database from "../data/get_user_database";
+import {User} from "../../types/types";
+import validate_user_login from "../../validates/validate_user_login";
+import get_user_database from "../../data/get_user_database";
 import {compare} from "bcryptjs";
-import {generate_token} from "../services/token";
+import {generate_token} from "../../services/token";
 
 export default async function login(req: Request, res: Response): Promise<any> {
   try {

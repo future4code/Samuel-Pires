@@ -1,6 +1,6 @@
 import {Request, Response} from "express";
-import get_user_database from "../data/get_user_database";
-import {get_data_token} from "../services/token";
+import get_user_database from "../../data/get_user_database";
+import {get_data_token} from "../../services/token";
 import * as jwt from 'jsonwebtoken'
 
 

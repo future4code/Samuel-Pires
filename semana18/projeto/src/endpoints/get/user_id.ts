@@ -1,6 +1,6 @@
 import {Request, Response} from "express";
-import get_user_database from "../data/get_user_database";
-import {get_data_token} from "../services/token";
+import get_user_database from "../../data/get_user_database";
+import {get_data_token} from "../../services/token";
 
 export default async function user_id(req: Request, res: Response): Promise<any> {
   try {

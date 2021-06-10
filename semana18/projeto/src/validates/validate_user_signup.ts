@@ -8,7 +8,7 @@ const keys = ['name', 'email', 'password', 'role']
 
 
 export default function validate_user_signup(user : User): boolean | string{
-  let message = 'Você precisa inserir '
+  let message = 'You need to insert '
 
   if(!user.name)
     message+="'name' "
