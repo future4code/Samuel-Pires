@@ -16,7 +16,7 @@ export default function validate_user_signup(user : User): boolean | string{
   if(!user.password || user.password.length<6)
     message+="'password(min 6 caracteres)' "
   if(!user.role || !(Object.values(ROLE).includes(user.role)))
-    message+="'role: ADMIN ou NORMAL'"
+    message+="'role: admin ou normal'"
   if(message.length>21)
     return message
   else return true
