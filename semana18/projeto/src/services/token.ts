@@ -11,6 +11,6 @@ export function  generate_token(payload : Payload_token):string{
   )
 }
 
-export function get_data_token(token:string):Payload_token{
+export function get_data_token(token:string): Payload_token{
   return jwt.verify(token, process.env.JWT_KEY as string) as Payload_token
 }

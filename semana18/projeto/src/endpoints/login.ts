@@ -14,7 +14,7 @@ export default async function login(req: Request, res: Response): Promise<any> {
       throw new Error(user_valide)
     }
 
-    const user_database = await get_user_database(user.email)
+    const user_database = await get_user_database('email',user.email)
     if(!user_database){
       throw new Error('E-mail or password incorrect.')
     }

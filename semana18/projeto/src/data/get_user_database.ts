@@ -1,10 +1,10 @@
 import connection from "../services/connection";
 import {User} from "../types/types";
 
-export default async function get_user_database(email : string) : Promise<undefined | User>{
+export default async function get_user_database(key: string, value: string) : Promise<User | undefined>{
   const [user] = await connection('User')
-    .select('id','password','role')
-    .where({email})
+    .select('*')
+    .where({[key]:value})
 
   if(!user){
     return undefined
