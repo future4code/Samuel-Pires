@@ -7,16 +7,15 @@ export default async function signup(req: Request, res: Response): Promise<any> 
   try {
     const user = req.body as User
     const user_valide = validate_user_signup(user)
-
     if(typeof user_valide==='string'){
       throw new Error(user_valide)
     }
 
     const token = await create_user_database(user)
-
+    console.count('check: ')
     res.status(201).send({token})
   } catch (err) {
-    if(err.sqlMessage.includes('Duplicate entry')){
+    if(err.sqlMessage && err.sqlMessage.includes('Duplicate entry')){
       err.message = 'E-mail already registered.'
     }
     res.status(res.statusCode).send({message: err.message || err.sqlMessage})

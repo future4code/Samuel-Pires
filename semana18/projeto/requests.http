@@ -6,10 +6,10 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-  "name": "segundo",
-  "email": "segundo@usuario.com",
+  "name": "quarto",
+  "email": "quarto@usuario.com",
   "password": "123456",
-  "role": "NORMAL"
+  "role": "admin"
 }
 
 ###
@@ -18,7 +18,7 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-  "email": "usuario@usuario.com",
+  "email": "segundo@usuario.com",
   "password": "123456"
 }
 
@@ -35,12 +35,12 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMt
 ###
 
 POST http://localhost:3003/recipe
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMtNGIzNS04OGRhLTY4Y2EwYjJiM2JhYyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzM1MDQzMCwiZXhwIjoxNjIzNDM2ODMwfQ.iSdac-2Mx5bZbcyv6B6mSETsuzQyThxm3Dxylhtvgfk
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMwNDcyNTIzLTFhZWMtNDE4YS1iNzk3LTY3YjQ4ZGRhYzY3YyIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2MjMzNjI4NzgsImV4cCI6MTYyMzQ0OTI3OH0.L1Vn4bT5kkQpTWqLqEk9XV_PjUQrfENgu_DBdnn0veY
 Content-Type: application/json
 
 {
-  "title": "primeira receira",
-  "description": "uma nova receita"
+  "title": "receita user normal",
+  "description": "receita"
 }
 
 ###
@@ -57,3 +57,12 @@ Content-Type: application/json
 
 GET http://localhost:3003/recipe/496fbd0c-9eb3-4bc9-87e2-e3a660b8f0bb
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMtNGIzNS04OGRhLTY4Y2EwYjJiM2JhYyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzM1MDQzMCwiZXhwIjoxNjIzNDM2ODMwfQ.iSdac-2Mx5bZbcyv6B6mSETsuzQyThxm3Dxylhtvgfk
+
+###
+PUT http://localhost:3003/recipe/496fbd0c-9eb3-4bc9-87e2-e3a660b8f0bb
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMwNDcyNTIzLTFhZWMtNDE4YS1iNzk3LTY3YjQ4ZGRhYzY3YyIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2MjMzNjI4NzgsImV4cCI6MTYyMzQ0OTI3OH0.L1Vn4bT5kkQpTWqLqEk9XV_PjUQrfENgu_DBdnn0veY
+Content-Type: application/json
+
+{
+  "description" : "tentando alterar com user normal"
+}

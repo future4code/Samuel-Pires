@@ -6,6 +6,7 @@ import user_profile from "./endpoints/get/user_profile";
 import user_id from "./endpoints/get/user_id";
 import post_recipe from "./endpoints/post/post_recipe";
 import get_recipe from "./endpoints/get/get_recipe";
+import put_recipe from "./endpoints/put/put_recipe";
 
 app.get('/ping', (req: Request, res: Response) => {
   try {
@@ -16,13 +17,11 @@ app.get('/ping', (req: Request, res: Response) => {
 })
 
 app.post('/signup', signup)
-
 app.post('/login', login)
 
 app.get('/user/profile', user_profile)
 app.get('/user/:id', user_id)
 
-app.post('/recipe', post_recipe)
-
 app.get('/recipe/:id', get_recipe)
-app.put('/recipe')
+app.post('/recipe', post_recipe)
+app.put('/recipe/:id', put_recipe)
