@@ -6,10 +6,10 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-  "name": "usuario",
-  "email": "usuario@usuario.com",
+  "name": "segundo",
+  "email": "segundo@usuario.com",
   "password": "123456",
-  "role": "ADMIN"
+  "role": "NORMAL"
 }
 
 ###
@@ -25,4 +25,9 @@ Content-Type: application/json
 ###
 
 GET http://localhost:3003/user/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMtNGIzNS04OGRhLTY4Y2EwYjJiM2JhYyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzM1MDQzMCwiZXhwIjoxNjIzNDM2ODMwfQ.iSdac-2Mx5bZbcyv6B6mSETsuzQyThxm3Dxylhtvgfk
+
+###
+
+GET http://localhost:3003/user/30472523-1aec-418a-b797-67b48ddac67
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMtNGIzNS04OGRhLTY4Y2EwYjJiM2JhYyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzM1MDQzMCwiZXhwIjoxNjIzNDM2ODMwfQ.iSdac-2Mx5bZbcyv6B6mSETsuzQyThxm3Dxylhtvgfk
