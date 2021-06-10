@@ -6,8 +6,8 @@ POST http://localhost:3003/signup
 Content-Type: application/json
 
 {
-  "name": "quarto",
-  "email": "quarto@usuario.com",
+  "name": "admin",
+  "email": "admin@usuario.com",
   "password": "123456",
   "role": "admin"
 }
@@ -66,3 +66,8 @@ Content-Type: application/json
 {
   "description" : "tentando alterar com user normal"
 }
+
+###
+
+DELETE http://localhost:3003/recipe/dadc9fa2-25b0-4099-86cb-f864d6b792c9
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEtNGU0NS1hOGMzLTA1ODc1MGYwM2NkNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzM2NzQ3MSwiZXhwIjoxNjIzNDUzODcxfQ.bzeBQdluBEspm9ngHKhLPzE-T128A-7nfjnJSJ6w2Pc
