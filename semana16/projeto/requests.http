@@ -1,0 +1,63 @@
+GET http://localhost:3003/ping
+
+###
+
+PUT http://localhost:3003/user
+Content-Type: application/json
+
+{
+"name" : "Teste",
+  "nickname" : "teste",
+  "email" : "teste_sam@gmail.com"
+}
+
+###
+
+GET http://localhost:3003/user/1622467782347
+
+###
+
+POST http://localhost:3003/user/edit/1622467782347
+Content-Type: application/json
+
+{
+  "nickname" : "sam99"
+}
+
+###
+
+PUT http://localhost:3003/task
+Content-Type: application/json
+
+{
+"title" : "Segunda tarefa",
+  "description" : "Criando a segunda tarefa no banco",
+  "limitDate" : "05/05/2021",
+  "creatorUserId" : "1622467782347"
+}
+
+###
+
+GET http://localhost:3003/task/1622473101388
+
+###
+
+GET http://localhost:3003/user/all
+
+###
+
+GET http://localhost:3003/task?creatorUserId=1622467782347
+
+###
+
+GET http://localhost:3003/user?query=sam
+
+###
+
+POST http://localhost:3003/task/responsible
+Content-Type: application/json
+
+{
+"task_id" : "1622475686903",
+  "responsible_user_id": "1622490156979"
+}
