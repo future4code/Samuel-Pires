@@ -16,6 +16,9 @@ export default async function (req: Request, res: Response): Promise<any> {
 
     res.status(201).send({token})
   } catch (err) {
+    if(err.sqlMessage.includes('Duplicate entry')){
+      err.message = 'E-mail already registered.'
+    }
     res.status(res.statusCode).send({message: err.message || err.sqlMessage})
   }
 }
