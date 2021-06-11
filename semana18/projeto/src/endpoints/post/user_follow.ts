@@ -2,7 +2,7 @@ import {Request, Response} from "express";
 import {get_data_token} from "../../services/token";
 import create_follow_database from "../../data/create_follow_database";
 
-export default async function follow(req: Request, res: Response): Promise<any> {
+export default async function user_follow(req: Request, res: Response): Promise<any> {
   try {
     const token = req.headers.authorization
     const user_to_follow_id = req.body.user_to_follow_id as string
