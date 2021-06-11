@@ -10,6 +10,7 @@ import put_recipe from "./endpoints/put/put_recipe";
 import delete_recipe from "./endpoints/delete/delete_recipe";
 import user_follow from "./endpoints/post/user_follow";
 import user_unfollow from "./endpoints/post/user_unfollow";
+import user_feed from "./endpoints/get/user_feed";
 
 app.get('/ping', (req: Request, res: Response) => {
   try {
@@ -22,6 +23,7 @@ app.get('/ping', (req: Request, res: Response) => {
 app.post('/signup', signup)
 app.post('/login', login)
 
+app.get('/user/feed', user_feed)
 app.get('/user/profile', user_profile)
 app.get('/user/:id', user_id)
 app.post('/user/follow', user_follow)

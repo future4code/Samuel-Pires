@@ -18,7 +18,7 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-  "email": "segundo@usuario.com",
+  "email": "quarto@usuario.com",
   "password": "123456"
 }
 
@@ -35,11 +35,11 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMt
 ###
 
 POST http://localhost:3003/recipe
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMwNDcyNTIzLTFhZWMtNDE4YS1iNzk3LTY3YjQ4ZGRhYzY3YyIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2MjMzNjI4NzgsImV4cCI6MTYyMzQ0OTI3OH0.L1Vn4bT5kkQpTWqLqEk9XV_PjUQrfENgu_DBdnn0veY
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIyOTA3Y2NhLWFhMTUtNGVlYy04MWUwLWIzYzQyMTBhYTQ5NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzQzNjkyNSwiZXhwIjoxNjIzNTIzMzI1fQ.1k8NL-f3E4nOag8CWFU5Ctsm5dD_QJVLezqsD00-GOc
 Content-Type: application/json
 
 {
-  "title": "receita user normal",
+  "title": "receita do quarto usuario",
   "description": "receita"
 }
 
@@ -69,7 +69,7 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3003/recipe/dadc9fa2-25b0-4099-86cb-f864d6b792c9
+DELETE http://localhost:3003/recipe/496fbd0c-9eb3-4bc9-87e2-e3a660b8f0bb
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEtNGU0NS1hOGMzLTA1ODc1MGYwM2NkNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzM2NzQ3MSwiZXhwIjoxNjIzNDUzODcxfQ.bzeBQdluBEspm9ngHKhLPzE-T128A-7nfjnJSJ6w2Pc
 
 ###
@@ -78,7 +78,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEt
 Content-Type: application/json
 
 {
-  "user_to_follow_id": "b2907cca-aa15-4eec-81e0-b3c4210aa495"
+  "user_to_follow_id": "0456d540-355e-4271-97b9-5519d3bb9b58"
 }
 
 ###
@@ -87,5 +87,9 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEt
 Content-Type: application/json
 
 {
-  "user_to_unfollow_id": "b2907cca-aa15-4eec-81e0-b3c4210aa495"
+  "user_to_unfollow_id": "0456d540-355e-4271-97b9-5519d3bb9b58"
 }
+
+###
+GET http://localhost:3003/user/feed
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEtNGU0NS1hOGMzLTA1ODc1MGYwM2NkNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzM2NzQ3MSwiZXhwIjoxNjIzNDUzODcxfQ.bzeBQdluBEspm9ngHKhLPzE-T128A-7nfjnJSJ6w2Pc
