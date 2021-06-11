@@ -18,7 +18,7 @@ POST http://localhost:3003/login
 Content-Type: application/json
 
 {
-  "email": "quarto@usuario.com",
+  "email": "admin@usuario.com",
   "password": "123456"
 }
 
@@ -35,11 +35,11 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMt
 ###
 
 POST http://localhost:3003/recipe
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImIyOTA3Y2NhLWFhMTUtNGVlYy04MWUwLWIzYzQyMTBhYTQ5NSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzQzNjkyNSwiZXhwIjoxNjIzNTIzMzI1fQ.1k8NL-f3E4nOag8CWFU5Ctsm5dD_QJVLezqsD00-GOc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMtNGIzNS04OGRhLTY4Y2EwYjJiM2JhYyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzQ0NDc0MywiZXhwIjoxNjIzNTMxMTQzfQ.8S1XkbWJNTdAwb7tz0Y9IA1B86oTsfR7zLDAoftxEMA
 Content-Type: application/json
 
 {
-  "title": "receita do quarto usuario",
+  "title": "receita do 11 usuario",
   "description": "receita"
 }
 
@@ -74,11 +74,11 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEt
 
 ###
 POST http://localhost:3003/user/follow
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEtNGU0NS1hOGMzLTA1ODc1MGYwM2NkNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzM2NzQ3MSwiZXhwIjoxNjIzNDUzODcxfQ.bzeBQdluBEspm9ngHKhLPzE-T128A-7nfjnJSJ6w2Pc
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMtNGIzNS04OGRhLTY4Y2EwYjJiM2JhYyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzQ0NDc0MywiZXhwIjoxNjIzNTMxMTQzfQ.8S1XkbWJNTdAwb7tz0Y9IA1B86oTsfR7zLDAoftxEMA
 Content-Type: application/json
 
 {
-  "user_to_follow_id": "0456d540-355e-4271-97b9-5519d3bb9b58"
+  "user_to_follow_id": "b2907cca-aa15-4eec-81e0-b3c4210aa495"
 }
 
 ###
@@ -93,3 +93,7 @@ Content-Type: application/json
 ###
 GET http://localhost:3003/user/feed
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEtNGU0NS1hOGMzLTA1ODc1MGYwM2NkNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzM2NzQ3MSwiZXhwIjoxNjIzNDUzODcxfQ.bzeBQdluBEspm9ngHKhLPzE-T128A-7nfjnJSJ6w2Pc
+
+###
+DELETE http://localhost:3003/user
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEtNGU0NS1hOGMzLTA1ODc1MGYwM2NkNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzQ1NDIzNiwiZXhwIjoxNjIzNTQwNjM2fQ.kUOCXlBR_QAJ8Tvif0MEQzBs7aU2FXAJ_Gq8RHVG144

@@ -3,7 +3,7 @@ import get_user_feed_database from "../../data/get_user_feed_database";
 import {get_data_token} from "../../services/token";
 import {date_string} from "../../services/date";
 
-export default async function (req: Request, res: Response): Promise<any> {
+export default async function user_feed(req: Request, res: Response): Promise<any> {
   try {
     const token = req.headers.authorization as string
     if(!token){

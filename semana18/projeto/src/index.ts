@@ -11,6 +11,7 @@ import delete_recipe from "./endpoints/delete/delete_recipe";
 import user_follow from "./endpoints/post/user_follow";
 import user_unfollow from "./endpoints/post/user_unfollow";
 import user_feed from "./endpoints/get/user_feed";
+import delete_user from "./endpoints/delete/delete_user";
 
 app.get('/ping', (req: Request, res: Response) => {
   try {
@@ -28,6 +29,7 @@ app.get('/user/profile', user_profile)
 app.get('/user/:id', user_id)
 app.post('/user/follow', user_follow)
 app.post('/user/unfollow', user_unfollow)
+app.delete('/user', delete_user) //query params
 
 app.get('/recipe/:id', get_recipe)
 app.post('/recipe', post_recipe)
