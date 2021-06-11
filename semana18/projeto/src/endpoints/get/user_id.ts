@@ -6,8 +6,8 @@ export default async function user_id(req: Request, res: Response): Promise<any>
   try {
     const id = req.params.id
     const token = req.headers.authorization
-    if(!token || !id){
-      throw new Error('Token and id is required.')
+    if(!token || id.length!==36){
+      throw new Error('Token and id (36 characters) is required.')
     }
 
     get_data_token(token)

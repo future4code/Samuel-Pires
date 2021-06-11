@@ -8,8 +8,8 @@ export default async function delete_recipe(req: Request, res: Response): Promis
   try {
     const id = req.params.id
     const token = req.headers.authorization
-    if(!id || !token){
-      throw new Error('Token and id is required.')
+    if(id.length!==36 || !token){
+      throw new Error('Token and id(36 characters) is required.')
     }
 
     const payload = get_data_token(token)
@@ -28,7 +28,7 @@ export default async function delete_recipe(req: Request, res: Response): Promis
       }
     }
 
-    res.status(200).send({message:"Deleted!"})
+    res.status(200).send()
   } catch (err) {
     res.status(res.statusCode).send({message: err.message || err.sqlMessage})
   }

@@ -71,3 +71,12 @@ Content-Type: application/json
 
 DELETE http://localhost:3003/recipe/dadc9fa2-25b0-4099-86cb-f864d6b792c9
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEtNGU0NS1hOGMzLTA1ODc1MGYwM2NkNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzM2NzQ3MSwiZXhwIjoxNjIzNDUzODcxfQ.bzeBQdluBEspm9ngHKhLPzE-T128A-7nfjnJSJ6w2Pc
+
+###
+POST http://localhost:3003/user/follow
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEtNGU0NS1hOGMzLTA1ODc1MGYwM2NkNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzM2NzQ3MSwiZXhwIjoxNjIzNDUzODcxfQ.bzeBQdluBEspm9ngHKhLPzE-T128A-7nfjnJSJ6w2Pc
+Content-Type: application/json
+
+{
+  "user_to_follow_id": "69aa8d86-bdf1-4e45-a8c3-058750f03cd7"
+}

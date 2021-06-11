@@ -10,8 +10,8 @@ export default async function get_recipe(req: Request, res: Response): Promise<a
   try {
     const token = req.headers.authorization
     const id = req.params.id
-    if(!id || !token){
-      throw new Error('Token and id is required.')
+    if(id.length!==36 || !token){
+      throw new Error('Token and id (36 characters) is required.')
     }
 
     get_data_token(token)

@@ -12,8 +12,8 @@ export default async function put_recipe(req: Request, res: Response): Promise<a
     const id = req.params.id
     const recipe = req.body as Recipe
 
-    if(!token || !id){
-      throw new Error('Token and id of recipe is required')
+    if(!token || id.length!==36){
+      throw new Error('Token and id (36 characters) of recipe is required')
     }
     const payload = get_data_token(token)
 
@@ -31,7 +31,7 @@ export default async function put_recipe(req: Request, res: Response): Promise<a
     recipe.id = id
     await update_recipe_database(recipe)
 
-    res.status(200).send({message:'Altered!'})
+    res.status(200).send()
   } catch (err) {
     res.status(res.statusCode).send({message: err.message || err.sqlMessage})
   }

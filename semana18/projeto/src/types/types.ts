@@ -18,7 +18,7 @@ export type Recipe = {
 
 export type Follow = {
   user_id : string,
-  following_user_id : string
+  user_to_follow_id : string
 }
 
 export type Payload_token = {
