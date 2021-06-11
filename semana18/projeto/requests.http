@@ -78,5 +78,14 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEt
 Content-Type: application/json
 
 {
-  "user_to_follow_id": "69aa8d86-bdf1-4e45-a8c3-058750f03cd7"
+  "user_to_follow_id": "b2907cca-aa15-4eec-81e0-b3c4210aa495"
+}
+
+###
+POST http://localhost:3003/user/unfollow
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEtNGU0NS1hOGMzLTA1ODc1MGYwM2NkNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzM2NzQ3MSwiZXhwIjoxNjIzNDUzODcxfQ.bzeBQdluBEspm9ngHKhLPzE-T128A-7nfjnJSJ6w2Pc
+Content-Type: application/json
+
+{
+  "user_to_unfollow_id": "b2907cca-aa15-4eec-81e0-b3c4210aa495"
 }

@@ -9,6 +9,7 @@ import get_recipe from "./endpoints/get/get_recipe";
 import put_recipe from "./endpoints/put/put_recipe";
 import delete_recipe from "./endpoints/delete/delete_recipe";
 import user_follow from "./endpoints/post/user_follow";
+import user_unfollow from "./endpoints/post/user_unfollow";
 
 app.get('/ping', (req: Request, res: Response) => {
   try {
@@ -24,7 +25,7 @@ app.post('/login', login)
 app.get('/user/profile', user_profile)
 app.get('/user/:id', user_id)
 app.post('/user/follow', user_follow)
-
+app.post('/user/unfollow', user_unfollow)
 
 app.get('/recipe/:id', get_recipe)
 app.post('/recipe', post_recipe)
