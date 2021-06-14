@@ -1,0 +1,15 @@
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+  "email":"endereco@endereco.com",
+  "password":"endereco",
+  "role":"ADMIN",
+  "cep":"88905-234",
+  "complemento":"b",
+  "numero":175
+}
+
+###
+
+GET http://localhost:3003/get
