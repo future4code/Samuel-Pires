@@ -3,7 +3,27 @@ Content-Type: application/json
 
 {
   "name": "Samuel",
-  "email": "sam@gmail.com",
+  "email": "comicsams@gmail.com",
   "password": "123456",
   "role": "ADMIN"
 }
+
+###
+
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+  "email": "sam@gmail.com",
+  "password": "123456"
+}
+
+###
+
+GET http://localhost:3003/all
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUwMTE4MjI5LWFiNzMtNDQ2Yi1iNTU4LWU0ZTBkMzdkMTRhZSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzcwMDE3MiwiZXhwIjoxNjIzNzAzNzcyfQ.rhejUvsbAVWf7ZB_rT8R5irgeoMgu_K-WsOZlyLf6cw
+
+###
+
+DELETE http://localhost:3003/50118229-ab73-446b-b558-e4e0d37d14ae
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjUwMTE4MjI5LWFiNzMtNDQ2Yi1iNTU4LWU0ZTBkMzdkMTRhZSIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzcwMDE3MiwiZXhwIjoxNjIzNzAzNzcyfQ.rhejUvsbAVWf7ZB_rT8R5irgeoMgu_K-WsOZlyLf6cw

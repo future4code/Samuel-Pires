@@ -1,9 +1,11 @@
 import {ROLE} from "./ROLE";
 
-export type User = {
+export type UserLogin = {
+  email : string,
+  password: string
+}
+export type User = UserLogin & {
   name:string,
-  email:string,
-  password:string,
   role : ROLE
 }
 

@@ -7,7 +7,7 @@ import {generateToken} from "../services/token";
 import {generateHash} from "../services/hash";
 import insertGeneric from "../data/insertGeneric";
 
-export default async function signupBussines(user : User) : Promise<string> {
+export default async function signupBusiness(user : User) : Promise<string> {
   validateInput(user)
   if(!validateEmail(user.email)){
     throw new Error('Você precisa preencher o e-mail corretamente: email@email.com')
