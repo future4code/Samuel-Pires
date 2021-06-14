@@ -2,7 +2,7 @@ import {getTokenData} from "../services/token";
 import {ROLE} from "../model/ROLE";
 import deleteGeneric from "../data/deleteGeneric";
 
-export default async function deleteBusiness(id : string, token : string) {
+export default async function delBusiness(id : string, token : string) {
   if(id.length!==36){
     throw new Error('Id is required(36 characters)')
   }
