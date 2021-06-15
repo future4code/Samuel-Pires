@@ -10,7 +10,7 @@ export const getTaskById = async (
 
       const { id } = req.params
 
-      const task = getTaskByIdBusiness(id)
+      const task = await getTaskByIdBusiness(id)
 
       res.status(200).send(task)
 

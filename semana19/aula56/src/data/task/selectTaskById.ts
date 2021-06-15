@@ -1,8 +1,9 @@
 import { connection } from "../connection";
+import {taskRequest, toTaskRequest} from "../../model/task";
 
 export const selectTaskById = async (
    id: string
-): Promise<any> => {
+): Promise<taskRequest> => {
    const result = await connection.raw(`
         SELECT tasks.*, nickname FROM to_do_list_tasks AS tasks
         JOIN to_do_list_users AS users
@@ -10,5 +11,5 @@ export const selectTaskById = async (
         WHERE tasks.id = '${id}';
     `)
 
-   return result[0][0]
+   return toTaskRequest(result[0][0])
 }
