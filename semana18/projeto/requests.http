@@ -1,0 +1,99 @@
+GET http://localhost:3003/ping
+
+###
+
+POST http://localhost:3003/signup
+Content-Type: application/json
+
+{
+  "name": "admin",
+  "email": "admin@usuario.com",
+  "password": "123456",
+  "role": "admin"
+}
+
+###
+
+POST http://localhost:3003/login
+Content-Type: application/json
+
+{
+  "email": "admin@usuario.com",
+  "password": "123456"
+}
+
+###
+
+GET http://localhost:3003/user/profile
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMtNGIzNS04OGRhLTY4Y2EwYjJiM2JhYyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzM1MDQzMCwiZXhwIjoxNjIzNDM2ODMwfQ.iSdac-2Mx5bZbcyv6B6mSETsuzQyThxm3Dxylhtvgfk
+
+###
+
+GET http://localhost:3003/user/30472523-1aec-418a-b797-67b48ddac67c
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMtNGIzNS04OGRhLTY4Y2EwYjJiM2JhYyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzM1MDQzMCwiZXhwIjoxNjIzNDM2ODMwfQ.iSdac-2Mx5bZbcyv6B6mSETsuzQyThxm3Dxylhtvgfk
+
+###
+
+POST http://localhost:3003/recipe
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMtNGIzNS04OGRhLTY4Y2EwYjJiM2JhYyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzQ0NDc0MywiZXhwIjoxNjIzNTMxMTQzfQ.8S1XkbWJNTdAwb7tz0Y9IA1B86oTsfR7zLDAoftxEMA
+Content-Type: application/json
+
+{
+  "title": "receita do 11 usuario",
+  "description": "receita"
+}
+
+###
+PUT http://localhost:3003/recipe
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMtNGIzNS04OGRhLTY4Y2EwYjJiM2JhYyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzM1MDQzMCwiZXhwIjoxNjIzNDM2ODMwfQ.iSdac-2Mx5bZbcyv6B6mSETsuzQyThxm3Dxylhtvgfk
+Content-Type: application/json
+
+{
+  "title": "primeira receita",
+  "description": "uma nova receita"
+}
+
+###
+
+GET http://localhost:3003/recipe/496fbd0c-9eb3-4bc9-87e2-e3a660b8f0bb
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMtNGIzNS04OGRhLTY4Y2EwYjJiM2JhYyIsInJvbGUiOiJBRE1JTiIsImlhdCI6MTYyMzM1MDQzMCwiZXhwIjoxNjIzNDM2ODMwfQ.iSdac-2Mx5bZbcyv6B6mSETsuzQyThxm3Dxylhtvgfk
+
+###
+PUT http://localhost:3003/recipe/496fbd0c-9eb3-4bc9-87e2-e3a660b8f0bb
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjMwNDcyNTIzLTFhZWMtNDE4YS1iNzk3LTY3YjQ4ZGRhYzY3YyIsInJvbGUiOiJub3JtYWwiLCJpYXQiOjE2MjMzNjI4NzgsImV4cCI6MTYyMzQ0OTI3OH0.L1Vn4bT5kkQpTWqLqEk9XV_PjUQrfENgu_DBdnn0veY
+Content-Type: application/json
+
+{
+  "description" : "tentando alterar com user normal"
+}
+
+###
+
+DELETE http://localhost:3003/recipe/496fbd0c-9eb3-4bc9-87e2-e3a660b8f0bb
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEtNGU0NS1hOGMzLTA1ODc1MGYwM2NkNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzM2NzQ3MSwiZXhwIjoxNjIzNDUzODcxfQ.bzeBQdluBEspm9ngHKhLPzE-T128A-7nfjnJSJ6w2Pc
+
+###
+POST http://localhost:3003/user/follow
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImRiMmZiMzQwLTFjMTMtNGIzNS04OGRhLTY4Y2EwYjJiM2JhYyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzQ0NDc0MywiZXhwIjoxNjIzNTMxMTQzfQ.8S1XkbWJNTdAwb7tz0Y9IA1B86oTsfR7zLDAoftxEMA
+Content-Type: application/json
+
+{
+  "user_to_follow_id": "b2907cca-aa15-4eec-81e0-b3c4210aa495"
+}
+
+###
+POST http://localhost:3003/user/unfollow
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEtNGU0NS1hOGMzLTA1ODc1MGYwM2NkNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzM2NzQ3MSwiZXhwIjoxNjIzNDUzODcxfQ.bzeBQdluBEspm9ngHKhLPzE-T128A-7nfjnJSJ6w2Pc
+Content-Type: application/json
+
+{
+  "user_to_unfollow_id": "0456d540-355e-4271-97b9-5519d3bb9b58"
+}
+
+###
+GET http://localhost:3003/user/feed
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEtNGU0NS1hOGMzLTA1ODc1MGYwM2NkNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzM2NzQ3MSwiZXhwIjoxNjIzNDUzODcxfQ.bzeBQdluBEspm9ngHKhLPzE-T128A-7nfjnJSJ6w2Pc
+
+###
+DELETE http://localhost:3003/user
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5YWE4ZDg2LWJkZjEtNGU0NS1hOGMzLTA1ODc1MGYwM2NkNyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTYyMzQ1NDIzNiwiZXhwIjoxNjIzNTQwNjM2fQ.kUOCXlBR_QAJ8Tvif0MEQzBs7aU2FXAJ_Gq8RHVG144
