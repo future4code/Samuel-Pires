@@ -5,8 +5,8 @@ enum POST_TYPES {
   EVENT = "event"
 }
 
-const postTypes = (value : string) : POST_TYPES =>{
-  switch (value.toLowerCase()){
+export const postTypes = (value : any) : POST_TYPES =>{
+  switch (String(value).toLowerCase()){
     case 'normal':
       return POST_TYPES.NORMAL
     case 'evento':
@@ -16,7 +16,7 @@ const postTypes = (value : string) : POST_TYPES =>{
   }
 }
 
-type post = {
+export type post = {
   id: string,
   photo: string,
   description: string,
@@ -25,7 +25,7 @@ type post = {
   authorId: string
 }
 
-type postData = {
+export type postData = {
   id: string,
   photo: string,
   description: string,
@@ -34,21 +34,31 @@ type postData = {
   author_id: string
 }
 
-type postDTO = {
+export type postDTO = {
   photo : any,
-  description : string,
+  description : any,
   type : any,
-  createAt : any,
-  authorId : any
+  createdAt?: any,
 }
 
-export const toPostDataModel = (input : postDTO) : postData=>{
+export const toPostDataModel = (post : post) : postData=>{
   return {
-    id : generateId(),
-    photo : String(input.photo),
-    description : String(input.description),
-    type : postTypes(String(input.type)),
-    author_id : String(input.authorId),
-    created_at : new Date(input.createAt)
+    id:post.id,
+    created_at: post.createdAt,
+    type: post.type,
+    author_id: post.authorId,
+    description: post.description,
+    photo: post.photo
+  }
+}
+
+export const toPostModel = (post : postData) : post=>{
+  return {
+    id:post.id,
+    createdAt: post.created_at,
+    type: post.type,
+    authorId: post.author_id,
+    description: post.description,
+    photo: post.photo
   }
 }

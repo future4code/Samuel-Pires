@@ -1,6 +1,6 @@
 import {toUserDataModel, toUserLoginModel, userData, userDTO, userLogin} from "../model/user";
 import Database from "../data/Database";
-import CustomError from "../data/CustomError";
+import CustomError from "./CustomError";
 import validateEmail from "../services/validates/validateEmail";
 import {generateToken} from "../services/token";
 import {compareHash, generateHash} from "../services/hash";
@@ -22,27 +22,27 @@ export default class User extends Database {
 
   private valideData = () => {
     if(!this.user){
-      throw new CustomError(422, 'Missing name, email and password')
+      throw new CustomError(406, 'Missing name, email and password')
     }
 
     const user = this.user as userData
     if (!user.name) {
-      throw new CustomError(422, 'Missing name.')
+      throw new CustomError(406, 'Missing name.')
     }
     if (!validateEmail(user.email)) {
-      throw new CustomError(422, 'Missing email.')
+      throw new CustomError(406, 'Missing email.')
     }
     if (!user.password) {
-      throw new CustomError(422, 'Missing password.')
+      throw new CustomError(406, 'Missing password.')
     }
   }
   private valideLogin = () => {
     const user = this.user as userLogin
     if (!validateEmail(user.email)) {
-      throw new CustomError(422, 'Missing email.')
+      throw new CustomError(406, 'Missing email.')
     }
     if (!user.password) {
-      throw new CustomError(422, 'Missing password.')
+      throw new CustomError(406, 'Missing password.')
     }
   }
 

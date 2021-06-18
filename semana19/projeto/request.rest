@@ -14,3 +14,16 @@ Content-Type: application/json
 "password": "123456",
 "email": "samuel@gmail.com"
 }
+###
+POST http://localhost:3003/post/create
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBjMWU2MWY3LTEzYzItNDY2Yi1hN2UwLTk5ZTM2NDRiYTdjYyIsImlhdCI6MTYyNDA1Mjk5MCwiZXhwIjoxNjI0MTM5MzkwfQ.G0lpwMlAp2XLH6b0xFFtydcOZd8PMZCBo_AcgzG8cmg
+Content-Type: application/json
+
+{
+  "photo": "uma ota foto",
+  "description": "é o segundo post"
+}
+###
+
+GET http://localhost:3003/post/87b08e1c-2235-4e79-a5a1-ba79a7bc7302
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjBjMWU2MWY3LTEzYzItNDY2Yi1hN2UwLTk5ZTM2NDRiYTdjYyIsImlhdCI6MTYyNDA1Mjk5MCwiZXhwIjoxNjI0MTM5MzkwfQ.G0lpwMlAp2XLH6b0xFFtydcOZd8PMZCBo_AcgzG8cmg
