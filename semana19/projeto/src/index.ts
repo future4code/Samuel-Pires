@@ -1,11 +1,4 @@
-import {Database} from "./data/Database";
 import app from "./controller/app";
-import {Request, Response} from "express";
+import userRouter from "./routes/userRouter";
 
-app.get('/', (req: Request, res: Response) => {
-  try {
-    res.send('ok')
-  } catch (err) {
-    res.status(400).send({message: err.message})
-  }
-})
+app.use('/user', userRouter)

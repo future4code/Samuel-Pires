@@ -2,7 +2,7 @@ import knex from "knex";
 import dotenv from "dotenv";
 dotenv.config()
 
-export class Database{
+export default class Database{
   constructor(private readonly tableName : string){}
 
   protected static connection = knex({
@@ -17,24 +17,24 @@ export class Database{
     }
   })
 
-  public selectGeneric  = (aliases : string[], where={}) : Promise<any>=> {
+  public selectGeneric  = (aliases : string[] | string, where={}) => {
     return Database.connection(this.tableName)
       .select(aliases)
-      .where(where);
+      .where(where)
   }
 
-  public insertGeneric = (aliases : string[], data : {}) : Promise<any>=>{
+  public insertGeneric = (data : {}) =>{
     return Database.connection(this.tableName)
       .insert(data)
   }
 
-  public deleteGeneric = (where : {}) : Promise<any>=>{
+  public deleteGeneric = (where : {})=>{
     return Database.connection(this.tableName)
       .delete()
       .where(where)
   }
 
-  public updateGeneric = (data : {},where : {}) : Promise<any>=>{
+  public updateGeneric = (data : {},where : {})=>{
     return Database.connection(this.tableName)
       .update(data)
       .where(where)
