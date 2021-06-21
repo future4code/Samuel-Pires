@@ -14,3 +14,18 @@ export type userDTO = {
   password : any
 }
 
+export type friendship = {
+  id : string
+}
+
+export type friendshipData = {
+  user_a : string,
+  user_b : string
+}
+
+export const toFriendshipDataModel = (idA : string, idB : string):friendshipData=>{
+  return {
+    user_a : idA,
+    user_b : idB
+  }
+}
