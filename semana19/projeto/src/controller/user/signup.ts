@@ -1,6 +1,4 @@
 import {Request, Response} from "express";
-import {userDTO} from "../../model/user";
-import User from "../../business/User";
 import signupUser from "../../business/user/signupUser";
 
 const signup = async (req: Request, res: Response): Promise<any> =>{
