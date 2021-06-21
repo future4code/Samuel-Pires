@@ -1,11 +1,9 @@
-import {generateId} from "../services/idGenerator";
-
-export type userLogin = {
+export type userLoginData = {
   email : string,
   password : string
 }
 
-export type userData = userLogin & {
+export type userData = userLoginData & {
   id : string,
   name : string,
 }
@@ -16,18 +14,3 @@ export type userDTO = {
   password : any
 }
 
-export const toUserDataModel = (input : userDTO) : userData=>{
-  return {
-    id : generateId(),
-    email : String(input.email),
-    name : String(input.name),
-    password : String(input.password)
-  }
-}
-
-export const toUserLoginModel = (input : userDTO) : userLogin=>{
-  return {
-    email : String(input.email),
-    password : String(input.password)
-  }
-}

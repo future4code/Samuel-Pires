@@ -1,4 +1,3 @@
-import {generateId} from "../services/idGenerator";
 
 enum POST_TYPES {
   NORMAL = "normal",
