@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
 import userBusiness from "../business/UserBusiness";
+import {CustomError} from "../errors/CustomError";
 
 export class UserController {
 
@@ -29,6 +30,8 @@ export class UserController {
          res.status(statusCode || 400).send({ message });
       }
    }
+
+
 }
 
 export default new UserController()

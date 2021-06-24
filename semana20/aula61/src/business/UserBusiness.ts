@@ -88,6 +88,21 @@ export class UserBusiness {
          throw new CustomError(error.statusCode, error.message)
       }
    }
+
+   public async getUserById(id: string) {
+      const user = await this.userDatabase.getUserById(id);
+
+      if (!user) {
+         throw new CustomError(404, "User not found");
+      }
+
+      return {
+         id: user.getId(),
+         name: user.getName(),
+         email: user.getEmail(),
+         role: user.getRole(),
+      };
+   }
 }
 
 export default new UserBusiness(
