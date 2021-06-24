@@ -5,6 +5,7 @@ import hashGeneratorMock from "./mocks/hashGeneratorMock"
 import idGeneratorMock from "./mocks/idGeneratorMock"
 import tokenGeneratorMock from "./mocks/tokenGeneratorMock"
 import userDatabaseMock from "./mocks/UserDatabaseMock"
+import {userMockAdmin} from "./mocks/UserMock";
 
 const userBusinessMock = new UserBusiness(
   idGeneratorMock,
@@ -146,6 +147,37 @@ describe("UserBusiness", () => {
         
       } catch (error) {
         console.log(error.message)
+      }
+    })
+  })
+
+  describe("getUserById", ()=>{
+    test("Should catch error when user don't exists", async()=>{
+      expect.assertions(2)
+      try{
+        await userBusinessMock.getUserById('id')
+      }catch (err){
+        expect(err.message).toBe('User not found')
+        expect(err.statusCode).toBe(404)
+      }
+    })
+    test("Should return when successful", async()=>{
+      expect.assertions(2)
+      try{
+        const getUserById = jest.fn(
+          (id: string) => userBusinessMock.getUserById(id)
+        )
+
+        const res = await getUserById('id_mock_admin')
+        expect(getUserById).toHaveBeenCalledWith('id_mock_admin')
+        expect(res).toEqual({
+          id: "id_mock_admin",
+          name: "astrodev",
+          email: "astrodev@gmail.com",
+          role: "ADMIN",
+        })
+      }catch (err){
+        console.log(err.message)
       }
     })
   })
