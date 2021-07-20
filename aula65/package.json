@@ -1,0 +1,13 @@
+{
+  "name": "aula65",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsc && node --inspect ./build/index.js",
+    "dev-start": "tsnd --transpile-only --ignore-watch node_modules ./src/index.ts"
+  },
+  "dependencies": {
+    "@types/node": "^16.3.3"
+  }
+}
